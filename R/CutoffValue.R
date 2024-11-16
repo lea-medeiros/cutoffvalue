@@ -17,3 +17,10 @@ modetest(data)
 
 model=normalmixEM(data)
 plot(model, whichplots = 2)
+index.lower <- which.min(model$mu)
+# Make sure things look right, but won’t actually use this graph as it plots on a density scale and may
+# cause confusion. However, this should look pretty spot on (final graph will just be scaled up by a
+# constant determined later on), so make sure that the point where the two curves intersect is where
+# you are expecting the cutoff to be
+
+cutoff <- c(find.cutoff(proba=0.5))
