@@ -1,3 +1,12 @@
+#' Find Cutoff Value
+#'
+#' @param proba The probability value you want for the cutoff value to represent
+#' @param i Determines the location, i.e., index of the (first) minimum of the model$mu
+#'
+#' @return the cutoff value for the indicated probability value
+#' @export
+#'
+#' @examples
 find.cutoff <- function(proba=0.5, i=index.lower) {
   ## Cutoff such that Pr[drawn from bad component] == proba
   f <- function(x) {
@@ -7,6 +16,3 @@ find.cutoff <- function(proba=0.5, i=index.lower) {
   }
   return(uniroot(f=f, lower=mydata.lower, upper=mydata.upper)$root)
 }
-# Careful with division by zero if changing lower and upper
-# The uniroot lower and upper generally work well at -2 to 2, but if an error is returned adjust to
-# reflect the range of the data
