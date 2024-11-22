@@ -17,3 +17,8 @@ the cutoff value for the indicated probability value
 \description{
 Find Cutoff Value
 }
+\examples{
+cutoff <- c(find.cutoff())
+mydata.lower <- -2
+mydata.upper <- 2
+}

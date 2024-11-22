@@ -8,6 +8,8 @@
 #'
 #' @examples
 #' cutoff <- c(find.cutoff())
+#' mydata.lower <- -2
+#' mydata.upper <- 2
 find.cutoff <- function(proba=0.5, i=index.lower) {
   ## Cutoff such that Pr[drawn from bad component] == proba
   f <- function(x) {
