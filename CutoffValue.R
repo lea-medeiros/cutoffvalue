@@ -8,14 +8,14 @@
 rawdata <- "exampledata.xlsx"
 
 #Import data and remove rows containing NA data
-data <- import_data(rawdata)
+mydata <- import_data(rawdata)
 
 # Determine if the data is not unimodal (e.g., bimodal)
-modetest(data)
+modetest(mydata)
 # Returns excess mass statistic and p-value
 # If P-value is less than 0.05, accept the alternative hypothesis and proceed with analysis
 
-model=normalmixEM(data)
+model=normalmixEM(mydata)
 plot(model, whichplots = 2)
 index.lower <- which.min(model$mu)
 # Make sure things look right, but won’t actually use this graph as it plots on a density scale and may
