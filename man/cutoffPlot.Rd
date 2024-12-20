@@ -13,6 +13,9 @@ cutoffPlot(
 )
 }
 \arguments{
+\item{mydata}{Your data file; data should be organized in as a single column of log- or natural log-transformed data without a
+column header}
+
 \item{maintitle}{Title for the graph, default is blank}
 
 \item{xlabel}{Label for the x-axis, default is "Plasma \link{11-KT} (ng/mL)"}

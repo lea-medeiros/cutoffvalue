@@ -2,6 +2,8 @@
 #'
 #' @param proba The probability value you want for the cutoff value to represent
 #' @param i Determines the location, i.e., index of the (first) minimum of the model$mydata$mu
+#' @param mydata Your data file; data should be organized in as a single column of log- or natural log-transformed data without a
+#' column header
 #'
 #' @return the cutoff value for the indicated probability value
 #' @export

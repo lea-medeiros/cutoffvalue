@@ -1,6 +1,7 @@
 #' Generate Normal Mix EM Model for Data
 #'
-#' @param x Dataset
+#' @param mydata Your data file; data should be organized in as a single column of log- or natural log-transformed data without a
+#' column header
 #'
 #' @returns Model parameters and lower index
 #' @export

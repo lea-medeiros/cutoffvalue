@@ -1,6 +1,7 @@
 #' Fit curves to dataset
 #'
-#' @param x Dataset
+#' @param mydata Your data file; data should be organized in as a single column of log- or natural log-transformed data without a
+#' column header
 #'
 #' @returns Three sets of data used to plot curves for the lower and upper modes
 #' @export

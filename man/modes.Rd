@@ -7,7 +7,8 @@
 modes(mydata = "data/exampledata.xlsx")
 }
 \arguments{
-\item{x}{The data}
+\item{mydata}{Your data file; data should be organized in as a single column of log- or natural log-transformed data without a
+column header}
 }
 \value{
 The p-value for whether or not the dataset is unimodal

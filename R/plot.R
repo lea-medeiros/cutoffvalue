@@ -4,6 +4,8 @@
 #' @param xlabel Label for the x-axis, default is "Plasma [11-KT] (ng/mL)"
 #' @param cutofflabel Label for the cutoff value, default is "Minijack cutoff"
 #' @param cutoffunits Label for the units, default is "ng/mL"
+#' @param mydata Your data file; data should be organized in as a single column of log- or natural log-transformed data without a
+#' column header
 #'
 #' @returns Histogram with colored lines depicting upper and lower modes along with a cutoff line to delineate between the two modes
 #' @export

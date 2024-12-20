@@ -1,6 +1,7 @@
 #' Test Data Modality
 #'
-#' @param x The data
+#' @param mydata Your data file; data should be organized in as a single column of log- or natural log-transformed data without a
+#' column header
 #'
 #' @returns The p-value for whether or not the dataset is unimodal
 #' @export

@@ -7,7 +7,8 @@
 importData(mydata = "data/exampledata.xlsx")
 }
 \arguments{
-\item{mydata}{}
+\item{mydata}{Your data file; data should be organized in as a single column of log- or natural log-transformed data without a
+column header}
 }
 \value{
 A list of values from the Excel spreadsheet that has blanks removed

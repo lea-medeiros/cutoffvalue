@@ -7,7 +7,8 @@
 dataModel(mydata = "data/exampledata.xlsx")
 }
 \arguments{
-\item{x}{Dataset}
+\item{mydata}{Your data file; data should be organized in as a single column of log- or natural log-transformed data without a
+column header}
 }
 \value{
 Model parameters and lower index
