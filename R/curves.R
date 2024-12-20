@@ -4,16 +4,17 @@
 #' column header
 #'
 #' @returns Three sets of data used to plot curves for the lower and upper modes
+#' @import readxl
+#' @import mixtools
+#' @import Hmisc
+#' @import plyr
+#'
 #' @export
 #'
 #' @examples
 #' curves <- curves()
 
 curves <- function(mydata = "inst/extdata/exampledata.xlsx"){
-  library(readxl)
-  library(mixtools)
-  library(Hmisc)
-  library(plyr)
   mydata <- importData(mydata)
   model <- dataModel()
   fitData <- fitParams()
