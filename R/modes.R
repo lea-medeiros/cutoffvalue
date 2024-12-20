@@ -7,7 +7,8 @@
 #' @export
 #'
 #' @examples
-#' mode.pvalue <- modes()
+#' modeTest <- modes()
+
 modes <- function(mydata = "data/exampledata.xlsx"){
   mydata <- importData(mydata)
   modes <- modetest(mydata$data)

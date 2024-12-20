@@ -7,7 +7,8 @@
 #' @export
 #'
 #' @examples
-#' import.data(rawdata)
+#' importData()
+
 importData <- function(mydata = "data/exampledata.xlsx") {
   rawdata <- mydata
   rawdata <- read_excel(rawdata)

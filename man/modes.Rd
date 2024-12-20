@@ -17,5 +17,5 @@ The p-value for whether or not the dataset is unimodal
 Test Data Modality
 }
 \examples{
-mode.pvalue <- modes()
+modeTest <- modes()
 }
