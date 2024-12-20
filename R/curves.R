@@ -7,8 +7,7 @@
 #' @import readxl
 #' @import mixtools
 #' @import Hmisc
-#' @importFrom plyr round
-#' @importFrom plyr roundany
+#' @importFrom plyr round_any
 #'
 #' @export
 #'
