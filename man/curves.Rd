@@ -4,7 +4,10 @@
 \alias{curves}
 \title{Fit curves to dataset}
 \usage{
-curves(mydata = "inst/extdata/exampledata.xlsx")
+curves(
+  mydata =
+    "/Users/Lea/Library/Mobile Documents/com~apple~CloudDocs/CRITFC/R Packages/cutoffvalue/inst/extdata/exampledata.xlsx"
+)
 }
 \arguments{
 \item{mydata}{Your data file; data should be organized in as a single column of log- or natural log-transformed data without a
