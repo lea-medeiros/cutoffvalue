@@ -9,11 +9,6 @@
 #' @examples
 #' fit <- fit()
 
-library(readxl)
-library(mixtools)
-library(Hmisc)
-library(plyr)
-
 fitParams <- function(mydata = "inst/extdata/exampledata.xlsx"){
   mydata <- importData(mydata)
   model <- dataModel()

@@ -7,12 +7,7 @@
 #' @export
 #'
 #' @examples
-#' importData()
-
-library(readxl)
-library(mixtools)
-library(Hmisc)
-library(plyr)
+#' mydata <- importData()
 
 importData <- function(mydata = "inst/extdata/exampledata.xlsx") {
   rawdata <- mydata

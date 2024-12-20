@@ -14,11 +14,6 @@
 #' plot()
 #' plot("Example Graph Title", "Example X-Axis", "Cutoff Label", "UNITS")
 
-library(readxl)
-library(mixtools)
-library(Hmisc)
-library(plyr)
-
 cutoffPlot <- function (mydata = "inst/extdata/exampledata.xlsx", maintitle = "", xlabel = "Plasma [11-KT] (ng/mL)", cutofflabel = "Minijack cutoff",
                         cutoffunits = "ng/mL"){
   mydata <- importData(mydata)

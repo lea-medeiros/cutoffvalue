@@ -9,12 +9,6 @@
 #' @examples
 #' modeTest <- modes()
 
-library(readxl)
-library(mixtools)
-library(Hmisc)
-library(plyr)
-library(multimode)
-
 modes <- function(mydata = "inst/extdata/exampledata.xlsx"){
   mydata <- importData(mydata)
   modes <- modetest(mydata$data)
