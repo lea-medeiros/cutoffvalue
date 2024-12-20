@@ -1,15 +1,18 @@
 #' Import Data
 #'
-#' @param x An Excel spreadsheet with headerless, log-transformed data in the first column
+#' @param mydata
 #'
 #' @return A list of values from the Excel spreadsheet that has blanks removed
 #' @export
 #'
 #' @examples
-#' rawdata <- "exampledata.xlsx"
 #' import.data(rawdata)
-import.data <- function(x) {
-  rawdata <- read_excel(x)
+importData <- function(mydata = "data/exampledata.xlsx") {
+  rawdata <- mydata
+  rawdata <- read_excel(rawdata)
   data_na <- na.omit(rawdata)
   mydata <- data_na[[1]]
+  mydataUpper <- max(mydata)
+  mydataLower <- min(mydata)
+  return(list(data = mydata, upper = mydataUpper, lower = mydataLower))
 }
