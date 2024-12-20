@@ -4,7 +4,7 @@
 \alias{curves}
 \title{Fit curves to dataset}
 \usage{
-curves(mydata = "inst/extdata/exampledata.xlsx")
+curves(mydata = "exampledata.xlsx")
 }
 \arguments{
 \item{mydata}{Your data file; data should be organized in as a single column of log- or natural log-transformed data without a
