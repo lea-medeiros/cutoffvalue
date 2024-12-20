@@ -4,7 +4,7 @@
 \alias{fitParams}
 \title{Histogram for fitting curves}
 \usage{
-fitParams(x)
+fitParams(mydata = "data/exampledata.xlsx")
 }
 \arguments{
 \item{x}{Dataset}

@@ -4,7 +4,7 @@
 \alias{curves}
 \title{Fit curves to dataset}
 \usage{
-curves(x)
+curves(mydata = "data/exampledata.xlsx")
 }
 \arguments{
 \item{x}{Dataset}

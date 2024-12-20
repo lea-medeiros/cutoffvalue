@@ -8,7 +8,9 @@
 #' @examples
 #' fit <- fit()
 
-fitParams <- function(x){
+fitParams <- function(mydata = "data/exampledata.xlsx"){
+  mydata <- importData(mydata)
+  model <- dataModel()
   h <- hist(mydata$data, breaks=15)
   step <- abs(h$breaks[[1]]-h$breaks[[2]])
   return(list(h = h, xlimUpper = round(mydata$upper*2)/2, xlimLower = (round(mydata$lower*2)/2)-0.25,

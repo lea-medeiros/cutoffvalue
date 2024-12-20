@@ -8,8 +8,8 @@ rawdata <- "data/exampledata.xlsx"
 #Import data and remove rows containing NA data and define minimum and maximum values for the dataset
 mydata <- importData(rawdata)
 
-#mydata.upper <- max(mydata)
-#mydata.lower <- min(mydata)
+mydataUpper <- max(mydata$data)
+mydataLower <- min(mydata$data)
   ## mydata.lower and mydata.upper are used in the find.cutoff function
 
 # Determine if the data is not unimodal (e.g., bimodal)
@@ -63,7 +63,7 @@ curves <- curves()
 #yfit2 <- yfit2*diff(h$mids[1:2])*length(mydata$data)
 
 # Plot a pretty graph - SOME OF THE FOLLOWING WILL NEED TO BE TWEAKED TO FIT YOUR DATA!!!
-myDataPlot("Test Title", "test Axis", "test cutoff", "test units")
+cutoffPlot("Test Title", "test Axis", "test cutoff", "test units")
 #v1 = seq(fitdata$v1.lower, fitdata$v1.upper,length=11)
 #v2 = signif(10^v1, digits=2)
   ## Converts log to actual concentration with only 2 significant digits
