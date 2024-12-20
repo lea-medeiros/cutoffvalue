@@ -9,7 +9,7 @@
 #' @examples
 #' fit <- fit()
 
-fitParams <- function(mydata = "data/exampledata.xlsx"){
+fitParams <- function(mydata = "inst/extdata/exampledata.xlsx"){
   mydata <- importData(mydata)
   model <- dataModel()
   h <- hist(mydata$data, breaks=15)

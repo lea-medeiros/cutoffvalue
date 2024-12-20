@@ -9,7 +9,7 @@
 #' @examples
 #' modeTest <- modes()
 
-modes <- function(mydata = "data/exampledata.xlsx"){
+modes <- function(mydata = "inst/extdata/exampledata.xlsx"){
   mydata <- importData(mydata)
   modes <- modetest(mydata$data)
   return(list(pvalue = modes$pValue, ExcessMassStatistic = modes$statistic))

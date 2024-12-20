@@ -9,7 +9,7 @@
 #' @examples
 #' importData()
 
-importData <- function(mydata = "data/exampledata.xlsx") {
+importData <- function(mydata = "inst/extdata/exampledata.xlsx") {
   rawdata <- mydata
   rawdata <- read_excel(rawdata)
   data_na <- na.omit(rawdata)

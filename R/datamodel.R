@@ -9,7 +9,7 @@
 #' @examples
 #' model <- datamodel()
 
-dataModel <- function(mydata = "data/exampledata.xlsx"){
+dataModel <- function(mydata = "inst/extdata/exampledata.xlsx"){
   mydata <- importData(mydata)
   model <- normalmixEM(mydata$data)
   plot(model, whichplots=2)
