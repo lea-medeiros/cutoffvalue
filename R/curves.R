@@ -15,7 +15,7 @@
 #' @examples
 #' curves <- curves()
 
-curves <- function(mydata = "/Users/Lea/Library/Mobile Documents/com~apple~CloudDocs/CRITFC/R Packages/cutoffvalue/inst/extdata/exampledata.xlsx"){
+curves <- function(mydata = "./inst/extdata/exampledata.xlsx"){
   mydata <- importData(mydata)
   model <- dataModel()
   fitData <- fitParams()
