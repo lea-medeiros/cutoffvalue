@@ -4,6 +4,13 @@
 #' column header
 #'
 #' @returns The p-value for whether or not the dataset is unimodal
+#'
+#' @import readxl
+#' @import mixtools
+#' @import Hmisc
+#' @import multimode
+#' @importFrom plyr round_any
+#'
 #' @export
 #'
 #' @examples

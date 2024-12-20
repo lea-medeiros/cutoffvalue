@@ -4,6 +4,12 @@
 #' column header
 #'
 #' @return A list of values from the Excel spreadsheet that has blanks removed
+#'
+#' @import readxl
+#' @import mixtools
+#' @import Hmisc
+#' @importFrom plyr round_any
+#'
 #' @export
 #'
 #' @examples

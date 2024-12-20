@@ -4,6 +4,7 @@
 #' column header
 #'
 #' @returns Three sets of data used to plot curves for the lower and upper modes
+#'
 #' @import readxl
 #' @import mixtools
 #' @import Hmisc

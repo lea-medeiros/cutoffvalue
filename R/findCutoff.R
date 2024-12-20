@@ -6,6 +6,12 @@
 #' column header
 #'
 #' @return the cutoff value for the indicated probability value
+#'
+#' @import readxl
+#' @import mixtools
+#' @import Hmisc
+#' @importFrom plyr round_any
+#'
 #' @export
 #'
 #' @examples

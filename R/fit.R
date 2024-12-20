@@ -4,6 +4,12 @@
 #' column header
 #'
 #' @returns Basic histogram of dataset along with various parameters used to fit curves
+#'
+#' @import readxl
+#' @import mixtools
+#' @import Hmisc
+#' @importFrom plyr round_any
+#'
 #' @export
 #'
 #' @examples

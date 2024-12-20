@@ -4,6 +4,12 @@
 #' column header
 #'
 #' @returns Model parameters and lower index
+#'
+#' @import readxl
+#' @import mixtools
+#' @import Hmisc
+#' @importFrom plyr round_any
+#'
 #' @export
 #'
 #' @examples
