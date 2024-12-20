@@ -5,10 +5,10 @@
 #'
 #' @returns The p-value for whether or not the dataset is unimodal
 #'
-#' @import readxl
+#' @importFrom readxl read_excel
 #' @import mixtools
 #' @import Hmisc
-#' @import multimode
+#' @importFrom multimode modetest
 #' @importFrom plyr round_any
 #'
 #' @export

@@ -8,7 +8,7 @@
 #' column header
 #'
 #' @returns Histogram with colored lines depicting upper and lower modes along with a cutoff line to delineate between the two modes
-#' @import readxl
+#' @importFrom readxl read_excel
 #' @import mixtools
 #' @import Hmisc
 #' @importFrom plyr round_any

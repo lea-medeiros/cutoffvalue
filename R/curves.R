@@ -5,7 +5,7 @@
 #'
 #' @returns Three sets of data used to plot curves for the lower and upper modes
 #'
-#' @import readxl
+#' @importFrom readxl read_excel
 #' @import mixtools
 #' @import Hmisc
 #' @importFrom plyr round_any

@@ -5,7 +5,7 @@
 #'
 #' @returns Model parameters and lower index
 #'
-#' @import readxl
+#' @importFrom readxl read_excel
 #' @import mixtools
 #' @import Hmisc
 #' @importFrom plyr round_any

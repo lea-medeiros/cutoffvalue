@@ -7,7 +7,7 @@
 #'
 #' @return the cutoff value for the indicated probability value
 #'
-#' @import readxl
+#' @importFrom readxl read_excel
 #' @import mixtools
 #' @import Hmisc
 #' @importFrom plyr round_any

@@ -5,7 +5,7 @@
 #'
 #' @return A list of values from the Excel spreadsheet that has blanks removed
 #'
-#' @import readxl
+#' @importFrom readxl read_excel
 #' @import mixtools
 #' @import Hmisc
 #' @importFrom plyr round_any

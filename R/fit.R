@@ -5,7 +5,7 @@
 #'
 #' @returns Basic histogram of dataset along with various parameters used to fit curves
 #'
-#' @import readxl
+#' @importFrom readxl read_excel
 #' @import mixtools
 #' @import Hmisc
 #' @importFrom plyr round_any
