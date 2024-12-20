@@ -9,6 +9,11 @@
 #' @examples
 #' importData()
 
+library(readxl)
+library(mixtools)
+library(Hmisc)
+library(plyr)
+
 importData <- function(mydata = "inst/extdata/exampledata.xlsx") {
   rawdata <- mydata
   rawdata <- read_excel(rawdata)

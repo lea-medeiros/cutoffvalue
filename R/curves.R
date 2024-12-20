@@ -10,6 +10,10 @@
 #' curves <- curves()
 
 curves <- function(mydata = "inst/extdata/exampledata.xlsx"){
+  library(readxl)
+  library(mixtools)
+  library(Hmisc)
+  library(plyr)
   mydata <- importData(mydata)
   model <- dataModel()
   fitData <- fitParams()

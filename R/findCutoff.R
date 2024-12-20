@@ -11,6 +11,11 @@
 #' @examples
 #' cutoff <- find.cutoff()
 
+library(readxl)
+library(mixtools)
+library(Hmisc)
+library(plyr)
+
 findCutoff <- function(mydata = "inst/extdata/exampledata.xlsx", proba=0.5, i=model$indexLower) {
   mydata <- importData(mydata)
   model <- dataModel()
