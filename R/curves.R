@@ -9,6 +9,7 @@
 #' @import mixtools
 #' @import Hmisc
 #' @importFrom plyr round_any
+#' @import here
 #'
 #' @export
 #'
@@ -16,6 +17,7 @@
 #' curves <- curves()
 
 curves <- function(mydata = "R/exampledata.xlsx"){
+  here::i_am("R/curves.R")
   mydata <- importData(mydata)
   model <- dataModel()
   fitData <- fitParams()

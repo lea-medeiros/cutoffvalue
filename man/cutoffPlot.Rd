@@ -18,7 +18,7 @@ column header}
 
 \item{maintitle}{Title for the graph, default is blank}
 
-\item{xlabel}{Label for the x-axis, default is "Plasma \link{11-KT} (ng/mL)"}
+\item{xlabel}{Label for the x-axis, default is "Plasma 11-KT (ng/mL)"}
 
 \item{cutofflabel}{Label for the cutoff value, default is "Minijack cutoff"}
 
