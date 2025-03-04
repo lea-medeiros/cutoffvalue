@@ -17,7 +17,7 @@
 #' curves <- curves()
 
 curves <- function(mydata = "R/exampledata.xlsx"){
-  i_am("R/curves.R")
+  here::i_am("R")
   mydata <- importData(mydata)
   model <- dataModel()
   fitData <- fitParams()
