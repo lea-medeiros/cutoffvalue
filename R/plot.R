@@ -1,7 +1,7 @@
 #' Plot Histogram with Fit Lines
 #'
 #' @param maintitle Title for the graph, default is blank
-#' @param xlabel Label for the x-axis, default is "Plasma [11-KT] (ng/mL)"
+#' @param xlabel Label for the x-axis, default is "Plasma 11-KT (ng/mL)"
 #' @param cutofflabel Label for the cutoff value, default is "Minijack cutoff"
 #' @param cutoffunits Label for the units, default is "ng/mL"
 #' @param mydata Your data file; data should be organized in as a single column of log- or natural log-transformed data without a
