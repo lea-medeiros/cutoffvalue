@@ -4,7 +4,7 @@
 \alias{importData}
 \title{Import Data}
 \usage{
-importData(mydata = "inst/extdata/exampledata.xlsx")
+importData(mydata = "R/exampledata.xlsx")
 }
 \arguments{
 \item{mydata}{Your data file; data should be organized in as a single column of log- or natural log-transformed data without a
