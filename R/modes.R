@@ -16,8 +16,9 @@
 #' @examples
 #' modeTest <- modes()
 
-modes <- function(mydata = "inst/extdata/exampledata.xlsx"){
-  mydata <- importData(mydata)
+modes <- function(mydata = "cutoffvalue/extdata/exampledata.xlsx"){
+  mydata <- here("cutoffvalue", "extdata", "exampledata.xlsx")
+  mydata <- importdata(mydata)
   modes <- modetest(mydata$data)
   return(list(pvalue = modes$pValue, ExcessMassStatistic = modes$statistic))
 }

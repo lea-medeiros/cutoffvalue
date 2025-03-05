@@ -18,9 +18,9 @@
 
 curves <- function(mydata = "cutoffvalue/extdata/exampledata.xlsx"){
   mydata <- here("cutoffvalue", "extdata", "exampledata.xlsx")
-  mydata <- importData(mydata)
+  mydata <- importdata(mydata)
   model <- datamodel()
-  fitData <- fitParams()
+  fitData <- fitparams()
   xFit <- seq(fitData$xfitLower, fitData$xfitUpper, length=200)
   yFit1 <- model$mydata$lambda[1]*dnorm(xFit,mean=model$mydata$mu[1],sd=model$mydata$sigma[1])
   yFit2 <- model$mydata$lambda[2]*dnorm(xFit,mean=model$mydata$mu[2],sd=model$mydata$sigma[2])

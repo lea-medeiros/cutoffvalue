@@ -4,7 +4,7 @@
 \alias{modes}
 \title{Test Data Modality}
 \usage{
-modes(mydata = "inst/extdata/exampledata.xlsx")
+modes(mydata = "cutoffvalue/extdata/exampledata.xlsx")
 }
 \arguments{
 \item{mydata}{Your data file; data should be organized in as a single column of log- or natural log-transformed data without a

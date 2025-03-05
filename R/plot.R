@@ -22,10 +22,10 @@
 cutoffplot <- function (mydata = "cutoffvalue/extdata/exampledata.xlsx", maintitle = "", xlabel = "Plasma [11-KT] (ng/mL)", cutofflabel = "Minijack cutoff",
                         cutoffunits = "ng/mL"){
   mydata <- here("cutoffvalue", "extdata", "exampledata.xlsx")
-  mydata <- importData(mydata)
-  model <- dataModel()
-  cutoff <- findCutoff()
-  fitData <- fitParams()
+  mydata <- importdata(mydata)
+  model <- datamodel()
+  cutoff <- findcutoff()
+  fitData <- fitparams()
   curves <- curves()
   xValues <- seq(fitData$xfitLower, fitData$xfitUpper, length=200)
   yFit1 <- model$mydata$lambda[1]*dnorm(xValues,mean=model$mydata$mu[1],sd=model$mydata$sigma[1])

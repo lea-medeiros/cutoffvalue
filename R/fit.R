@@ -15,9 +15,10 @@
 #' @examples
 #' fit <- fit()
 
-fitParams <- function(mydata = "inst/extdata/exampledata.xlsx"){
-  mydata <- importData(mydata)
-  model <- dataModel()
+fitparams <- function(mydata = "cutoffvalue/extdata/exampledata.xlsx"){
+  mydata <- here("cutoffvalue", "extdata", "exampledata.xlsx")
+  mydata <- importdata(mydata)
+  model <- datamodel()
   h <- hist(mydata$data, breaks=15)
   step <- abs(h$breaks[[1]]-h$breaks[[2]])
   return(list(h = h, xlimUpper = round(mydata$upper*2)/2, xlimLower = (round(mydata$lower*2)/2)-0.25,

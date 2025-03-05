@@ -17,9 +17,10 @@
 #' @examples
 #' cutoff <- find.cutoff()
 
-findCutoff <- function(mydata = "inst/extdata/exampledata.xlsx", proba=0.5, i=model$indexLower) {
-  mydata <- importData(mydata)
-  model <- dataModel()
+findcutoff <- function(mydata = "cutoffvalue/extdata/exampledata.xlsx", proba=0.5, i=model$indexLower) {
+  mydata <- here("cutoffvalue", "extdata", "exampledata.xlsx")
+  mydata <- importdata(mydata)
+  model <- datamodel()
   ## Cutoff such that Pr[drawn from bad component] == proba
   f <- function(x) {
     proba - (model$mydata$lambda[i]*dnorm(x, model$mydata$mu[i], model$mydata$sigma[i]) /
