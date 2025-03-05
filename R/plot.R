@@ -19,7 +19,7 @@
 #' plottyMcplotty <- cutoffplot()
 #' plottyMcplotty <- cutoffplot("Example Graph Title", "Example X-Axis", "Cutoff Label", "UNITS")
 
-cutoffPlot <- function (mydata = "cutoffvalue/extdata/exampledata.xlsx", maintitle = "", xlabel = "Plasma [11-KT] (ng/mL)", cutofflabel = "Minijack cutoff",
+cutoffplot <- function (mydata = "cutoffvalue/extdata/exampledata.xlsx", maintitle = "", xlabel = "Plasma [11-KT] (ng/mL)", cutofflabel = "Minijack cutoff",
                         cutoffunits = "ng/mL"){
   mydata <- here("cutoffvalue", "extdata", "exampledata.xlsx")
   mydata <- importData(mydata)
