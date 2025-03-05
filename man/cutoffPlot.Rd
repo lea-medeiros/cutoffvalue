@@ -31,6 +31,6 @@ Histogram with colored lines depicting upper and lower modes along with a cutoff
 Plot Histogram with Fit Lines
 }
 \examples{
-cutoffplot()
-cutoffplot("Example Graph Title", "Example X-Axis", "Cutoff Label", "UNITS")
+plottyMcplotty <- cutoffplot()
+plottyMcplotty <- cutoffplot("Example Graph Title", "Example X-Axis", "Cutoff Label", "UNITS")
 }
