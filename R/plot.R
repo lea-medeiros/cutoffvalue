@@ -16,7 +16,8 @@
 #' @export
 #'
 #' @examples
-#' plot("Example Graph Title", "Example X-Axis", "Cutoff Label", "UNITS")
+#' cutoffplot()
+#' cutoffplot("Example Graph Title", "Example X-Axis", "Cutoff Label", "UNITS")
 
 cutoffPlot <- function (mydata = "cutoffvalue/extdata/exampledata.xlsx", maintitle = "", xlabel = "Plasma [11-KT] (ng/mL)", cutofflabel = "Minijack cutoff",
                         cutoffunits = "ng/mL"){
