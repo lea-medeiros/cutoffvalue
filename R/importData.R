@@ -15,8 +15,8 @@
 #' @examples
 #' mydata <- importdata()
 
-importdata <- function(mydata = "cutoffvalue/extdata/exampledata.xlsx") {
-  mydata <- here("cutoffvalue", "extdata", "exampledata.xlsx")
+importdata <- function(mydata = "R/exampledata.xlsx") {
+  mydata <- here("R", "exampledata.xlsx")
   rawdata <- mydata
   rawdata <- read_excel(rawdata)
   data_na <- na.omit(rawdata)

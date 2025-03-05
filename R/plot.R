@@ -19,9 +19,9 @@
 #' plottyMcplotty <- cutoffplot()
 #' plottyMcplotty <- cutoffplot("Example Graph Title", "Example X-Axis", "Cutoff Label", "UNITS")
 
-cutoffplot <- function (mydata = "cutoffvalue/extdata/exampledata.xlsx", maintitle = "", xlabel = "Plasma [11-KT] (ng/mL)", cutofflabel = "Minijack cutoff",
+cutoffplot <- function (mydata = "R/exampledata.xlsx", maintitle = "Plasma 11-KT levels in age-2 male spring chinook", xlabel = "Plasma [11-KT] (ng/mL)", cutofflabel = "Minijack cutoff",
                         cutoffunits = "ng/mL"){
-  mydata <- here("cutoffvalue", "extdata", "exampledata.xlsx")
+  mydata <- here("R", "exampledata.xlsx")
   mydata <- importdata(mydata)
   model <- datamodel()
   cutoff <- findcutoff()
@@ -41,15 +41,12 @@ cutoffplot <- function (mydata = "cutoffvalue/extdata/exampledata.xlsx", maintit
 
   hist(mydata$data, breaks = 15, density = 10, col = "grey", xaxt="n", xlab = xlabel,
        ylim = c(0, fitData$ylimUpper), xlim = c(fitData$xlimLower, fitData$xlimUpper), main = maintitle,
-       cex.main=3, cex.lab=2, cex.axis=1.5, family = "Times")
+       cex.main=2, cex.lab=1.5, cex.axis=1.25, family = "Times")
   lines(xValues, yValues1, col="red", lwd=2)
   lines(xValues, yValues2, col="purple", lwd=2)
   axis(side = 1, at = v1, labels = v2, cex.axis=1.5, family = "Times")
   ## Replaces log concentration x axis with calculations from v2 to display actual concentrations
   abline(v=cutoff, col="black", lty=2, lwd=2) # cutoff line
-  text(cutoff+(fitData$step/2), fitData$ylimUpper-5, adj = c(0, 1), paste(cutofflabel, "\n =",
-                                                                           round(10^(cutoff), 2), cutoffunits ),
-       cex=1.5, family = "Times", font = 2)
-
+  text(cutoff+(fitData$step/2), fitData$ylimUpper-5, adj = c(0, 1), paste(cutofflabel, "\n =",round(10^(cutoff), 2), cutoffunits ), cex=1.5, family = "Times", font = 2)
   return(cutoff)
 }

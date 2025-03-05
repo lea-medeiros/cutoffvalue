@@ -15,8 +15,8 @@
 #' @examples
 #' fit <- fitparams()
 
-fitparams <- function(mydata = "cutoffvalue/extdata/exampledata.xlsx"){
-  mydata <- here("cutoffvalue", "extdata", "exampledata.xlsx")
+fitparams <- function(mydata = "R/exampledata.xlsx"){
+  mydata <- here("R", "exampledata.xlsx")
   mydata <- importdata(mydata)
   model <- datamodel()
   h <- hist(mydata$data, breaks=15)
