@@ -17,5 +17,5 @@ A list of values from the Excel spreadsheet that has blanks removed
 Import Data
 }
 \examples{
-mydata <- importData()
+mydata <- importdata()
 }

@@ -13,7 +13,7 @@
 #' @export
 #'
 #' @examples
-#' mydata <- importData()
+#' mydata <- importdata()
 
 importdata <- function(mydata = "cutoffvalue/extdata/exampledata.xlsx") {
   mydata <- here("cutoffvalue", "extdata", "exampledata.xlsx")
