@@ -15,7 +15,7 @@
 #' @export
 #'
 #' @examples
-#' cutoff <- find.cutoff()
+#' cutoff <- findcutoff()
 
 findcutoff <- function(mydata = "cutoffvalue/extdata/exampledata.xlsx", proba=0.5, i=model$indexLower) {
   mydata <- here("cutoffvalue", "extdata", "exampledata.xlsx")
