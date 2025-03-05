@@ -2,7 +2,7 @@
 
 export(curves)
 export(cutoffplot)
-export(dataModel)
+export(datamodel)
 export(findCutoff)
 export(fitParams)
 export(importData)

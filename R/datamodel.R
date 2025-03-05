@@ -13,9 +13,10 @@
 #' @export
 #'
 #' @examples
-#' model <- datamodel()
+#' Mcmodel <- datamodel()
 
-dataModel <- function(mydata = "inst/extdata/exampledata.xlsx"){
+datamodel <- function(mydata = "cutoffvalue/extdata/exampledata.xlsx"){
+  mydata <- here("cutoffvalue", "extdata", "exampledata.xlsx")
   mydata <- importData(mydata)
   model <- normalmixEM(mydata$data)
   plot(model, whichplots=2)
