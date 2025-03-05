@@ -13,7 +13,7 @@
 #' @export
 #'
 #' @examples
-#' fit <- fit()
+#' fit <- fitparams()
 
 fitparams <- function(mydata = "cutoffvalue/extdata/exampledata.xlsx"){
   mydata <- here("cutoffvalue", "extdata", "exampledata.xlsx")

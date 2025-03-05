@@ -17,5 +17,5 @@ Basic histogram of dataset along with various parameters used to fit curves
 Histogram for fitting curves
 }
 \examples{
-fit <- fit()
+fit <- fitparams()
 }
