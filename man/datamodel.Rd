@@ -4,7 +4,7 @@
 \alias{datamodel}
 \title{Generate Normal Mix EM Model for Data}
 \usage{
-datamodel(mydata = "cutoffvalue/extdata/exampledata.xlsx")
+datamodel(mydata = "R/exampledata.xlsx")
 }
 \arguments{
 \item{mydata}{Your data file; data should be organized in as a single column of log- or natural log-transformed data without a

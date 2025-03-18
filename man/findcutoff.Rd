@@ -4,11 +4,7 @@
 \alias{findcutoff}
 \title{Find Cutoff Value}
 \usage{
-findcutoff(
-  mydata = "cutoffvalue/extdata/exampledata.xlsx",
-  proba = 0.5,
-  i = model$indexLower
-)
+findcutoff(mydata = "R/exampledata.xlsx", proba = 0.5, i = model$indexLower)
 }
 \arguments{
 \item{mydata}{Your data file; data should be organized in as a single column of log- or natural log-transformed data without a

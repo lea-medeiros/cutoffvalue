@@ -15,7 +15,7 @@ knitr::opts_chunk$set(
  fig.path='cutoffvalue_figures/',
  dpi = 300,
  dev = c('jpeg', 'pdf', 'png'),
- echo = FALSE,
+ echo = TRUE,
  cache = TRUE
  )
 ```
@@ -43,7 +43,7 @@ This is a basic example which shows you how to use the cutoffvalue package.
 
 ### Setup RStudio
 Load the packages that are used by this package.
-```{r load_packages, echo=TRUE}
+```{r load_packages, message=FALSE}
 library(cutoffvalue)
 library(mixtools)
 library(Hmisc)
@@ -54,31 +54,24 @@ library(readxl)
 
 ### Define your raw dataset
 Specify the data file to be used in the analyses and graph (if located in root folder of an R project, path information is not necessary). Reminder: data should be organized in as a single column of log- or natural log-transformed data without a column header.
-```{r define_your_data, echo=TRUE}
+```{r define_your_data}
 rawdata <- "R/exampledata.xlsx"
 ```
 _This step isn't necessary if you'd rather use the path name for your data._
 
 ### Import the raw dataset
 Import data and remove rows containing NA data. This function also defines minimum and maximum values for the dataset.
-```{r import_your_data, echo=TRUE}
+```{r import_your_data}
 mydata <- importdata()
 ```
 _Alternatively, you could enter the path name of your data in the read_excel function_
 
 ### Determine modality
-Determine if the data is not unimodal (e.g., bimodal). This function also returns the Excess Mass statistic and associated p-value. 
-```{r modetest}
+Determine if the data is not unimodal (e.g., bimodal). This function also returns the Excess Mass statistic and associated p-value in the Environment. 
+```{r modetest, warning=FALSE, echo=1}
 modetest <- modes()
 ```
-
-```{r mode_eval}
-if(modetest$pvalue > 0.05) {
-  print('**Accept null hypothesis.** Proceed with caution.')
-}
-print('**Reject null hypothesis**, accept alternative hypothesis. Proceed with analyses.')
-```
-_Returns excess mass statistic and p-value. If the p-value is less than 0.05, accept the alternative hypothesis and proceed with analysis. However, if the p-value is more than 0.05, the data is unimodal and the following analyses are not entirely valid._
+_Returns excess mass statistic and p-value. If the p-value is less than 0.05, accept the alternative hypothesis (data is more than unimodal) and proceed with analysis. However, if the p-value is more than 0.05, the data is unimodal and the following analyses are not entirely valid._
 
 ### Fit a model to the data
 Fit the two component mixture models to the data and plot a rough histogram with the fitted lines. Also, define the index.lower value to be used in the find.cutoff function.

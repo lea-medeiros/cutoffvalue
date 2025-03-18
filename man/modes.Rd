@@ -4,7 +4,7 @@
 \alias{modes}
 \title{Test Data Modality}
 \usage{
-modes(mydata = "cutoffvalue/extdata/exampledata.xlsx")
+modes(mydata = "R/exampledata.xlsx")
 }
 \arguments{
 \item{mydata}{Your data file; data should be organized in as a single column of log- or natural log-transformed data without a
@@ -17,5 +17,5 @@ The p-value for whether or not the dataset is unimodal
 Test Data Modality
 }
 \examples{
-modeTest <- modes()
+modetest <- modes()
 }

@@ -14,11 +14,24 @@
 #' @export
 #'
 #' @examples
-#' modeTest <- modes()
+#' modetest <- modes()
 
 modes <- function(mydata = "R/exampledata.xlsx"){
   mydata <- here("R", "exampledata.xlsx")
   mydata <- importdata(mydata)
-  modes <- modetest(mydata$data)
-  return(list(pvalue = modes$p.value, ExcessMassStatistic = modes$statistic))
+  modes1 <- modetest(mydata$data)
+  EMS_stats <- function(mydata = "R/exampledata.xlsx"){
+    EMS_value <- modes1$statistic
+    EMS_pvalue <- modes1$p.value
+    cat('Modality Test Results\n\nP-value:', EMS_pvalue,'\nExcess Mass Statistic:', EMS_value, '\n')
+    if(EMS_pvalue > 0.05) {
+      cat('**Accept null hypothesis.** Distribution is most likely unimodal; proceed with caution.\n\nTest Credit: Ameijeiras-Alonso et al. (2019) excess mass test')
+    }
+    cat('**Reject null hypothesis** Distribution contains more than one mode; proceed with analyses.\n\nTest Credit: Ameijeiras-Alonso et al. (2019) excess mass test')
+  }
+  results <- function (x) {
+    return(list(pvalue = modes1$p.value, EMS = modes1$statistic))
+  }
+  EMS_stats()
+  results()
 }
