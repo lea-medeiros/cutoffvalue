@@ -38,44 +38,8 @@ Load the packages that are used by this package.
 ``` r
 library(cutoffvalue)
 library(mixtools)
-```
-
-```
-## mixtools package, version 2.0.0, Released 2022-12-04
-## This package is based upon work supported by the National Science Foundation under Grant No. SES-0518772 and the Chan Zuckerberg Initiative: Essential Open Source Software for Science (Grant No. 2020-255193).
-```
-
-``` r
 library(Hmisc)
-```
-
-```
-## 
-## Attaching package: 'Hmisc'
-```
-
-```
-## The following objects are masked from 'package:base':
-## 
-##     format.pval, units
-```
-
-``` r
 library(plyr)
-```
-
-```
-## 
-## Attaching package: 'plyr'
-```
-
-```
-## The following objects are masked from 'package:Hmisc':
-## 
-##     is.discrete, summarize
-```
-
-``` r
 library(multimode)
 library(readxl)
 ```
@@ -97,24 +61,32 @@ mydata <- importdata()
 _Alternatively, you could enter the path name of your data in the read_excel function_
 
 ### Determine modality
-Determine if the data is not unimodal (e.g., bimodal). This function also returns the Excess Mass statistic and associated p-value. 
+Determine if the data is not unimodal (e.g., bimodal). This function also returns the Excess Mass statistic and associated p-value in the Environment. 
+
+``` r
+modetest <- modes()
+```
 
 ```
-## Warning in modetest(mydata$data): A modification of the data was made in order
-## to compute the excess mass or the dip statistic
+## Modality Test Results
+## 
+## P-value: 0 
+## Excess Mass Statistic: 0.09845995 
+## **Reject null hypothesis** Distribution contains more than one mode; proceed with analyses.
+## 
+## Test Credit: Ameijeiras-Alonso et al. (2019) excess mass test
 ```
-
-
-```
-## [1] "**Reject null hypothesis**, accept alternative hypothesis. Proceed with analyses."
-```
-_Returns excess mass statistic and p-value. If the p-value is less than 0.05, accept the alternative hypothesis and proceed with analysis. However, if the p-value is more than 0.05, the data is unimodal and the following analyses are not entirely valid._
+_Returns excess mass statistic and p-value. If the p-value is less than 0.05, accept the alternative hypothesis (data is more than unimodal) and proceed with analysis. However, if the p-value is more than 0.05, the data is unimodal and the following analyses are not entirely valid._
 
 ### Fit a model to the data
 Fit the two component mixture models to the data and plot a rough histogram with the fitted lines. Also, define the index.lower value to be used in the find.cutoff function.
 
+``` r
+Mcmodel <- datamodel()
 ```
-## number of iterations= 22
+
+```
+## number of iterations= 20
 ```
 
 <img src="cutoffvalue_figures/model_data-1.jpeg" style="display: block; margin: auto;" />
@@ -124,16 +96,24 @@ _Make sure things look right, but won’t actually use this graph as it plots on
 Determine the cutoff value between the two populations that has an equal chance of being drawn from either mode. The default is 0.5, but the probability can be changed in the code.
 
 
+``` r
+returnValue(cutoff)
 ```
-## [1] 0.1124707
+
+```
+## [1] 0.1124714
 ```
 _The uniroot lower and upper values are determined using the range of "mydata" and will reflect the dataset being analyzed. If there are errors due to the uniroot, consider editing the custom values to something that more generally reflects the range of the data being analyzed._
 
 ### Basic histogram and parameters
 The code below will produce basic histogram of data used for the parameters it produces; alter number of breaks to reflect what you would like to see in the final graph. Then, use various parameters to define variables for the final graph
 
+``` r
+fit <- fitparams()
 ```
-## number of iterations= 19
+
+```
+## number of iterations= 30
 ```
 
 <img src="cutoffvalue_figures/basic_histogram-1.jpeg" style="display: block; margin: auto;" /><img src="cutoffvalue_figures/basic_histogram-2.jpeg" style="display: block; margin: auto;" />
@@ -141,14 +121,18 @@ The code below will produce basic histogram of data used for the parameters it p
 ### Create curves
 Determine x and y values to calculate the points for the curves to represent the generated models
 
+``` r
+curves <- curves()
 ```
-## number of iterations= 18
+
+```
+## number of iterations= 16
 ```
 
 <img src="cutoffvalue_figures/curves-1.jpeg" style="display: block; margin: auto;" />
 
 ```
-## number of iterations= 17
+## number of iterations= 16
 ```
 
 <img src="cutoffvalue_figures/curves-2.jpeg" style="display: block; margin: auto;" /><img src="cutoffvalue_figures/curves-3.jpeg" style="display: block; margin: auto;" />
@@ -167,6 +151,10 @@ cutoffunits <- "(ng/mL)" # units for cutoff value
 ```
 
 #### Plot the graph
+
+``` r
+plottyMcplotty <- cutoffplot(mydata, title, xlab, cutofflab, cutoffunits)
+```
 
 ```
 ## number of iterations= 19
