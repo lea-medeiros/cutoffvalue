@@ -16,8 +16,8 @@
 #' @examples
 #' curves <- curves()
 
-curves <- function(mydata = "R/exampledata.xlsx"){
-  mydata <- here("R", "exampledata.xlsx")
+curves <- function(mydata = "extdata/exampledata.xlsx"){
+  mydata <- here("extdata", "exampledata.xlsx")
   mydata <- importdata(mydata)
   model <- datamodel()
   fitData <- fitparams()
