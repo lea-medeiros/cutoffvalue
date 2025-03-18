@@ -16,7 +16,7 @@
 #' Mcmodel <- datamodel()
 
 datamodel <- function(mydata = "R/exampledata.xlsx"){
-  mydata <- here("R", "exampledata.xlsx")
+  mydata <- here::here("R", "exampledata.xlsx")
   mydata <- importdata(mydata)
   model <- normalmixEM(mydata$data)
   plot(model, whichplots=2)

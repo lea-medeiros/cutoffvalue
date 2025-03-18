@@ -21,7 +21,7 @@
 
 cutoffplot <- function (mydata = "R/exampledata.xlsx", maintitle = "Plasma 11-KT levels in age-2 male spring chinook", xlabel = "Plasma [11-KT] (ng/mL)", cutofflabel = "Minijack cutoff",
                         cutoffunits = "ng/mL"){
-  mydata <- here("R", "exampledata.xlsx")
+  mydata <- here::here("R", "exampledata.xlsx")
   mydata <- importdata(mydata)
   model <- datamodel()
   cutoff <- findcutoff()

@@ -17,7 +17,7 @@
 #' modetest <- modes()
 
 modes <- function(mydata = "R/exampledata.xlsx"){
-  mydata <- here("R", "exampledata.xlsx")
+  mydata <- here::here("R", "exampledata.xlsx")
   mydata <- importdata(mydata)
   modes1 <- modetest(mydata$data)
   EMS_stats <- function(mydata = "R/exampledata.xlsx"){
