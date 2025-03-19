@@ -1,3 +1,4 @@
+
 ---
 title: "Cutoff Value Determination & Graph"
 author: "Lea R. Medeiros"
@@ -73,7 +74,7 @@ modetest <- modes()
 ## Modality Test Results
 ## 
 ## P-value: 0.006 
-## Excess Mass Statistic: 0.09845906 
+## Excess Mass Statistic: 0.09843613 
 ## **Reject null hypothesis** Distribution contains more than one mode; proceed with analyses.
 ## 
 ## Test Credit: Ameijeiras-Alonso et al. (2019) excess mass test
@@ -100,7 +101,7 @@ cutoff <- findcutoff()
 ```
 
 ```
-## [1] 0.1124706
+## [1] 0.1124708
 ```
 
 _The uniroot lower and upper values are determined using the range of "mydata" and will reflect the dataset being analyzed. If there are errors due to the uniroot, consider editing the custom values to something that more generally reflects the range of the data being analyzed._
