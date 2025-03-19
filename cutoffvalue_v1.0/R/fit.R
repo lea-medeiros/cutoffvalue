@@ -1,9 +1,9 @@
-#' This function produces a histogram of the data that will be used for fitting curves. As a matter of course, this function runs the importData and datamodel functions for you, negating the need to run those separately.
+#' Histogram for fitting curves
 #'
 #' @param mydata Your data file; data should be organized in as a single column of log- or natural log-transformed data without a
 #' column header
 #'
-#' @returns Returns a basic histogram for the data set along with various parameters used to generate curves for the final plot.
+#' @returns Basic histogram of dataset along with various parameters used to fit curves
 #'
 #' @importFrom readxl read_excel
 #' @import mixtools

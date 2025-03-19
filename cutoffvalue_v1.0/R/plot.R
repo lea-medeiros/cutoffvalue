@@ -1,4 +1,4 @@
-#' This function incorporates most of the other functions in this package to plot a histogram of the data that includes the fit lines for each mode and the cutoff value depicted as a line. As a matter of course, this function runs the importData, datamodel, fit, curves, and findCutoff functions for you, negating the need to run those separately.
+#' Plot Histogram with Fit Lines
 #'
 #' @param maintitle Title for the graph, default is blank
 #' @param xlabel Label for the x-axis, default is "Plasma 11-KT (ng/mL)"
@@ -7,7 +7,7 @@
 #' @param mydata Your data file; data should be organized in as a single column of log- or natural log-transformed data without a
 #' column header
 #'
-#' @returns Returns a histogram with colored lines depicting curves for upper and lower modes along with the determined cutoff line to delineate between the two modes. The cutoff value is also returned to the environment.
+#' @returns Histogram with colored lines depicting upper and lower modes along with a cutoff line to delineate between the two modes
 #' @importFrom readxl read_excel
 #' @import mixtools
 #' @import Hmisc
@@ -17,7 +17,7 @@
 #'
 #' @examples
 #' plottyMcplotty <- cutoffplot()
-#' plottyMcplotty <- cutoffplot(mydata, "Example Graph Title", "Example X-Axis", "Cutoff Label", "UNITS")
+#' plottyMcplotty <- cutoffplot("Example Graph Title", "Example X-Axis", "Cutoff Label", "UNITS")
 
 cutoffplot <- function (mydata = "R/exampledata.xlsx", maintitle = "Plasma 11-KT levels in age-2 male spring chinook", xlabel = "Plasma [11-KT] (ng/mL)", cutofflabel = "Minijack cutoff",
                         cutoffunits = "ng/mL"){

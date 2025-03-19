@@ -1,0 +1,24 @@
+# This CITATION.cff file was generated with cffinit.
+# Visit https://bit.ly/cffinit to generate yours today!
+
+cff-version: 1.2.0
+title: cutoffvalue
+message: When using this package, please cite it as below.
+type: software
+authors:
+  - given-names: Lea R.
+    family-names: Medeiros
+    email: lmedeiros@uidaho.edu
+    affiliation: University of Idaho
+    orcid: 'https://orcid.org/0000-0001-6944-4935'
+repository-code: 'https://github.com/lea-medeiros/cutoffvalue'
+abstract: >-
+  This is a simple R package that implements an updated
+  version of the method first developed and used in Medeiros
+  et al. (2018). It can be used to determine an objective
+  cutoff value between a significantly bimodal distribution
+  of log-transformed data and plot a representative graph of
+  the results.
+license: MIT
+version: '1.0'
+date-released: '2025-03-18'
