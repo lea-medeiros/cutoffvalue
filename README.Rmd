@@ -43,7 +43,7 @@ This is a basic example which shows you how to use the cutoffvalue package.
 
 ### Setup RStudio
 Load the packages that are used by this package.
-```{r load_packages, message=FALSE}
+```{r load-packages, message=FALSE}
 library(cutoffvalue)
 library(mixtools)
 library(Hmisc)
@@ -54,14 +54,14 @@ library(readxl)
 
 ### Define your raw dataset
 Specify the data file to be used in the analyses and graph (if located in root folder of an R project, path information is not necessary). Reminder: data should be organized in as a single column of log- or natural log-transformed data without a column header.
-```{r define_your_data}
+```{r define-your-data}
 rawdata <- "R/exampledata.xlsx"
 ```
 _This step isn't necessary if you'd rather use the path name for your data._
 
 ### Import the raw dataset
 Import data and remove rows containing NA data. This function also defines minimum and maximum values for the dataset.
-```{r import_your_data}
+```{r import-your-data}
 mydata <- importdata()
 ```
 _Alternatively, you could enter the path name of your data in the read_excel function_
@@ -75,30 +75,32 @@ _Returns excess mass statistic and p-value. If the p-value is less than 0.05, ac
 
 ### Fit a model to the data
 Fit the two component mixture models to the data and plot a rough histogram with the fitted lines. Also, define the index.lower value to be used in the find.cutoff function.
-```{r model_data}
+```{r model-data, results='hide'}
 Mcmodel <- datamodel()
 ```
+
 _Make sure things look right, but won’t actually use this graph as it plots on a density scale and may cause confusion. However, this should look pretty spot on (final graph will just be scaled up by a constant determined later on), so make sure that the point where the two curves intersect is where you are expecting the cutoff to be._
 
 ### Determine the cutoff value
 Determine the cutoff value between the two populations that has an equal chance of being drawn from either mode. The default is 0.5, but the probability can be changed in the code.
-```{r find_cutoff, include=FALSE}
+```{r find-cutoff, results='hide', fig.show='hide'}
 cutoff <- findcutoff()
 ```
-```{r}
+```{r return-cutoff-value}
 returnValue(cutoff)
 ```
+
 _The uniroot lower and upper values are determined using the range of "mydata" and will reflect the dataset being analyzed. If there are errors due to the uniroot, consider editing the custom values to something that more generally reflects the range of the data being analyzed._
 
 ### Basic histogram and parameters
 The code below will produce basic histogram of data used for the parameters it produces; alter number of breaks to reflect what you would like to see in the final graph. Then, use various parameters to define variables for the final graph
-```{r basic_histogram}
+```{r basic-histogram, fig.show='hide'}
 fit <- fitparams()
 ```
 
 ### Create curves
 Determine x and y values to calculate the points for the curves to represent the generated models
-```{r curves}
+```{r curves, results='hide', fig.show='hide'}
 curves <- curves()
 ```
 _Creates curves using model parameters_
@@ -115,7 +117,7 @@ cutoffunits <- "(ng/mL)" # units for cutoff value
 ```
 
 #### Plot the graph
-```{r pretty_graph}
+```{r pretty_graph, results='hide', fig.keep='last'}
 plottyMcplotty <- cutoffplot(mydata, title, xlab, cutofflab, cutoffunits)
 ```
 _All figures can be found in the "cutoffvalue_figures" folder. They are exported as PDF, JPEG, and PNG at 300 dpi._

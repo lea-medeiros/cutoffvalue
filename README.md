@@ -85,16 +85,16 @@ Fit the two component mixture models to the data and plot a rough histogram with
 Mcmodel <- datamodel()
 ```
 
-```
-## number of iterations= 19
-```
+<img src="cutoffvalue_figures/model-data-1.jpeg" style="display: block; margin: auto;" />
 
-<img src="cutoffvalue_figures/model_data-1.jpeg" style="display: block; margin: auto;" />
 _Make sure things look right, but won’t actually use this graph as it plots on a density scale and may cause confusion. However, this should look pretty spot on (final graph will just be scaled up by a constant determined later on), so make sure that the point where the two curves intersect is where you are expecting the cutoff to be._
 
 ### Determine the cutoff value
 Determine the cutoff value between the two populations that has an equal chance of being drawn from either mode. The default is 0.5, but the probability can be changed in the code.
 
+``` r
+cutoff <- findcutoff()
+```
 
 ``` r
 returnValue(cutoff)
@@ -103,6 +103,7 @@ returnValue(cutoff)
 ```
 ## [1] 0.1124698
 ```
+
 _The uniroot lower and upper values are determined using the range of "mydata" and will reflect the dataset being analyzed. If there are errors due to the uniroot, consider editing the custom values to something that more generally reflects the range of the data being analyzed._
 
 ### Basic histogram and parameters
@@ -116,26 +117,12 @@ fit <- fitparams()
 ## number of iterations= 14
 ```
 
-<img src="cutoffvalue_figures/basic_histogram-1.jpeg" style="display: block; margin: auto;" /><img src="cutoffvalue_figures/basic_histogram-2.jpeg" style="display: block; margin: auto;" />
-
 ### Create curves
 Determine x and y values to calculate the points for the curves to represent the generated models
 
 ``` r
 curves <- curves()
 ```
-
-```
-## number of iterations= 19
-```
-
-<img src="cutoffvalue_figures/curves-1.jpeg" style="display: block; margin: auto;" />
-
-```
-## number of iterations= 17
-```
-
-<img src="cutoffvalue_figures/curves-2.jpeg" style="display: block; margin: auto;" /><img src="cutoffvalue_figures/curves-3.jpeg" style="display: block; margin: auto;" />
 _Creates curves using model parameters_
 
 ### Plot the graph
@@ -156,33 +143,5 @@ cutoffunits <- "(ng/mL)" # units for cutoff value
 plottyMcplotty <- cutoffplot(mydata, title, xlab, cutofflab, cutoffunits)
 ```
 
-```
-## number of iterations= 14
-```
-
 <img src="cutoffvalue_figures/pretty_graph-1.jpeg" style="display: block; margin: auto;" />
-
-```
-## number of iterations= 24
-```
-
-<img src="cutoffvalue_figures/pretty_graph-2.jpeg" style="display: block; margin: auto;" />
-
-```
-## number of iterations= 22
-```
-
-<img src="cutoffvalue_figures/pretty_graph-3.jpeg" style="display: block; margin: auto;" /><img src="cutoffvalue_figures/pretty_graph-4.jpeg" style="display: block; margin: auto;" />
-
-```
-## number of iterations= 14
-```
-
-<img src="cutoffvalue_figures/pretty_graph-5.jpeg" style="display: block; margin: auto;" />
-
-```
-## number of iterations= 17
-```
-
-<img src="cutoffvalue_figures/pretty_graph-6.jpeg" style="display: block; margin: auto;" /><img src="cutoffvalue_figures/pretty_graph-7.jpeg" style="display: block; margin: auto;" /><img src="cutoffvalue_figures/pretty_graph-8.jpeg" style="display: block; margin: auto;" />
 _All figures can be found in the "cutoffvalue_figures" folder. They are exported as PDF, JPEG, and PNG at 300 dpi._
