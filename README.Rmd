@@ -12,7 +12,7 @@ output:
 ```{r setup-chunk, include = FALSE}
 knitr::opts_chunk$set(
  collapse = TRUE,
- fig.align = 'center', fig.height = 8, fig.width = 10,
+ fig.align = 'center', fig.height = 4, fig.width = 5,
  fig.path='man/cutoffvalue_figures/README-',
  dpi = 300,
  dev = c('jpeg', 'pdf', 'png'),
