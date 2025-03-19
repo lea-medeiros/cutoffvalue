@@ -48,12 +48,12 @@ library(readxl)
 Specify the data file to be used in the analyses and graph (if located in root folder of an R project, path information is not necessary). Reminder: data should be organized in as a single column of log- or natural log-transformed data without a column header.
 
 ``` r
-rawdata <- "R/exampledata.xlsx"
+mydata <- "R/exampledata.xlsx"
 ```
 _This step isn't necessary if you'd rather use the path name for your data._
 
 ### Import the raw dataset
-Import data and remove rows containing NA data. This function also defines minimum and maximum values for the dataset.
+Import data and remove rows containing NA data. This function also defines minimum and maximum values for the dataset. The default for each function is specified as "R/exampledata.xlsx", meaning that running any function without specifying the dataset will use the exampledata.xlsx file.
 
 ``` r
 mydata <- importdata()
@@ -96,10 +96,6 @@ Determine the cutoff value between the two populations that has an equal chance 
 cutoff <- findcutoff()
 ```
 
-``` r
-returnValue(cutoff)
-```
-
 ```
 ## [1] 0.1124698
 ```
@@ -113,9 +109,7 @@ The code below will produce basic histogram of data used for the parameters it p
 fit <- fitparams()
 ```
 
-```
-## number of iterations= 14
-```
+<img src="cutoffvalue_figures/basic-histogram-1.jpeg" style="display: block; margin: auto;" />
 
 ### Create curves
 Determine x and y values to calculate the points for the curves to represent the generated models

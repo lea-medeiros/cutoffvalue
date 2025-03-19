@@ -55,12 +55,12 @@ library(readxl)
 ### Define your raw dataset
 Specify the data file to be used in the analyses and graph (if located in root folder of an R project, path information is not necessary). Reminder: data should be organized in as a single column of log- or natural log-transformed data without a column header.
 ```{r define-your-data}
-rawdata <- "R/exampledata.xlsx"
+mydata <- "R/exampledata.xlsx"
 ```
 _This step isn't necessary if you'd rather use the path name for your data._
 
 ### Import the raw dataset
-Import data and remove rows containing NA data. This function also defines minimum and maximum values for the dataset.
+Import data and remove rows containing NA data. This function also defines minimum and maximum values for the dataset. The default for each function is specified as "R/exampledata.xlsx", meaning that running any function without specifying the dataset will use the exampledata.xlsx file.
 ```{r import-your-data}
 mydata <- importdata()
 ```
@@ -86,7 +86,7 @@ Determine the cutoff value between the two populations that has an equal chance 
 ```{r find-cutoff, results='hide', fig.show='hide'}
 cutoff <- findcutoff()
 ```
-```{r return-cutoff-value}
+```{r return-cutoff-value, echo=FALSE}
 returnValue(cutoff)
 ```
 
@@ -94,7 +94,7 @@ _The uniroot lower and upper values are determined using the range of "mydata" a
 
 ### Basic histogram and parameters
 The code below will produce basic histogram of data used for the parameters it produces; alter number of breaks to reflect what you would like to see in the final graph. Then, use various parameters to define variables for the final graph
-```{r basic-histogram, fig.show='hide'}
+```{r basic-histogram, results='hide', fig.keep='last'}
 fit <- fitparams()
 ```
 
