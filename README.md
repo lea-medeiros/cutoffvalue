@@ -50,6 +50,7 @@ Specify the data file to be used in the analyses and graph (if located in root f
 ``` r
 mydata <- "R/exampledata.xlsx"
 ```
+
 _This step isn't necessary if you'd rather use the path name for your data._
 
 ### Import the raw dataset
@@ -58,6 +59,7 @@ Import data and remove rows containing NA data. This function also defines minim
 ``` r
 mydata <- importdata()
 ```
+
 _Alternatively, you could enter the path name of your data in the read_excel function_
 
 ### Determine modality
@@ -76,6 +78,7 @@ modetest <- modes()
 ## 
 ## Test Credit: Ameijeiras-Alonso et al. (2019) excess mass test
 ```
+
 _Returns excess mass statistic and p-value. If the p-value is less than 0.05, accept the alternative hypothesis (data is more than unimodal) and proceed with analysis. However, if the p-value is more than 0.05, the data is unimodal and the following analyses are not entirely valid._
 
 ### Fit a model to the data
@@ -117,6 +120,7 @@ Determine x and y values to calculate the points for the curves to represent the
 ``` r
 curves <- curves()
 ```
+
 _Creates curves using model parameters_
 
 ### Plot the graph
@@ -138,4 +142,5 @@ plottyMcplotty <- cutoffplot(mydata, title, xlab, cutofflab, cutoffunits)
 ```
 
 <img src="cutoffvalue_figures/pretty_graph-1.jpeg" style="display: block; margin: auto;" />
+
 _All figures can be found in the "cutoffvalue_figures" folder. They are exported as PDF, JPEG, and PNG at 300 dpi._
