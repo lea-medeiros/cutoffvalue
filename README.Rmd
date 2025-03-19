@@ -2,6 +2,7 @@
 title: "Cutoff Value Determination & Graph"
 author: "Lea R. Medeiros"
 date: "2025-03-18"
+keep_md: yes
 ---
 
 <!-- README.md is generated from README.Rmd. Please edit that file -->
@@ -9,7 +10,7 @@ date: "2025-03-18"
 ```{r setup-chunk, include = FALSE}
 knitr::opts_chunk$set(
  fig.align = 'center', fig.height = 8, fig.width = 10,
- fig.path='cutoffvalue_figures/',
+ fig.path='man/cutoffvalue_figures/README-',
  dpi = 300,
  dev = c('jpeg', 'pdf', 'png'),
  echo = TRUE,
