@@ -1,6 +1,6 @@
 Package: cutoffvalue
 Title: Cutoff Value Determination & Graph
-Version: 0.0.0.9000
+Version: 1.0.0.0000
 Authors@R: 
     person("Lea", "Medeiros", , "lmedeiros@uidaho.edu", role = c("aut", "cre"),
            comment = c(ORCID = "https://orcid.org/0000-0001-6944-4935"))
