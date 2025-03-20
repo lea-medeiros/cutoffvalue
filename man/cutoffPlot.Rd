@@ -2,7 +2,7 @@
 % Please edit documentation in R/plot.R
 \name{cutoffplot}
 \alias{cutoffplot}
-\title{Plot Histogram with Fit Lines}
+\title{This function incorporates most of the other functions in this package to plot a histogram of the data that includes the fit lines for each mode and the cutoff value depicted as a line. As a matter of course, this function runs the importData, datamodel, fit, curves, and findCutoff functions for you, negating the need to run those separately.}
 \usage{
 cutoffplot(
   mydata = "R/exampledata.xlsx",
@@ -25,12 +25,12 @@ column header}
 \item{cutoffunits}{Label for the units, default is "ng/mL"}
 }
 \value{
-Histogram with colored lines depicting upper and lower modes along with a cutoff line to delineate between the two modes
+Returns a histogram with colored lines depicting curves for upper and lower modes along with the determined cutoff line to delineate between the two modes. The cutoff value is also returned to the environment.
 }
 \description{
-Plot Histogram with Fit Lines
+This function incorporates most of the other functions in this package to plot a histogram of the data that includes the fit lines for each mode and the cutoff value depicted as a line. As a matter of course, this function runs the importData, datamodel, fit, curves, and findCutoff functions for you, negating the need to run those separately.
 }
 \examples{
 plottyMcplotty <- cutoffplot()
-plottyMcplotty <- cutoffplot("Example Graph Title", "Example X-Axis", "Cutoff Label", "UNITS")
+plottyMcplotty <- cutoffplot(mydata, "Example Graph Title", "Example X-Axis", "Cutoff Label", "UNITS")
 }

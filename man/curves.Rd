@@ -2,7 +2,7 @@
 % Please edit documentation in R/curves.R
 \name{curves}
 \alias{curves}
-\title{Fit curves to dataset}
+\title{This function fits curves to the data set. As a matter of course, this function runs the importData, datamodel, and fit functions for you, negating the need to run those separately.}
 \usage{
 curves(mydata)
 }
@@ -11,10 +11,10 @@ curves(mydata)
 column header}
 }
 \value{
-Three sets of data used to plot curves for the lower and upper modes
+Returns three sets of values, which are used to plot curves for the lower and upper modes.
 }
 \description{
-Fit curves to dataset
+This function fits curves to the data set. As a matter of course, this function runs the importData, datamodel, and fit functions for you, negating the need to run those separately.
 }
 \examples{
 curves <- curves()

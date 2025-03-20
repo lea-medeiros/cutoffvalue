@@ -2,7 +2,7 @@
 % Please edit documentation in R/datamodel.R
 \name{datamodel}
 \alias{datamodel}
-\title{Generate Normal Mix EM Model for Data}
+\title{This function generates the normal mix EM model for the data set. As a matter of course, this function also runs the importData function for you, negating the need to run it separately.}
 \usage{
 datamodel(mydata = "R/exampledata.xlsx")
 }
@@ -11,10 +11,10 @@ datamodel(mydata = "R/exampledata.xlsx")
 column header}
 }
 \value{
-Model parameters and lower index
+Returns the model parameters and lower index value for the data set.
 }
 \description{
-Generate Normal Mix EM Model for Data
+This function generates the normal mix EM model for the data set. As a matter of course, this function also runs the importData function for you, negating the need to run it separately.
 }
 \examples{
 Mcmodel <- datamodel()

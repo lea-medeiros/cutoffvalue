@@ -2,7 +2,7 @@
 % Please edit documentation in R/importData.R
 \name{importdata}
 \alias{importdata}
-\title{Import Data}
+\title{This function imports your data set.}
 \usage{
 importdata(mydata)
 }
@@ -11,10 +11,10 @@ importdata(mydata)
 column header}
 }
 \value{
-A list of values from the Excel spreadsheet that has blanks removed
+Returns a list of values from the raw data in your Excel spreadsheet that has blanks removed.
 }
 \description{
-Import Data
+This function imports your data set.
 }
 \examples{
 mydata <- importdata()
