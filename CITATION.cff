@@ -6,7 +6,7 @@ title: cutoffvalue
 message: When using this package, please cite it as below.
 type: software
 authors:
-  - given-names: Lea R.
+  - given-names: Lea R
     family-names: Medeiros
     email: lmedeiros@uidaho.edu
     affiliation: University of Idaho
@@ -20,5 +20,5 @@ abstract: >-
   of log-transformed data and plot a representative graph of
   the results.
 license: MIT
-version: '1.0'
-date-released: '2025-03-18'
+version: '2.1.0'
+date-released: '2025-03-20'
