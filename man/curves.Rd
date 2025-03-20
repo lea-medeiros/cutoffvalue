@@ -2,7 +2,8 @@
 % Please edit documentation in R/curves.R
 \name{curves}
 \alias{curves}
-\title{This function fits curves to the data set. As a matter of course, this function runs the importData, datamodel, and fit functions for you, negating the need to run those separately.}
+\title{Curve Fit
+This function fits curves to the data set. As a matter of course, this function runs the importData, datamodel, and fit functions for you, negating the need to run those separately.}
 \usage{
 curves(mydata)
 }
@@ -14,6 +15,7 @@ column header}
 Returns three sets of values, which are used to plot curves for the lower and upper modes.
 }
 \description{
+Curve Fit
 This function fits curves to the data set. As a matter of course, this function runs the importData, datamodel, and fit functions for you, negating the need to run those separately.
 }
 \examples{
