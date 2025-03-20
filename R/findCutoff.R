@@ -1,4 +1,5 @@
-#' This function finds the cutoff value between the modes of bimodally distributed data at the indicated probability value. As a matter of course, this function runs the importData and datamodel functions for you, negating the need to run those separately.
+#' @title Determine a cutoff value between the upper and lower mode of a bimodal dataset
+#' @description This function finds the cutoff value between the modes of bimodally distributed data at the indicated probability value. As a matter of course, this function runs the importData and datamodel functions for you, negating the need to run those separately.
 #'
 #' @param proba The probability value you want the cutoff value to represent
 #' @param i Determines the location, i.e., index of the (first) minimum of the model$mydata$mu

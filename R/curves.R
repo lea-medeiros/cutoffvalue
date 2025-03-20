@@ -1,5 +1,5 @@
-#' @title Curve Fit
-#' @description This function fits curves to the data set. As a matter of course, this function runs the importData, datamodel, and fit functions for you, negating the need to run those separately.
+#' @title Fit curves to each mode of the dataset
+#' @description This function fits curves to the dataset. As a matter of course, this function runs the importData, datamodel, and fit functions for you, negating the need to run those separately.
 #'
 #' @param mydata Your data file; data should be organized in as a single column of log- or natural log-transformed data without a
 #' column header

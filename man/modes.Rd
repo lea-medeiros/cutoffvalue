@@ -2,7 +2,7 @@
 % Please edit documentation in R/modes.R
 \name{modes}
 \alias{modes}
-\title{This function tests the data set's modality. It uses the modetest function from the multimode package written by Ameijeiras-Alonso et al. (2019) to determine the excess mass test statistic and test the number of modes. As a matter of course, this function runs the importData function, negating the need to run it separately.}
+\title{Determines the modality of the dataset}
 \usage{
 modes(mydata = "R/exampledata.xlsx")
 }
@@ -14,7 +14,7 @@ column header}
 Returns the p-value and excess mass statistic to determine whether the dataset is unimodal.
 }
 \description{
-This function tests the data set's modality. It uses the modetest function from the multimode package written by Ameijeiras-Alonso et al. (2019) to determine the excess mass test statistic and test the number of modes. As a matter of course, this function runs the importData function, negating the need to run it separately.
+This function tests the dataset's modality. It uses the modetest function from the multimode package written by Ameijeiras-Alonso et al. (2019) to determine the excess mass test statistic and test the number of modes. As a matter of course, this function runs the importData function, negating the need to run it separately.
 }
 \examples{
 modetest <- modes()

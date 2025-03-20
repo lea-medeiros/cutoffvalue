@@ -1,4 +1,5 @@
-#' This function imports your data set.
+#' @title Import your dataset
+#' @description This function imports your dataset from an excel file, removes any blank rows, and determines the minimum and maximum values
 #'
 #' @param mydata Your data file; data should be organized in as a single column of log- or natural log-transformed data without a
 #' column header

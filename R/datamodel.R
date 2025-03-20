@@ -1,4 +1,5 @@
-#' This function generates the normal mix EM model for the data set. As a matter of course, this function also runs the importData function for you, negating the need to run it separately.
+#' @title Generate models for each mode of the dataset
+#' @description This function generates the normal mix EM model for the data set. As a matter of course, this function also runs the importData function for you, negating the need to run it separately.
 #'
 #' @param mydata Your data file; data should be organized in as a single column of log- or natural log-transformed data without a
 #' column header

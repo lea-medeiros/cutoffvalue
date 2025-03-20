@@ -2,7 +2,7 @@
 % Please edit documentation in R/findCutoff.R
 \name{findcutoff}
 \alias{findcutoff}
-\title{This function finds the cutoff value between the modes of bimodally distributed data at the indicated probability value. As a matter of course, this function runs the importData and datamodel functions for you, negating the need to run those separately.}
+\title{Determine a cutoff value between the upper and lower mode of a bimodal dataset}
 \usage{
 findcutoff(mydata = "R/exampledata.xlsx", proba = 0.5, i = model$indexLower)
 }

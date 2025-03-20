@@ -2,7 +2,7 @@
 % Please edit documentation in R/importData.R
 \name{importdata}
 \alias{importdata}
-\title{This function imports your data set.}
+\title{Import your dataset}
 \usage{
 importdata(mydata)
 }
@@ -14,7 +14,7 @@ column header}
 Returns a list of values from the raw data in your Excel spreadsheet that has blanks removed.
 }
 \description{
-This function imports your data set.
+This function imports your dataset from an excel file, removes any blank rows, and determines the minimum and maximum values
 }
 \examples{
 mydata <- importdata()

@@ -2,7 +2,7 @@
 % Please edit documentation in R/datamodel.R
 \name{datamodel}
 \alias{datamodel}
-\title{This function generates the normal mix EM model for the data set. As a matter of course, this function also runs the importData function for you, negating the need to run it separately.}
+\title{Generate models for each mode of the dataset}
 \usage{
 datamodel(mydata = "R/exampledata.xlsx")
 }

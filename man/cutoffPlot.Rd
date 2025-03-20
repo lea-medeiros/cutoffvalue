@@ -2,7 +2,7 @@
 % Please edit documentation in R/plot.R
 \name{cutoffplot}
 \alias{cutoffplot}
-\title{This function incorporates most of the other functions in this package to plot a histogram of the data that includes the fit lines for each mode and the cutoff value depicted as a line. As a matter of course, this function runs the importData, datamodel, fit, curves, and findCutoff functions for you, negating the need to run those separately.}
+\title{Plot a histogram of the dataset that includes the curves for each mode and the cutoff value}
 \usage{
 cutoffplot(
   mydata = "R/exampledata.xlsx",

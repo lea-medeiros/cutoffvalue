@@ -2,7 +2,7 @@
 % Please edit documentation in R/fit.R
 \name{fitparams}
 \alias{fitparams}
-\title{This function produces a histogram of the data that will be used for fitting curves. As a matter of course, this function runs the importData and datamodel functions for you, negating the need to run those separately.}
+\title{Generate a histogram, with associated parameters, from the dataset}
 \usage{
 fitparams(mydata = "R/exampledata.xlsx")
 }
