@@ -130,14 +130,23 @@ title <- "Plasma 11-KT levels in age-2 male spring chinook"  # Graph title
 xlab <- "Plasma [11-KT] (ng/mL)" # X-axis label
 cutofflab <- "Minijack cutoff" # label for cutoff value on graph
 cutoffunits <- "(ng/mL)" # units for cutoff value
+LowerMode_col <- "red" # line color for the lower mode
+LowerMode_lty <- 1 # line type for the lower mode
+LowerMode_lwd <- 2 # line width for the lower mode
+UpperMode_col <- "purple" # line color for the upper mode
+UpperMode_lty <- 1 # line type for the upper mode
+UpperMode_lwd <- 2 # line width for the upper mode
+cutoffvalue_col <- "black" # line color for the cutoff value
+cutoffvalue_lty <- 2 # line type for the cutoff value
+cutoffvalue_lwd <- 2 # line width for the cutoff value
 ```
 
 #### Plot the graph
 
 ``` r
-plottyMcplotty <- cutoffplot(mydata, title, xlab, cutofflab, cutoffunits)
+plottyMcplotty <- cutoffplot(mydata, title, xlab, cutofflab, cutoffunits, LowerMode_col, LowerMode_lty, LowerMode_lwd, UpperMode_col, UpperMode_lty, UpperMode_lwd, cutoffvalue_col, cutoffvalue_lty, cutoffvalue_lwd)
 ```
 
-<img src="man/cutoffvalue_figures/README-pretty_graph-1.jpeg" style="display: block; margin: auto;" />
+<img src="man/cutoffvalue_figures/README-pretty_graph-1.jpeg" width="700" height="390" style="display: block; margin: auto;" />
 
 _All figures can be found in the "cutoffvalue_figures" folder. They are exported as PDF, JPEG, and PNG at 300 dpi._
