@@ -21,7 +21,8 @@
 #' plottyMcplotty <- cutoffplot(mydata, "Example Graph Title", "Example X-Axis", "Cutoff Label", "UNITS")
 
 cutoffplot <- function (mydata = "R/exampledata.xlsx", maintitle = "Plasma 11-KT levels in age-2 male spring chinook", xlabel = "Plasma [11-KT] (ng/mL)", cutofflabel = "Minijack cutoff",
-                        cutoffunits = "ng/mL"){
+                        cutoffunits = "ng/mL", LowerMode_col = "red", LowerMode_lty = 1, LowerMode_lwd = 2, UpperMode_col = "purple", UpperMode_lty = 1, UpperMode_lwd = 2,
+                        cutoffvalue_col = "black", cutoffvalue_lty = 2, cutoffvalue_lwd = 2){
   mydata <- here::here("R", "exampledata.xlsx")
   mydata <- importdata(mydata)
   model <- datamodel()
@@ -36,18 +37,18 @@ cutoffplot <- function (mydata = "R/exampledata.xlsx", maintitle = "Plasma 11-KT
 
   v1 = seq(fitData$v1Lower, fitData$v1Upper,length=11)
   v2 = signif(10^v1, digits=2)
-   ## Converts log to actual concentration with only 2 significant digits
+     ## Converts log to actual concentration with only 2 significant digits
 
   par(mar=c(5,6,4,1)+.1)
 
   hist(mydata$data, breaks = 15, density = 10, col = "grey", xaxt="n", xlab = xlabel,
        ylim = c(0, fitData$ylimUpper), xlim = c(fitData$xlimLower, fitData$xlimUpper), main = maintitle,
        cex.main=2, cex.lab=1.5, cex.axis=1.25, family = "Times")
-  lines(xValues, yValues1, col="red", lwd=2)
-  lines(xValues, yValues2, col="purple", lwd=2)
-  axis(side = 1, at = v1, labels = v2, cex.axis=1.5, family = "Times")
+  lines(xValues, yValues1, col=LowerMode_col, lty=LowerMode_lty, lwd=LowerMode_lwd)
+  lines(xValues, yValues2, col=UpperMode_col, lty=UpperMode_lty, lwd=UpperMode_lwd)
+  axis(side = 1, at = v1, labels = v2, cex.axis=1.25, family = "Times")
   ## Replaces log concentration x axis with calculations from v2 to display actual concentrations
-  abline(v=cutoff, col="black", lty=2, lwd=2) # cutoff line
-  text(cutoff+(fitData$step/2), fitData$ylimUpper-5, adj = c(0, 1), paste(cutofflabel, "\n =",round(10^(cutoff), 2), cutoffunits ), cex=1.5, family = "Times", font = 2)
+  abline(v=cutoff, col=cutoffvalue_col, lty=cutoffvalue_lty, lwd=cutoffvalue_lwd) # cutoff line
+  text(cutoff+(fitData$step/2), fitData$ylimUpper-5, adj = c(0, 1), paste(cutofflabel, "\n =",round(10^(cutoff), 2), cutoffunits), cex=1.25, family = "Times", font = 2)
   return(cutoff)
 }

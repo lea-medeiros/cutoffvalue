@@ -1,0 +1,122 @@
+---
+title: "cutoffvalue: An R Package for Cutoff Value Determination & Graphing"
+author: "Lea R Medeiros"
+date: "`r Sys.Date()`"
+output: 
+  rmarkdown::html_vignette:
+    fig_caption: yes
+vignette: >
+  %\VignetteIndexEntry{cutoffvalue: An R Package for Cutoff Value Determination & Graphing}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  echo = TRUE,
+  cache = TRUE,
+  comment = "#>"
+)
+```
+
+## Description
+
+`cutoffvalue` is a simple R package that implements an updated version of the method first developed and used in Medeiros et al. (2018)^[Medeiros LR, Galbreath PF, Knudsen CM, Stockton CA, Koch IJ, Bosch WJ, Narum SR, Nagler JJ, Pierce AL (2018) Plasma 11-Ketotestosterone in Individual Age-1 Spring Chinook Salmon Males Accurately Predicts Age-2 Maturation Status. Transactions of the American Fisheries Society 147 (6):1042-1051. doi:10.1002/tafs.10097]. It can be used to determine an objective cutoff value between a significantly bimodal distribution of log-transformed data and plot a representative graph of the results.
+
+## Vignette Info & Suggested Workflow
+
+This vignette will go over the various functions included in `cutoffvalue` using the included `example data`. The overall goals of this package are to (1) determine a cutoff value between the upper and lower modes of the dataset and (2) produce a ncie graph of the results that includes a histogram of the data, the two models fit to the upper and lower modes, and a line depicting the cutoff value. The functions are written to be run independently, so that only two functions need to be run to get the necessary information:
+
+- modes()
+- cutoffplot()
+
+This vignette is written in accordance with the suggested workflow using these two functions, and then moves on to discuss the functions that are included within them.
+
+## Installation of the package
+
+You can install the latest version of `cutoffvalue` from [GitHub](https://github.com/lea-medeiros/cutoffvalue.git) with:
+
+``` r
+# install.packages("devtools")
+devtools::install_github("lea-medeiros/cutoffvalue")
+```
+
+## Setup R Studio
+
+Load the packages that are used by `cutoffvalue`.
+```{r load-packages, message=FALSE}
+library(cutoffvalue)
+library(mixtools)
+library(Hmisc)
+library(plyr)
+library(multimode)
+library(readxl)
+```
+
+The figure sizes have been customised so that you can easily put two images side-by-side. 
+
+```{r, fig.show='hold'}
+plot(1:10)
+```
+
+You can enable figure captions by `fig_caption: yes` in YAML:
+
+    output:
+      rmarkdown::html_vignette:
+        fig_caption: yes
+
+Then you can use the chunk option `fig.cap = "Your figure caption."` in **knitr**.
+
+## Determine modality
+
+Evaluating an objective and valid cutoff value depends upon whether the dataset is bimodal. Which means that the modality of the dataset should be determined before proceeding. The null hypothesis of this test is that the dataset is unimodal, so an excess mass statistic associated with a p-value of less than 0.05 implies it is more than unimodal. It is strongly suggested that you run this test prior to any other function in `cutoffvalue`; however, how you proceed depends on your knowledge and understanding of the data. Please keep in mind that the default parameters of `cutoffvalue` assume a bimodal distribution - any other modalities may cause inaccuracies in the results.
+
+When given a label (i.e., "modetest" in the example below), this function returns the Excess Mass statistic and associated p-value to the Environment. 
+
+_`modes()` returns the p-value and excess mass statistic along with instructions on how to proceed based on the p-value. If the p-value is less than 0.05, accept the alternative hypothesis (data is at least bimodal) and proceed with analysis. However, if the p-value is more than 0.05, the data is unimodal and the following analyses are not entirely valid._
+
+```{r modetest, warning=FALSE, echo=1}
+modetest <- modes()
+```
+
+## Plot the graph
+Plot a pretty graph - 
+
+### Specify graph labels
+
+You will likely want to change the following parameters to match your own dataset and preferences. If nothing is specified in the `cutoffplot` function, then these are what will be displayed in the plot.
+
+```{r, echo=TRUE}
+title <- "Plasma 11-KT levels in age-2 male spring chinook"  # Graph title
+xlab <- "Plasma [11-KT] (ng/mL)" # X-axis label
+cutofflab <- "Minijack cutoff" # label for cutoff value on graph
+cutoffunits <- "(ng/mL)" # units for cutoff value
+LowerMode_col <- "red" # line color for the lower mode
+LowerMode_lty <- 1 # line type for the lower mode
+LowerMode_lwd <- 2 # line width for the lower mode
+UpperMode_col <- "purple" # line color for the upper mode
+UpperMode_lty <- 1 # line type for the upper mode
+UpperMode_lwd <- 2 # line width for the upper mode
+cutoffvalue_col <- "black" # line color for the cutoff value
+cutoffvalue_lty <- 2 # line type for the cutoff value
+cutoffvalue_lwd <- 2 # line width for the cutoff value
+```
+
+### Plot the graph
+```{r pretty_graph, results='hide', fig.keep='last', fig.align='center', dpi=150, fig.dim=c(9, 5), out.width=700, out.height=390}
+plottyMcplotty <- cutoffplot(mydata, title, xlab, cutofflab, cutoffunits, LowerMode_col, LowerMode_lty, LowerMode_lwd, UpperMode_col, UpperMode_lty, UpperMode_lwd, cutoffvalue_col, cutoffvalue_lty, cutoffvalue_lwd)
+```
+
+
+
+You can write math expressions, e.g. $Y = X\beta + \epsilon$, and tables, e.g. using `knitr::kable()`.
+
+```{r, echo=FALSE, results='asis'}
+knitr::kable(head(mtcars, 10))
+```
+
+Also a quote using `>`:
+
+> "He who gives up [code] safety for [code] speed deserves neither."
+([via](https://twitter.com/hadleywickham/status/504368538874703872))
