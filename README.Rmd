@@ -16,8 +16,7 @@ knitr::opts_chunk$set(
  fig.path='man/cutoffvalue_figures/README-',
  dpi = 300,
  dev = c('jpeg', 'pdf', 'png'),
- echo = TRUE,
- cache = TRUE
+ echo = TRUE
  )
 ```
 
