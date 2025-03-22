@@ -40,7 +40,7 @@ You can install the latest version of `cutoffvalue` from [GitHub](https://github
 
 ``` r
 # install.packages("devtools")
-devtools::install_github("lea-medeiros/cutoffvalue")
+devtools::install_github("lea-medeiros/cutoffvalue", dependencies = TRUE, build_vignettes = TRUE)
 ```
 
 ## Setup R Studio

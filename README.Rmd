@@ -34,7 +34,7 @@ You can install the development version of cutoffvalue from [GitHub](https://git
 
 ``` r
 # install.packages("devtools")
-devtools::install_github("lea-medeiros/cutoffvalue")
+devtools::install_github("lea-medeiros/cutoffvalue", dependencies = TRUE, build_vignettes = TRUE)
 ```
 
 ## Example
