@@ -145,10 +145,6 @@ The `findcutoff` function determines the cutoff value between the two modes with
 cutoff <- findcutoff("R/exampledata.xlsx", proba=0.5)
 ```
 
-```{r return-cutoff-value}
-returnValue(cutoff)
-```
-
 _The uniroot lower (`mydata$lower`) and upper values (`mydata$upper`) are determined using the range of "mydata" and will reflect the dataset being analyzed. If there are errors due to the uniroot, consider editing the custom values to something that more generally reflects the range of the data being analyzed._
 
 ## Use the `fitparams` function to produce a basic histogram and associated parameters

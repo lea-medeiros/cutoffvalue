@@ -89,9 +89,6 @@ Determine the cutoff value between the two populations that has an equal chance 
 ```{r find-cutoff, results='hide', fig.show='hide'}
 cutoff <- findcutoff()
 ```
-```{r return-cutoff-value, echo=FALSE}
-returnValue(cutoff)
-```
 
 _The uniroot lower and upper values are determined using the range of "mydata" and will reflect the dataset being analyzed. If there are errors due to the uniroot, consider editing the custom values to something that more generally reflects the range of the data being analyzed._
 

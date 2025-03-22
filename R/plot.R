@@ -17,7 +17,6 @@
 #' @export
 #'
 #' @examples
-#' plottyMcplotty <- cutoffplot()
 #' plottyMcplotty <- cutoffplot(mydata, "Example Graph Title", "Example X-Axis", "Cutoff Label", "UNITS")
 
 cutoffplot <- function (mydata = "R/exampledata.xlsx", maintitle = "Plasma 11-KT levels in age-2 male spring chinook", xlabel = "Plasma [11-KT] (ng/mL)", cutofflabel = "Minijack cutoff",

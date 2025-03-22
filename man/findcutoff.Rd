@@ -15,11 +15,12 @@ column header.}
 \item{i}{Determines the location, i.e., index of the (first) minimum of the model$mydata$mu}
 }
 \value{
-Returns the cutoff value for the indicated probability value.
+Determines and reports the cutoff value for the indicated probability value.
 }
 \description{
 This function finds the cutoff value between the modes of bimodally distributed data at the indicated probability value. As a matter of course, this function runs the importData and datamodel functions for you, negating the need to run those separately.
 }
 \examples{
 cutoff <- findcutoff()
+returnValue(cutoff)
 }

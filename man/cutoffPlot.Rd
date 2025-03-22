@@ -40,6 +40,5 @@ Returns a histogram with colored lines depicting curves for upper and lower mode
 This function incorporates most of the other functions in this package to plot a histogram of the data that includes the fit lines for each mode and the cutoff value depicted as a line. As a matter of course, this function runs the importData, datamodel, fit, curves, and findCutoff functions for you, negating the need to run those separately.
 }
 \examples{
-plottyMcplotty <- cutoffplot()
 plottyMcplotty <- cutoffplot(mydata, "Example Graph Title", "Example X-Axis", "Cutoff Label", "UNITS")
 }

@@ -6,7 +6,7 @@
 #' @param mydata Your data file; data should be organized in an Excel document as a single column of log- or natural log-transformed data without a
 #' column header.
 #'
-#' @return Returns the cutoff value for the indicated probability value.
+#' @return Determines and reports the cutoff value for the indicated probability value.
 #'
 #' @importFrom readxl read_excel
 #' @import mixtools
@@ -17,6 +17,7 @@
 #'
 #' @examples
 #' cutoff <- findcutoff()
+#' returnValue(cutoff)
 
 findcutoff <- function(mydata = "R/exampledata.xlsx", proba=0.5, i=model$indexLower) {
   mydata <- here::here("R", "exampledata.xlsx")
@@ -28,5 +29,13 @@ findcutoff <- function(mydata = "R/exampledata.xlsx", proba=0.5, i=model$indexLo
                (model$mydata$lambda[1]*dnorm(x, model$mydata$mu[1], model$mydata$sigma[1]) +
                   model$mydata$lambda[2]*dnorm(x, model$mydata$mu[2], model$mydata$sigma[2])))
   }
-  return(uniroot(f=f, lower=mydata$lower, upper=mydata$upper)$root)
+  cutoffvalue_results <- function(x){
+    return(uniroot(f=f, lower=mydata$lower, upper=mydata$upper)$root)
+  }
+  cutoffvalues <- function(x){
+    cat('Cutoff Value:', cutoff)
+    return(uniroot(f=f, lower=mydata$lower, upper=mydata$upper)$root)
+  }
+  cutoff <- cutoffvalue_results()
+  cutoffvalues()
 }
