@@ -4,11 +4,11 @@
 \alias{fitparams}
 \title{Generate a histogram, with associated parameters, from the dataset}
 \usage{
-fitparams(mydata = "R/exampledata.xlsx")
+fitparams(mydata = "R/exampledata.xlsx", breaks = 15)
 }
 \arguments{
-\item{mydata}{Your data file; data should be organized in as a single column of log- or natural log-transformed data without a
-column header}
+\item{mydata}{Your data file; data should be organized in an Excel document as a single column of log- or natural log-transformed data without a
+column header.}
 }
 \value{
 Returns a basic histogram for the data set along with various parameters used to generate curves for the final plot.

@@ -79,10 +79,10 @@ modetest <- modes()
 _Returns excess mass statistic and p-value. If the p-value is less than 0.05, accept the alternative hypothesis (data is more than unimodal) and proceed with analysis. However, if the p-value is more than 0.05, the data is unimodal and the following analyses are not entirely valid._
 
 ### Fit a model to the data
-Fit the two component mixture models to the data and plot a rough histogram with the fitted lines. Also, define the index.lower value to be used in the find.cutoff function.
+Fit the two component mixture models to the data and plot a rough histogram with the fitted lines. It also defines the index.lower value to be used in the find.cutoff function.
 
 ``` r
-Mcmodel <- datamodel()
+model <- datamodel()
 ```
 
 <img src="man/cutoffvalue_figures/README-model-data-1.jpeg" style="display: block; margin: auto;" />
@@ -147,6 +147,6 @@ cutoffvalue_lwd <- 2 # line width for the cutoff value
 plottyMcplotty <- cutoffplot(mydata, title, xlab, cutofflab, cutoffunits, LowerMode_col, LowerMode_lty, LowerMode_lwd, UpperMode_col, UpperMode_lty, UpperMode_lwd, cutoffvalue_col, cutoffvalue_lty, cutoffvalue_lwd)
 ```
 
-<img src="man/cutoffvalue_figures/README-pretty_graph-1.jpeg" width="700" height="390" style="display: block; margin: auto;" />
+<img src="man/cutoffvalue_figures/README-graph-1.jpeg" width="700" height="390" style="display: block; margin: auto;" />
 
 _All figures can be found in the "cutoffvalue_figures" folder. They are exported as PDF, JPEG, and PNG at 300 dpi._

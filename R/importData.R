@@ -1,8 +1,8 @@
 #' @title Import your dataset
 #' @description This function imports your dataset from an excel file, removes any blank rows, and determines the minimum and maximum values
 #'
-#' @param mydata Your data file; data should be organized in as a single column of log- or natural log-transformed data without a
-#' column header
+#' @param mydata Your data file; data should be organized in an Excel document as a single column of log- or natural log-transformed data without a
+#' column header.
 #'
 #' @return Returns a list of values from the raw data in your Excel spreadsheet that has blanks removed.
 #'
@@ -18,10 +18,9 @@
 
 importdata <- function(mydata) {
   mydata <- here::here("R", "exampledata.xlsx")
-  rawdata <- mydata
-  rawdata <- read_excel(rawdata)
-  data_na <- na.omit(rawdata)
-  mydata <- data_na[[1]]
+  mydata <- read_excel(mydata)
+  mydata <- na.omit(mydata)
+  mydata <- mydata[[1]]
   mydataUpper <- max(mydata)
   mydataLower <- min(mydata)
   return(list(data = mydata, upper = mydataUpper, lower = mydataLower))

@@ -7,8 +7,8 @@
 importdata(mydata)
 }
 \arguments{
-\item{mydata}{Your data file; data should be organized in as a single column of log- or natural log-transformed data without a
-column header}
+\item{mydata}{Your data file; data should be organized in an Excel document as a single column of log- or natural log-transformed data without a
+column header.}
 }
 \value{
 Returns a list of values from the raw data in your Excel spreadsheet that has blanks removed.

@@ -4,11 +4,11 @@
 \alias{curves}
 \title{Fit curves to each mode of the dataset}
 \usage{
-curves(mydata)
+curves(mydata = "R/exampledata.xlsx")
 }
 \arguments{
-\item{mydata}{Your data file; data should be organized in as a single column of log- or natural log-transformed data without a
-column header}
+\item{mydata}{Your data file; data should be organized in an Excel document as a single column of log- or natural log-transformed data without a
+column header.}
 }
 \value{
 Returns three sets of values, which are used to plot curves for the lower and upper modes.

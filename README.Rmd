@@ -78,9 +78,9 @@ modetest <- modes()
 _Returns excess mass statistic and p-value. If the p-value is less than 0.05, accept the alternative hypothesis (data is more than unimodal) and proceed with analysis. However, if the p-value is more than 0.05, the data is unimodal and the following analyses are not entirely valid._
 
 ### Fit a model to the data
-Fit the two component mixture models to the data and plot a rough histogram with the fitted lines. Also, define the index.lower value to be used in the find.cutoff function.
+Fit the two component mixture models to the data and plot a rough histogram with the fitted lines. It also defines the index.lower value to be used in the find.cutoff function.
 ```{r model-data, results='hide'}
-Mcmodel <- datamodel()
+model <- datamodel()
 ```
 
 _Make sure things look right, but won’t actually use this graph as it plots on a density scale and may cause confusion. However, this should look pretty spot on (final graph will just be scaled up by a constant determined later on), so make sure that the point where the two curves intersect is where you are expecting the cutoff to be._
@@ -114,7 +114,7 @@ _Creates curves using model parameters_
 Plot a pretty graph - SOME OF THE FOLLOWING WILL NEED TO BE TWEAKED TO FIT YOUR DATA/PREFERENCES!!! If nothing is specified in the plot function, then these are used.
 
 #### Specify graph labels
-```{r, echo=TRUE}
+```{r graph-parameters, echo=TRUE}
 title <- "Plasma 11-KT levels in age-2 male spring chinook"  # Graph title
 xlab <- "Plasma [11-KT] (ng/mL)" # X-axis label
 cutofflab <- "Minijack cutoff" # label for cutoff value on graph
@@ -131,7 +131,7 @@ cutoffvalue_lwd <- 2 # line width for the cutoff value
 ```
 
 #### Plot the graph
-```{r pretty_graph, results='hide', fig.keep='last', fig.align='center', dpi=150, fig.dim=c(9, 5), out.width=700, out.height=390}
+```{r graph, results='hide', fig.keep='last', fig.align='center', dpi=150, fig.dim=c(9, 5), out.width=700, out.height=390}
 plottyMcplotty <- cutoffplot(mydata, title, xlab, cutofflab, cutoffunits, LowerMode_col, LowerMode_lty, LowerMode_lwd, UpperMode_col, UpperMode_lty, UpperMode_lwd, cutoffvalue_col, cutoffvalue_lty, cutoffvalue_lwd)
 ```
 
