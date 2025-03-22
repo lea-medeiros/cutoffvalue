@@ -4,7 +4,6 @@ author: "Lea R Medeiros"
 date: "`r Sys.Date()`"
 output: 
   rmarkdown::html_vignette:
-    fig_caption: yes
 vignette: >
   %\VignetteIndexEntry{cutoffvalue: An R Package for Cutoff Value Determination & Graphing}
   %\VignetteEngine{knitr::rmarkdown}
