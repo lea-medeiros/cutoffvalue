@@ -22,5 +22,4 @@ This function finds the cutoff value between the modes of bimodally distributed 
 }
 \examples{
 cutoff <- findcutoff()
-returnValue(cutoff)
 }

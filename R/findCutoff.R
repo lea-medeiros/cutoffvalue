@@ -17,7 +17,6 @@
 #'
 #' @examples
 #' cutoff <- findcutoff()
-#' returnValue(cutoff)
 
 findcutoff <- function(mydata = "R/exampledata.xlsx", proba=0.5, i=model$indexLower) {
   mydata <- here::here("R", "exampledata.xlsx")
