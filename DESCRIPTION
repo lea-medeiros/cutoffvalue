@@ -4,8 +4,8 @@ Version: 2.1.0
 Year: 2025
 Authors@R: 
     person("Lea", "Medeiros", "R", "lmedeiros@uidaho.edu", role = c("aut", "cre"),
-           comment = c(ORCID = "https://orcid.org/0000-0001-6944-4935"))
-URL: "https://github.com/lea-medeiros/cutoffvalue", "https://lea-medeiros.github.io/cutoffvalue/"
+           comment = c(ORCID = <https://orcid.org/0000-0001-6944-4935>))
+URL: <https://github.com/lea-medeiros/cutoffvalue>, <https://lea-medeiros.github.io/cutoffvalue/>
 Description: This is a simple R package that implements an updated version of the method first developed and used in Medeiros et al. (2018). It can be used to determine an objective cutoff value between a significantly bimodal distribution of log-transformed data and plot a representative graph of the results.
 License: MIT + file LICENSE
 Encoding: UTF-8
