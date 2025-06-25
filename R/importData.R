@@ -17,9 +17,8 @@
 #' mydata <- importdata(rawdata)
 
 importdata <- function(rawdata) {
-  mydata <- read_excel(rawdata)
-  mydata <- na.omit(mydata)
-  mydata <- mydata[[1]]
+  rawdata <- cutoffvalue:::rawdata
+  mydata <- na.omit(rawdata)
   mydataUpper <- max(mydata)
   mydataLower <- min(mydata)
   return(list(data = mydata, upper = mydataUpper, lower = mydataLower))

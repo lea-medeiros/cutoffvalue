@@ -18,6 +18,7 @@
 #' curves <- curves(rawdata)
 
 curves <- function(rawdata){
+  rawdata <- cutoffvalue:::rawdata
   mydata <- importdata(rawdata)
   model <- datamodel(rawdata)
   fitData <- fitparams(rawdata)
