@@ -4,7 +4,7 @@
 \alias{importdata}
 \title{Import your dataset}
 \usage{
-importdata(mydata)
+importdata(rawdata = "R/exampledata.xlsx")
 }
 \arguments{
 \item{mydata}{Your data file; data should be organized in an Excel document as a single column of log- or natural log-transformed data without a
