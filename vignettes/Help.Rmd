@@ -64,8 +64,9 @@ Evaluating an objective and valid cutoff value depends upon whether the dataset 
 
 Please keep in mind that the default parameters of `cutoffvalue` assume a bimodal distribution - any other modalities may cause inaccuracies in the results.
 
-```{r modetest, warning=FALSE, echo=1}
-modetest <- modes("R/exampledata.xlsx")
+```{r modetest, warning=FALSE}
+rawdata <- "exampledata.xlsx"
+modetest <- modes(rawdata)
 ```
 
 _The `modes()` function returns the p-value and excess mass statistic along with instructions on how to proceed based on the p-value. If the p-value is less than 0.05, accept the alternative hypothesis (data is at least bimodal) and proceed with analysis. However, if the p-value is more than 0.05, the data is unimodal and the following analyses are not entirely valid._
@@ -100,7 +101,8 @@ cutoffvalue_lwd <- 2 # line width for the cutoff value
 
 ### Plot the graph
 ```{r graph, results='hide', fig.keep='last', fig.align='center', dpi=150, fig.dim=c(9, 5), out.width=700, out.height=390}
-plottyMcplotty <- cutoffplot(rawdata, title, xlab, cutofflab, cutoffunits, LowerMode_col, LowerMode_lty, LowerMode_lwd, UpperMode_col, UpperMode_lty, UpperMode_lwd, cutoffvalue_col, cutoffvalue_lty, cutoffvalue_lwd)
+rawdata <- "exampledata.xlsx"
+plotty <- cutoffplot(rawdata, title, xlab, cutofflab, cutoffunits, LowerMode_col, LowerMode_lty, LowerMode_lwd, UpperMode_col, UpperMode_lty, UpperMode_lwd, cutoffvalue_col, cutoffvalue_lty, cutoffvalue_lwd)
 ```
 
 <br/><br/>
@@ -116,7 +118,8 @@ This function is used to import your dataset into the R Studio Environment. It u
 > If nothing is specified (i.e., only "importdata()" is typed into the console), this function will use "R/exampledata.xlsx" as the default dataset. 
 
 ```{r importdata}
-rawdata <- importdata("R/exampledata.xlsx")
+rawdata <- "exampledata.xlsx"
+mydata <- importdata(rawdata)
 ```
 
 ## Use the `datamodel` function to generate models for each mode of the dataset
@@ -128,7 +131,8 @@ The `datamodel` function fits two component mixture models to the data and plots
 > When given a label (i.e., "model" in the example below), the `datamodel()` function returns a list of 2 objects to the Environment - `model$mydata` and `model$indexLower`, which are used in subsequent functions.
 
 ```{r model-data, results='hide', fig.keep='last', fig.align='center', dpi=150, fig.dim=c(9, 5), out.width=700, out.height=390}
-model <- datamodel("R/exampledata.xlsx")
+rawdata <- "exampledata.xlsx"
+model <- datamodel(rawdata)
 ```
 
 _This isn't the final graph, but still should be inspected to ensure that things look right. In particular, make sure that the point where the two curves intersect is where you are expecting the cutoff to be._
@@ -142,7 +146,8 @@ The `findcutoff` function determines the cutoff value between the two modes with
 > Running the `findcutoff` function with a label (e.g., "cutoff" in the example below) will return the cutoff value to the Environment, but otherwise it does not report to the console. Use "returnValue(cutoff)" if you would like to see the value in the console.
 
 ```{r find-cutoff, fig.show='hide'}
-cutoff <- findcutoff("R/exampledata.xlsx", proba=0.5)
+rawdata <- "exampledata.xlsx"
+cutoff <- findcutoff(rawdata, proba=0.5)
 ```
 
 _The uniroot lower (`mydata$lower`) and upper values (`mydata$upper`) are determined using the range of "mydata" and will reflect the dataset being analyzed. If there are errors due to the uniroot, consider editing the custom values to something that more generally reflects the range of the data being analyzed._
@@ -156,7 +161,8 @@ The `fitparams` function will produce a basic histogram from the dataset, which 
 The `fitparams` function returns a list of values to the Environment that are used in subsequent functions.
 
 ```{r basic-histogram, results='hide', fig.keep='last', fig.align='center', dpi=150, fig.dim=c(9, 5), out.width=700, out.height=390}
-fit <- fitparams("R/exampledata.xlsx", breaks = 15)
+rawdata <- "exampledata.xlsx"
+fit <- fitparams(rawdata, breaks = 15)
 ```
 
 _This histogram should be a general outline of what you would like the histogram in the final plot to look like. If it is not, change the number of breaks until it is. The scale of the axes in the final graph will better represent your dataset, so don't worry about those._
@@ -170,5 +176,6 @@ The `curves` function determines x and y values to calculate the points for the 
 The `curves` function returns a list of 3 objects to the Environment, which are used by the `cutoffplot` function when producing the final plot.
 
 ```{r curves, results='hide', fig.show='hide'}
-curves <- curves("R/exampledata.xlsx")
+rawdata <- "exampledata.xlsx"
+curves <- curves(rawdata)
 ```
