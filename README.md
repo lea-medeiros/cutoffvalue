@@ -48,7 +48,7 @@ library(readxl)
 Specify the data file to be used in the analyses and graph (if located in root folder of an R project, path information is not necessary). Reminder: data should be organized in as a single column of log- or natural log-transformed data without a column header.
 
 ``` r
-mydata <- "R/exampledata.xlsx"
+rawdata <- "R/exampledata.xlsx"
 ```
 
 _This step isn't necessary if you'd rather use the path name for your data._
@@ -57,7 +57,7 @@ _This step isn't necessary if you'd rather use the path name for your data._
 Import data and remove rows containing NA data. This function also defines minimum and maximum values for the dataset. The default for each function is specified as "R/exampledata.xlsx", meaning that running any function without specifying the dataset will use the exampledata.xlsx file.
 
 ``` r
-mydata <- importdata()
+mydata <- importdata(rawdata)
 ```
 
 _Alternatively, you could enter the path name of your data in the read_excel function_
@@ -66,11 +66,11 @@ _Alternatively, you could enter the path name of your data in the read_excel fun
 Determine if the data is not unimodal (e.g., bimodal). This function also returns the Excess Mass statistic and associated p-value in the Environment. 
 
 ``` r
-modetest <- modes()
+modetest <- modes(rawdata)
 ## Modality Test Results
 ## 
-## P-value: 0.006 
-## Excess Mass Statistic: 0.09844352 
+## P-value: 0.004 
+## Excess Mass Statistic: 0.09844571 
 ## **Reject null hypothesis** Distribution contains more than one mode; proceed with analyses.
 ## 
 ## Test Credit: Ameijeiras-Alonso et al. (2019) excess mass test
@@ -82,7 +82,7 @@ _Returns excess mass statistic and p-value. If the p-value is less than 0.05, ac
 Fit the two component mixture models to the data and plot a rough histogram with the fitted lines. It also defines the index.lower value to be used in the find.cutoff function.
 
 ``` r
-model <- datamodel()
+model <- datamodel(rawdata)
 ```
 
 <img src="man/cutoffvalue_figures/README-model-data-1.jpeg" style="display: block; margin: auto;" />
@@ -93,7 +93,9 @@ _Make sure things look right, but won’t actually use this graph as it plots on
 Determine the cutoff value between the two populations that has an equal chance of being drawn from either mode. The default is 0.5, but the probability can be changed in the code.
 
 ``` r
-cutoff <- findcutoff()
+cutoff <- findcutoff(rawdata)
+## number of iterations= 18
+## Cutoff Value: 0.1124709
 ```
 
 _The uniroot lower and upper values are determined using the range of "mydata" and will reflect the dataset being analyzed. If there are errors due to the uniroot, consider editing the custom values to something that more generally reflects the range of the data being analyzed._
@@ -102,7 +104,7 @@ _The uniroot lower and upper values are determined using the range of "mydata" a
 The code below will produce basic histogram of data used for the parameters it produces; alter number of breaks to reflect what you would like to see in the final graph. Then, use various parameters to define variables for the final graph
 
 ``` r
-fit <- fitparams()
+fit <- fitparams(rawdata)
 ```
 
 <img src="man/cutoffvalue_figures/README-basic-histogram-1.jpeg" style="display: block; margin: auto;" />
@@ -111,7 +113,7 @@ fit <- fitparams()
 Determine x and y values to calculate the points for the curves to represent the generated models
 
 ``` r
-curves <- curves()
+curves <- curves(rawdata)
 ```
 
 _Creates curves using model parameters_
@@ -140,7 +142,7 @@ cutoffvalue_lwd <- 2 # line width for the cutoff value
 #### Plot the graph
 
 ``` r
-plottyMcplotty <- cutoffplot(mydata, title, xlab, cutofflab, cutoffunits, LowerMode_col, LowerMode_lty, LowerMode_lwd, UpperMode_col, UpperMode_lty, UpperMode_lwd, cutoffvalue_col, cutoffvalue_lty, cutoffvalue_lwd)
+plottyMcplotty <- cutoffplot(rawdata, title, xlab, cutofflab, cutoffunits, LowerMode_col, LowerMode_lty, LowerMode_lwd, UpperMode_col, UpperMode_lty, UpperMode_lwd, cutoffvalue_col, cutoffvalue_lty, cutoffvalue_lwd)
 ```
 
 <img src="man/cutoffvalue_figures/README-graph-1.jpeg" width="700" height="390" style="display: block; margin: auto;" />
