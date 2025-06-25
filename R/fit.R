@@ -16,10 +16,9 @@
 #' @examples
 #' fit <- fitparams()
 
-fitparams <- function(mydata = "R/exampledata.xlsx", breaks = 15){
-  mydata <- here::here("R", "exampledata.xlsx")
-  mydata <- importdata(mydata)
-  model <- datamodel()
+fitparams <- function(rawdata = "R/exampledata.xlsx", breaks = 15){
+  mydata <- importdata(rawdata)
+  model <- datamodel(rawdata)
   h <- hist(mydata$data, breaks = breaks)
   step <- abs(h$breaks[[1]]-h$breaks[[2]])
   return(list(h = h, xlimUpper = round(mydata$upper*2)/2, xlimLower = (round(mydata$lower*2)/2)-0.25,

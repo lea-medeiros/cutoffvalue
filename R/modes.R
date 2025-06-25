@@ -17,11 +17,10 @@
 #' @examples
 #' modetest <- modes()
 
-modes <- function(mydata = "R/exampledata.xlsx"){
-  mydata <- here::here("R", "exampledata.xlsx")
-  mydata <- importdata(mydata)
+modes <- function(rawdata = "R/exampledata.xlsx"){
+  mydata <- importdata(rawdata)
   modes1 <- modetest(mydata$data)
-  EMS_stats <- function(mydata = "R/exampledata.xlsx"){
+  EMS_stats <- function(mydata){
     EMS_value <- modes1$statistic
     EMS_pvalue <- modes1$p.value
     cat('Modality Test Results\n\nP-value:', EMS_pvalue,'\nExcess Mass Statistic:', EMS_value, '\n')

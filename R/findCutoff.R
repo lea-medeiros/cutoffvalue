@@ -18,20 +18,19 @@
 #' @examples
 #' cutoff <- findcutoff()
 
-findcutoff <- function(mydata = "R/exampledata.xlsx", proba=0.5, i=model$indexLower) {
-  mydata <- here::here("R", "exampledata.xlsx")
-  mydata <- importdata(mydata)
-  model <- datamodel()
+findcutoff <- function(rawdata, proba=0.5, i=model$indexLower) {
+  mydata <- importdata(rawdata)
+  model <- datamodel(rawdata)
   ## Cutoff such that Pr[drawn from bad component] == proba
-  f <- function(x) {
+  f <- function(x, proba=0.5, i=model$indexLower) {
     proba - (model$mydata$lambda[i]*dnorm(x, model$mydata$mu[i], model$mydata$sigma[i]) /
                (model$mydata$lambda[1]*dnorm(x, model$mydata$mu[1], model$mydata$sigma[1]) +
                   model$mydata$lambda[2]*dnorm(x, model$mydata$mu[2], model$mydata$sigma[2])))
   }
-  cutoffvalue_results <- function(x){
+  cutoffvalue_results <- function(x, proba=0.5){
     return(uniroot(f=f, lower=mydata$lower, upper=mydata$upper)$root)
   }
-  cutoffvalues <- function(x){
+  cutoffvalues <- function(x, proba=0.5){
     cat('Cutoff Value:', cutoff)
     return(uniroot(f=f, lower=mydata$lower, upper=mydata$upper)$root)
   }

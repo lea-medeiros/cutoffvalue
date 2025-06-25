@@ -17,17 +17,16 @@
 #' @export
 #'
 #' @examples
-#' plottyMcplotty <- cutoffplot(mydata, "Example Graph Title", "Example X-Axis", "Cutoff Label", "UNITS")
+#' plottyMcplotty <- cutoffplot(rawdata, "Example Graph Title", "Example X-Axis", "Cutoff Label", "UNITS")
 
-cutoffplot <- function (mydata = "R/exampledata.xlsx", maintitle = "Plasma 11-KT levels in age-2 male spring chinook", xlabel = "Plasma [11-KT] (ng/mL)", cutofflabel = "Minijack cutoff",
+cutoffplot <- function (rawdata = "R/exampledata.xlsx", maintitle = "Plasma 11-KT levels in age-2 male spring chinook", xlabel = "Plasma [11-KT] (ng/mL)", cutofflabel = "Minijack cutoff",
                         cutoffunits = "ng/mL", LowerMode_col = "red", LowerMode_lty = 1, LowerMode_lwd = 2, UpperMode_col = "purple", UpperMode_lty = 1, UpperMode_lwd = 2,
                         cutoffvalue_col = "black", cutoffvalue_lty = 2, cutoffvalue_lwd = 2){
-  mydata <- here::here("R", "exampledata.xlsx")
-  mydata <- importdata(mydata)
-  model <- datamodel()
-  cutoff <- findcutoff()
-  fitData <- fitparams()
-  curves <- curves()
+  mydata <- importdata(rawdata)
+  model <- datamodel(rawdata)
+  cutoff <- findcutoff(rawdata)
+  fitData <- fitparams(rawdata)
+  curves <- curves(rawdata)
   xValues <- seq(fitData$xfitLower, fitData$xfitUpper, length=200)
   yFit1 <- model$mydata$lambda[1]*dnorm(xValues,mean=model$mydata$mu[1],sd=model$mydata$sigma[1])
   yFit2 <- model$mydata$lambda[2]*dnorm(xValues,mean=model$mydata$mu[2],sd=model$mydata$sigma[2])

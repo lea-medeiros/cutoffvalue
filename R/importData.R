@@ -16,9 +16,8 @@
 #' @examples
 #' mydata <- importdata()
 
-importdata <- function(mydata) {
-  mydata <- here::here("R", "exampledata.xlsx")
-  mydata <- read_excel(mydata)
+importdata <- function(rawdata = "R/exampledata.xlsx") {
+  mydata <- read_excel(rawdata)
   mydata <- na.omit(mydata)
   mydata <- mydata[[1]]
   mydataUpper <- max(mydata)
