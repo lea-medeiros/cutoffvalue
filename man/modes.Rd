@@ -4,7 +4,7 @@
 \alias{modes}
 \title{Determines the modality of the dataset}
 \usage{
-modes(rawdata = "R/exampledata.xlsx")
+modes(rawdata)
 }
 \arguments{
 \item{rawdata}{Your data file; data should be organized in as a single column of log- or natural log-transformed data without a
@@ -17,5 +17,5 @@ Returns the p-value and excess mass statistic to determine whether the dataset i
 This function tests the dataset's modality. It uses the modetest function from the multimode package written by Ameijeiras-Alonso et al. (2019) to determine the excess mass test statistic and test the number of modes. As a matter of course, this function runs the importData function, negating the need to run it separately.
 }
 \examples{
-modetest <- modes()
+modetest <- modes(rawdata)
 }

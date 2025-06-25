@@ -14,9 +14,9 @@
 #' @export
 #'
 #' @examples
-#' mcmodel <- datamodel("R/exampledata.xlsx")
+#' mcmodel <- datamodel(rawdata)
 
-datamodel <- function(rawdata = "R/exampledata.xlsx"){
+datamodel <- function(rawdata){
   mydata <- importdata(rawdata)
   model <- normalmixEM(mydata$data)
   plot(model, whichplots=2)

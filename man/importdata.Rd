@@ -4,7 +4,7 @@
 \alias{importdata}
 \title{Import your dataset}
 \usage{
-importdata(rawdata = "R/exampledata.xlsx")
+importdata(rawdata)
 }
 \arguments{
 \item{rawdata}{Your data file; data should be organized in an Excel document as a single column of log- or natural log-transformed data without a
@@ -17,5 +17,5 @@ Returns a list of values from the raw data in your Excel spreadsheet that has bl
 This function imports your dataset from an excel file, removes any blank rows, and determines the minimum and maximum values
 }
 \examples{
-mydata <- importdata()
+mydata <- importdata(rawdata)
 }

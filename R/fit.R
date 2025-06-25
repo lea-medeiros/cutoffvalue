@@ -14,9 +14,9 @@
 #' @export
 #'
 #' @examples
-#' fit <- fitparams()
+#' fit <- fitparams(rawdata)
 
-fitparams <- function(rawdata = "R/exampledata.xlsx", breaks = 15){
+fitparams <- function(rawdata, breaks = 15){
   mydata <- importdata(rawdata)
   model <- datamodel(rawdata)
   h <- hist(mydata$data, breaks = breaks)

@@ -58,14 +58,13 @@ library(cutoffvalue)
 
 Evaluating an objective and valid cutoff value depends upon whether the dataset is bimodal. Which means that the modality of the dataset should be determined before proceeding. The null hypothesis of this test is that the dataset is unimodal; an excess mass statistic associated with a p-value of less than 0.05 implies it is more than unimodal. It is strongly suggested that you run this test prior to any other function in `cutoffvalue`; however, how you proceed depends on your knowledge and understanding of the data.
 
-> The `modes` function uses the example dataset (located at "R/exampledata.xlsx") by default. Thus, if the path for the dataset is not specified (e.g., running modes() in the console), this is the data that will be used.
+> The `modes` function uses the example dataset (an internal dataset object identified by "rawdata") by default. Thus, if the path for the dataset is not specified (e.g., running modes() in the console), this is the data that will be used.
 
 > When given a label (i.e., "modetest" in the example below), this function returns the Excess Mass statistic and associated p-value to the Environment.
 
 Please keep in mind that the default parameters of `cutoffvalue` assume a bimodal distribution - any other modalities may cause inaccuracies in the results.
 
 ```{r modetest, warning=FALSE}
-rawdata <- "exampledata.xlsx"
 modetest <- modes(rawdata)
 ```
 
@@ -75,7 +74,7 @@ _The `modes()` function returns the p-value and excess mass statistic along with
 
 Plot a pretty graph that includes a histogram of the data, curve lines for each mode generated from the model results, the cutoff value depicted as a line, and labels customized for your dataset. 
 
-> The `cutoffplot` function uses the example dataset (located at "R/exampledata.xlsx") by default. Thus, if the path for the dataset is not specified (e.g., running cutoffplot() in the console), this is the data that will be used. Parameters (and their defaults) for the resulting graph are listed below.
+> The `cutoffplot` function uses the example dataset (an internal dataset object identified by "rawdata") by default. Thus, if the path for the dataset is not specified (e.g., running cutoffplot() in the console), this is the data that will be used. Parameters (and their defaults) for the resulting graph are listed below.
 
 > When given a label (i.e., "plottyMcPlotty" in the example below), this function returns the log-transformed cutoff value to the Environment. 
 
@@ -101,7 +100,6 @@ cutoffvalue_lwd <- 2 # line width for the cutoff value
 
 ### Plot the graph
 ```{r graph, results='hide', fig.keep='last', fig.align='center', dpi=150, fig.dim=c(9, 5), out.width=700, out.height=390}
-rawdata <- "exampledata.xlsx"
 plotty <- cutoffplot(rawdata, title, xlab, cutofflab, cutoffunits, LowerMode_col, LowerMode_lty, LowerMode_lwd, UpperMode_col, UpperMode_lty, UpperMode_lwd, cutoffvalue_col, cutoffvalue_lty, cutoffvalue_lwd)
 ```
 
@@ -115,10 +113,9 @@ The following functions are included in the `cutoffvalue` package and can be run
 
 This function is used to import your dataset into the R Studio Environment. It uses the readxl::read_excel() function to import data, and assumes it's a file containing a single column of log- or ln-transformed data. After importing the dataset, the function removes an blank rows and transforms the data into a list of numbers. This list of values (`mydata$data`) is returned to the Environment along with the minimum (`mydata$lower`) and maximum values (`mydata$upper`), which are used in subsequent functions. **A label must be applied to this function for it to be used in subsequent functions.**
 
-> If nothing is specified (i.e., only "importdata()" is typed into the console), this function will use "R/exampledata.xlsx" as the default dataset. 
+> If nothing is specified (i.e., only "importdata()" is typed into the console), this function will use an internal dataset object identified by "rawdata" as the default dataset. 
 
 ```{r importdata}
-rawdata <- "exampledata.xlsx"
 mydata <- importdata(rawdata)
 ```
 
@@ -126,12 +123,11 @@ mydata <- importdata(rawdata)
 
 The `datamodel` function fits two component mixture models to the data and plots a rough histogram with the fitted lines. It also defines the index.lower value to be used in the find.cutoff function. 
 
-> The `datamodel` function uses the example dataset (located at "R/exampledata.xlsx") by default. Thus, if the path for the dataset is not specified (e.g., running importdata() in the console), this is the dataset that will be used.
+> The `datamodel` function uses the example dataset (an internal dataset object identified by "rawdata") by default. Thus, if the path for the dataset is not specified (e.g., running importdata() in the console), this is the dataset that will be used.
 
 > When given a label (i.e., "model" in the example below), the `datamodel()` function returns a list of 2 objects to the Environment - `model$mydata` and `model$indexLower`, which are used in subsequent functions.
 
 ```{r model-data, results='hide', fig.keep='last', fig.align='center', dpi=150, fig.dim=c(9, 5), out.width=700, out.height=390}
-rawdata <- "exampledata.xlsx"
 model <- datamodel(rawdata)
 ```
 
@@ -141,12 +137,11 @@ _This isn't the final graph, but still should be inspected to ensure that things
 
 The `findcutoff` function determines the cutoff value between the two modes with an equal chance of being drawn from either mode. The default probability is set to 50% (i.e., "proba=0.5" in the example below), but the probability can be changed in the code. 
 
-> The defaults for this function are "R/exampledata.xlsx" as the raw dataset and 0.5 as the probability (i.e., running "findcutoff()" in the console will use these values)
+> The defaults for this function an internal dataset object identified by "rawdata" as the raw dataset and 0.5 as the probability (i.e., running "findcutoff()" in the console will use these values)
 
 > Running the `findcutoff` function with a label (e.g., "cutoff" in the example below) will return the cutoff value to the Environment, but otherwise it does not report to the console. Use "returnValue(cutoff)" if you would like to see the value in the console.
 
 ```{r find-cutoff, fig.show='hide'}
-rawdata <- "exampledata.xlsx"
 cutoff <- findcutoff(rawdata, proba=0.5)
 ```
 
@@ -156,12 +151,11 @@ _The uniroot lower (`mydata$lower`) and upper values (`mydata$upper`) are determ
 
 The `fitparams` function will produce a basic histogram from the dataset, which is then used to generate certain parameters for the curve fitting functions in subsequent functions. As such, you should alter the number of breaks to produce a graph representative of what you would like to see in the final plot - if not specified, the default is 15. 
 
-> If nothing is specified (i.e., only "fitparams()" is typed into the console), this function will use "R/exampledata.xlsx" as the default dataset. 
+> If nothing is specified (i.e., only "fitparams()" is typed into the console), this function will use an internal dataset object identified by "rawdata" as the default dataset. 
 
 The `fitparams` function returns a list of values to the Environment that are used in subsequent functions.
 
 ```{r basic-histogram, results='hide', fig.keep='last', fig.align='center', dpi=150, fig.dim=c(9, 5), out.width=700, out.height=390}
-rawdata <- "exampledata.xlsx"
 fit <- fitparams(rawdata, breaks = 15)
 ```
 
@@ -171,11 +165,10 @@ _This histogram should be a general outline of what you would like the histogram
 
 The `curves` function determines x and y values to calculate the points for the curves that represent the generated models in the final plot. 
 
-> If nothing is specified (i.e., only "curves()" is typed into the console), this function will use "R/exampledata.xlsx" as the default dataset. 
+> If nothing is specified (i.e., only "curves()" is typed into the console), this function will use an internal dataset object identified by "rawdata" as the default dataset. 
 
 The `curves` function returns a list of 3 objects to the Environment, which are used by the `cutoffplot` function when producing the final plot.
 
 ```{r curves, results='hide', fig.show='hide'}
-rawdata <- "exampledata.xlsx"
 curves <- curves(rawdata)
 ```

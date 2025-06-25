@@ -44,22 +44,21 @@ library(readxl)
 
 ### Define your raw dataset
 
-Specify the data file to be used in the analyses and graph (if located in root folder of an R project, path information is not necessary). Reminder: data should be organized in as a single column of log- or natural log-transformed data without a column header.
+Specify the data file to be used in the analyses and graph (if located in root folder of an R project, path information is not necessary). Reminder: data should be organized in as a single column of log- or natural log-transformed data without a column header. The package includes a dataset for use as an example - this object is accessible as "rawdata".
 
 
 ``` r
-rawdata <- "R/exampledata.xlsx"
+rawdata <- "rawdata" # replace the second rawdata with the path to your data file
 ```
 
 *This step isn't necessary if you'd rather use the path name for your data.*
 
 ### Import the raw dataset
 
-Import data and remove rows containing NA data. This function also defines minimum and maximum values for the dataset. The default for each function is specified as "R/exampledata.xlsx", meaning that running any function without specifying the dataset will use the exampledata.xlsx file.
+Import data and remove rows containing NA data. This function also defines minimum and maximum values for the dataset. The default for each function is specified as "rawdata", meaning that running any function without specifying the dataset will use this dataset.
 
 
 ``` r
-rawdata <- "R/exampledata.xlsx"
 mydata <- importdata(rawdata)
 ```
 
@@ -71,12 +70,11 @@ Determine if the data is not unimodal (e.g., bimodal). This function also return
 
 
 ``` r
-rawdata <- "R/exampledata.xlsx"
 modetest <- modes(rawdata)
 ## Modality Test Results
 ## 
-## P-value: 0.01 
-## Excess Mass Statistic: 0.09844709 
+## P-value: 0.006 
+## Excess Mass Statistic: 0.09844926 
 ## **Reject null hypothesis** Distribution contains more than one mode; proceed with analyses.
 ## 
 ## Test Credit: Ameijeiras-Alonso et al. (2019) excess mass test
@@ -90,7 +88,6 @@ Fit the two component mixture models to the data and plot a rough histogram with
 
 
 ``` r
-rawdata <- "R/exampledata.xlsx"
 model <- datamodel(rawdata)
 ```
 
@@ -104,10 +101,9 @@ Determine the cutoff value between the two populations that has an equal chance 
 
 
 ``` r
-rawdata <- "R/exampledata.xlsx"
 cutoff <- findcutoff(rawdata)
-## number of iterations= 33
-## Cutoff Value: 0.1124705
+## number of iterations= 15
+## Cutoff Value: 0.1124709
 ```
 
 *The uniroot lower and upper values are determined using the range of "mydata" and will reflect the dataset being analyzed. If there are errors due to the uniroot, consider editing the custom values to something that more generally reflects the range of the data being analyzed.*
@@ -118,7 +114,6 @@ The code below will produce basic histogram of data used for the parameters it p
 
 
 ``` r
-rawdata <- "R/exampledata.xlsx"
 fit <- fitparams(rawdata)
 ```
 
@@ -130,7 +125,6 @@ Determine x and y values to calculate the points for the curves to represent the
 
 
 ``` r
-rawdata <- "R/exampledata.xlsx"
 curves <- curves(rawdata)
 ```
 
@@ -163,7 +157,6 @@ cutoffvalue_lwd <- 2 # line width for the cutoff value
 
 
 ``` r
-rawdata <- "R/exampledata.xlsx"
 plotty <- cutoffplot(rawdata, title, xlab, cutofflab, cutoffunits, LowerMode_col, LowerMode_lty, LowerMode_lwd, UpperMode_col, UpperMode_lty, UpperMode_lwd, cutoffvalue_col, cutoffvalue_lty, cutoffvalue_lwd)
 ```
 

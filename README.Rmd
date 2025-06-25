@@ -52,20 +52,19 @@ library(readxl)
 
 ### Define your raw dataset
 
-Specify the data file to be used in the analyses and graph (if located in root folder of an R project, path information is not necessary). Reminder: data should be organized in as a single column of log- or natural log-transformed data without a column header.
+Specify the data file to be used in the analyses and graph (if located in root folder of an R project, path information is not necessary). Reminder: data should be organized in as a single column of log- or natural log-transformed data without a column header. The package includes a dataset for use as an example - this object is accessible as "rawdata".
 
 ```{r define-your-data}
-rawdata <- "R/exampledata.xlsx"
+rawdata <- "rawdata" # replace the second rawdata with the path to your data file
 ```
 
 *This step isn't necessary if you'd rather use the path name for your data.*
 
 ### Import the raw dataset
 
-Import data and remove rows containing NA data. This function also defines minimum and maximum values for the dataset. The default for each function is specified as "R/exampledata.xlsx", meaning that running any function without specifying the dataset will use the exampledata.xlsx file.
+Import data and remove rows containing NA data. This function also defines minimum and maximum values for the dataset. The default for each function is specified as "rawdata", meaning that running any function without specifying the dataset will use this dataset.
 
 ```{r import-your-data}
-rawdata <- "R/exampledata.xlsx"
 mydata <- importdata(rawdata)
 ```
 
@@ -76,7 +75,6 @@ mydata <- importdata(rawdata)
 Determine if the data is not unimodal (e.g., bimodal). This function also returns the Excess Mass statistic and associated p-value in the Environment.
 
 ```{r modetest, warning=FALSE}
-rawdata <- "R/exampledata.xlsx"
 modetest <- modes(rawdata)
 ```
 
@@ -87,7 +85,6 @@ modetest <- modes(rawdata)
 Fit the two component mixture models to the data and plot a rough histogram with the fitted lines. It also defines the index.lower value to be used in the find.cutoff function.
 
 ```{r model-data, results='hide'}
-rawdata <- "R/exampledata.xlsx"
 model <- datamodel(rawdata)
 ```
 
@@ -98,7 +95,6 @@ model <- datamodel(rawdata)
 Determine the cutoff value between the two populations that has an equal chance of being drawn from either mode. The default is 0.5, but the probability can be changed in the code.
 
 ```{r find-cutoff, fig.show='hide'}
-rawdata <- "R/exampledata.xlsx"
 cutoff <- findcutoff(rawdata)
 ```
 
@@ -109,7 +105,6 @@ cutoff <- findcutoff(rawdata)
 The code below will produce basic histogram of data used for the parameters it produces; alter number of breaks to reflect what you would like to see in the final graph. Then, use various parameters to define variables for the final graph
 
 ```{r basic-histogram, results='hide', fig.keep='last'}
-rawdata <- "R/exampledata.xlsx"
 fit <- fitparams(rawdata)
 ```
 
@@ -118,7 +113,6 @@ fit <- fitparams(rawdata)
 Determine x and y values to calculate the points for the curves to represent the generated models
 
 ```{r curves, results='hide', fig.show='hide'}
-rawdata <- "R/exampledata.xlsx"
 curves <- curves(rawdata)
 ```
 
@@ -149,7 +143,6 @@ cutoffvalue_lwd <- 2 # line width for the cutoff value
 #### Plot the graph
 
 ```{r graph, results='hide', fig.keep='last'}
-rawdata <- "R/exampledata.xlsx"
 plotty <- cutoffplot(rawdata, title, xlab, cutofflab, cutoffunits, LowerMode_col, LowerMode_lty, LowerMode_lwd, UpperMode_col, UpperMode_lty, UpperMode_lwd, cutoffvalue_col, cutoffvalue_lty, cutoffvalue_lwd)
 ```
 

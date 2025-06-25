@@ -16,9 +16,9 @@
 #' @export
 #'
 #' @examples
-#' cutoff <- findcutoff()
+#' cutoff <- findcutoff(rawdata)
 
-findcutoff <- function(rawdata = "R/exampledata.xlsx", proba=0.5, i=model$indexLower) {
+findcutoff <- function(rawdata, proba=0.5, i=model$indexLower) {
   mydata <- importdata(rawdata)
   model <- datamodel(rawdata)
   ## Cutoff such that Pr[drawn from bad component] == proba

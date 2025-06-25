@@ -19,7 +19,7 @@
 #' @examples
 #' plotty <- cutoffplot(rawdata, "Example Graph Title", "Example X-Axis", "Cutoff Label", "UNITS")
 
-cutoffplot <- function (rawdata = "R/exampledata.xlsx", maintitle = "Plasma 11-KT levels in age-2 male spring chinook", xlabel = "Plasma [11-KT] (ng/mL)", cutofflabel = "Minijack cutoff",
+cutoffplot <- function (rawdata, maintitle = "Plasma 11-KT levels in age-2 male spring chinook", xlabel = "Plasma [11-KT] (ng/mL)", cutofflabel = "Minijack cutoff",
                         cutoffunits = "ng/mL", LowerMode_col = "red", LowerMode_lty = 1, LowerMode_lwd = 2, UpperMode_col = "purple", UpperMode_lty = 1, UpperMode_lwd = 2,
                         cutoffvalue_col = "black", cutoffvalue_lty = 2, cutoffvalue_lwd = 2){
   mydata <- importdata(rawdata)
