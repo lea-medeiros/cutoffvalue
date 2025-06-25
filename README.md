@@ -75,8 +75,8 @@ rawdata <- "R/exampledata.xlsx"
 modetest <- modes(rawdata)
 ## Modality Test Results
 ## 
-## P-value: 0.01 
-## Excess Mass Statistic: 0.09845028 
+## P-value: 0.002 
+## Excess Mass Statistic: 0.09845221 
 ## **Reject null hypothesis** Distribution contains more than one mode; proceed with analyses.
 ## 
 ## Test Credit: Ameijeiras-Alonso et al. (2019) excess mass test
@@ -106,8 +106,8 @@ Determine the cutoff value between the two populations that has an equal chance 
 ``` r
 rawdata <- "R/exampledata.xlsx"
 cutoff <- findcutoff(rawdata)
-## number of iterations= 21
-## Cutoff Value: 0.1124711
+## number of iterations= 11
+## Cutoff Value: 0.1124701
 ```
 
 *The uniroot lower and upper values are determined using the range of "mydata" and will reflect the dataset being analyzed. If there are errors due to the uniroot, consider editing the custom values to something that more generally reflects the range of the data being analyzed.*
@@ -167,6 +167,6 @@ rawdata <- "R/exampledata.xlsx"
 plotty <- cutoffplot(rawdata, title, xlab, cutofflab, cutoffunits, LowerMode_col, LowerMode_lty, LowerMode_lwd, UpperMode_col, UpperMode_lty, UpperMode_lwd, cutoffvalue_col, cutoffvalue_lty, cutoffvalue_lwd)
 ```
 
-<img src="man/cutoffvalue_figures/README-graph-1.jpeg" width="700" height="390" style="display: block; margin: auto;" />
+<img src="man/cutoffvalue_figures/README-graph-1.jpeg" style="display: block; margin: auto;" />
 
 *All figures can be found in the "cutoffvalue_figures" folder. They are exported as PDF, JPEG, and PNG at 300 dpi.*

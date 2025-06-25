@@ -148,7 +148,7 @@ cutoffvalue_lwd <- 2 # line width for the cutoff value
 
 #### Plot the graph
 
-```{r graph, results='hide', fig.keep='last', fig.align='center', dpi=150, fig.dim=c(9, 5), out.width=700, out.height=390}
+```{r graph, results='hide', fig.keep='last'}
 rawdata <- "R/exampledata.xlsx"
 plotty <- cutoffplot(rawdata, title, xlab, cutofflab, cutoffunits, LowerMode_col, LowerMode_lty, LowerMode_lwd, UpperMode_col, UpperMode_lty, UpperMode_lwd, cutoffvalue_col, cutoffvalue_lty, cutoffvalue_lwd)
 ```
