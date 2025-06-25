@@ -15,7 +15,8 @@
 #' @export
 #'
 #' @examples
-#' modetest <- modes()
+#' rawdata <- "R/exampledata.xlsx"
+#' modetest <- modes(rawdata)
 
 modes <- function(rawdata = "R/exampledata.xlsx"){
   mydata <- importdata(rawdata)
