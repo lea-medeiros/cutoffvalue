@@ -7,7 +7,7 @@
 datamodel(rawdata = "R/exampledata.xlsx")
 }
 \arguments{
-\item{mydata}{Your data file; data should be organized in an Excel document as a single column of log- or natural log-transformed data without a
+\item{rawdata}{Your data file; data should be organized in an Excel document as a single column of log- or natural log-transformed data without a
 column header.}
 }
 \value{
@@ -17,5 +17,5 @@ Returns the model parameters and lower index value for the data set.
 This function generates the normal mix EM model for the data set. As a matter of course, this function also runs the importData function for you, negating the need to run it separately.
 }
 \examples{
-Mcmodel <- datamodel()
+mcmodel <- datamodel()
 }
