@@ -16,8 +16,7 @@
 #' @export
 #'
 #' @examples
-#' rawdata <- "R/exampledata.xlsx"
-#' cutoff <- findcutoff(rawdata)
+#' cutoff <- findcutoff()
 
 findcutoff <- function(rawdata = "R/exampledata.xlsx", proba=0.5, i=model$indexLower) {
   mydata <- importdata(rawdata)

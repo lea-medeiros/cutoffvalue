@@ -14,8 +14,7 @@
 #' @export
 #'
 #' @examples
-#' rawdata <- "R/exampledata.xlsx"
-#' fit <- fitparams(rawdata)
+#' fit <- fitparams()
 
 fitparams <- function(rawdata = "R/exampledata.xlsx", breaks = 15){
   mydata <- importdata(rawdata)

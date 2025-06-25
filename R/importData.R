@@ -14,8 +14,7 @@
 #' @export
 #'
 #' @examples
-#' rawdata <- "R/exampledata.xlsx"
-#' mydata <- importdata(rawdata)
+#' mydata <- importdata()
 
 importdata <- function(rawdata = "R/exampledata.xlsx") {
   mydata <- read_excel(rawdata)
