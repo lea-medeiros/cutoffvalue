@@ -1,7 +1,7 @@
 ---
 title: "Cutoff Value Determination & Graph"
 author: "Lea R Medeiros"
-date: "2025-03-20"
+date: "2025-06-25"
 output:
   html_document:
     keep_md: true
@@ -69,8 +69,8 @@ Determine if the data is not unimodal (e.g., bimodal). This function also return
 modetest <- modes(rawdata)
 ## Modality Test Results
 ## 
-## P-value: 0.006 
-## Excess Mass Statistic: 0.09845424 
+## P-value: 0.008 
+## Excess Mass Statistic: 0.09846837 
 ## **Reject null hypothesis** Distribution contains more than one mode; proceed with analyses.
 ## 
 ## Test Credit: Ameijeiras-Alonso et al. (2019) excess mass test
@@ -94,7 +94,7 @@ Determine the cutoff value between the two populations that has an equal chance 
 
 ``` r
 cutoff <- findcutoff(rawdata)
-## number of iterations= 21
+## number of iterations= 23
 ## Cutoff Value: 0.1124705
 ```
 
