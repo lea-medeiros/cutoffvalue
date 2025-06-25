@@ -14,7 +14,7 @@
 #' @export
 #'
 #' @examples
-#' mcmodel <- datamodel()
+#' mcmodel <- datamodel("R/exampledata.xlsx")
 
 datamodel <- function(rawdata = "R/exampledata.xlsx"){
   mydata <- importdata(rawdata)

@@ -15,7 +15,7 @@
 #' @export
 #'
 #' @examples
-#' curves <- curves()
+#' curves <- curves("R/exampledata.xlsx")
 
 curves <- function(rawdata = "R/exampledata.xlsx"){
   mydata <- importdata(rawdata)
