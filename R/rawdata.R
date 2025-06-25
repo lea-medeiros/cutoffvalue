@@ -6,7 +6,6 @@
 #' A data frame with 98 rows and 1 column:
 #' \describe{
 #'   \item{11-KT Values}
-#'   ...
 #' }
 #' @source <https://doi.org/10.1002/tafs.10097>
 "rawdata"

@@ -10,7 +10,6 @@
 A data frame with 98 rows and 1 column:
 \describe{
 \item{11-KT Values}
-...
 }
 }
 }
