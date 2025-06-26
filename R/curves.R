@@ -16,10 +16,10 @@
 #' @examples
 #' curves <- curves(rawdata)
 
-curves <- function(rawdata){
-  mydata <- cleandata(rawdata)
-  model <- datamodel(rawdata)
-  fitData <- fitparams(rawdata)
+curves <- function(x){
+  mydata <- cleandata(x)
+  model <- datamodel(x)
+  fitData <- fitparams(x)
   xFit <- seq(fitData$xfitLower, fitData$xfitUpper, length=200)
   yFit1 <- model$mydata$lambda[1]*dnorm(xFit,mean=model$mydata$mu[1],sd=model$mydata$sigma[1])
   yFit2 <- model$mydata$lambda[2]*dnorm(xFit,mean=model$mydata$mu[2],sd=model$mydata$sigma[2])

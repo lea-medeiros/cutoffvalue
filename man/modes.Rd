@@ -4,7 +4,7 @@
 \alias{modes}
 \title{Determines the modality of the dataset}
 \usage{
-modes(rawdata)
+modes(x)
 }
 \arguments{
 \item{rawdata}{Your data file; data should be organized in as a single column of log- or natural log-transformed data without a

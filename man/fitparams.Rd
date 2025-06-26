@@ -4,7 +4,7 @@
 \alias{fitparams}
 \title{Generate a histogram, with associated parameters, from the dataset}
 \usage{
-fitparams(rawdata, breaks = 15)
+fitparams(x, breaks = 15)
 }
 \arguments{
 \item{rawdata}{Your data file; data should be organized in an Excel document as a single column of log- or natural log-transformed data without a

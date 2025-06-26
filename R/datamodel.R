@@ -15,8 +15,8 @@
 #' @examples
 #' mcmodel <- datamodel(rawdata)
 
-datamodel <- function(rawdata){
-  mydata <- cleandata(rawdata)
+datamodel <- function(x){
+  mydata <- cleandata(x)
   model <- normalmixEM(mydata$data)
   plot(model, whichplots=2)
   return(list(mydata = model, indexLower = which.min(model$mu)))

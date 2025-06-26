@@ -15,9 +15,9 @@
 #' @examples
 #' fit <- fitparams(rawdata)
 
-fitparams <- function(rawdata, breaks = 15){
-  mydata <- cleandata(rawdata)
-  model <- datamodel(rawdata)
+fitparams <- function(x, breaks = 15){
+  mydata <- cleandata(x)
+  model <- datamodel(x)
   h <- hist(mydata$data, breaks = breaks)
   step <- abs(h$breaks[[1]]-h$breaks[[2]])
   return(list(h = h, xlimUpper = round(mydata$upper*2)/2, xlimLower = (round(mydata$lower*2)/2)-0.25,

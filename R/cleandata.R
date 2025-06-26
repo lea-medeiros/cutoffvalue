@@ -18,7 +18,7 @@
 cleandata <- function(x) {
   #rawdata <- get0("rawdata", envir = asNamespace("cutoffvalue"))
   mydata <- na.omit(x)
-  mydataUpper <- max(x)
-  mydataLower <- min(x)
+  mydataUpper <- max(mydata)
+  mydataLower <- min(mydata)
   return(list(data = mydata, upper = mydataUpper, lower = mydataLower))
 }
