@@ -15,14 +15,16 @@ output:
 
 Cutoffvalue is a simple R package that implements an updated version of the method first developed and used in Medeiros et al. (2018). It can be used to determine an objective cutoff value between a significantly bimodal distribution of log-transformed data and plot a representative graph of the results.
 
+
 ## Installation
 
 You can install the development version of cutoffvalue from [GitHub](https://github.com/lea-medeiros/cutoffvalue.git) with:
 
+
 ``` r
-# install.packages("devtools")
-devtools::install_github("lea-medeiros/cutoffvalue", dependencies = TRUE, build_vignettes = TRUE)
+# devtools::install_github("lea-medeiros/cutoffvalue", dependencies = TRUE, build_vignettes = TRUE)
 ```
+
 
 ## Example
 
@@ -39,30 +41,29 @@ library(mixtools)
 library(Hmisc)
 library(plyr)
 library(multimode)
+```
+
+### Import your dataset
+
+Import the data file to be used in the analyses and graph. The package includes a dataset for use as an example - this object is accessible as "rawdata" and will be used in the examples.
+
+Import your dataset any way you prefer. However, keep in mind that data should be organized as a single column of log- or natural log-transformed data. I find that the easiest way to import data is to use the "Import Dataset" function built into R Studio, but you can also use code (an example is provided below).
+
+``` r
 library(readxl)
+yourrawdata <- read_excel("/path/to/your/excel/data")
 ```
 
-### Define your raw dataset
 
-Specify the data file to be used in the analyses and graph (if located in root folder of an R project, path information is not necessary). Reminder: data should be organized in as a single column of log- or natural log-transformed data without a column header. The package includes a dataset for use as an example - this object is accessible as "rawdata".
+### Clean the raw dataset
+
+Remove rows containing NA data while also defining the minimum and maximum values for the dataset. The default for each function is specified as "rawdata", meaning that running any function without specifying the object (e.g., just typing "importdata()" into the console) will use this dataset.
 
 
 ``` r
-rawdata <- "rawdata" # replace the second rawdata with the path to your data file
+mydata <- cleandata(rawdata)
 ```
 
-*This step isn't necessary if you'd rather use the path name for your data.*
-
-### Import the raw dataset
-
-Import data and remove rows containing NA data. This function also defines minimum and maximum values for the dataset. The default for each function is specified as "rawdata", meaning that running any function without specifying the dataset will use this dataset.
-
-
-``` r
-mydata <- importdata(rawdata)
-```
-
-*Alternatively, you could enter the path name of your data in the read_excel function*
 
 ### Determine modality
 
@@ -74,7 +75,7 @@ modetest <- modes(rawdata)
 ## Modality Test Results
 ## 
 ## P-value: 0.006 
-## Excess Mass Statistic: 0.09844926 
+## Excess Mass Statistic: 0.09845026 
 ## **Reject null hypothesis** Distribution contains more than one mode; proceed with analyses.
 ## 
 ## Test Credit: Ameijeiras-Alonso et al. (2019) excess mass test
@@ -102,8 +103,8 @@ Determine the cutoff value between the two populations that has an equal chance 
 
 ``` r
 cutoff <- findcutoff(rawdata)
-## number of iterations= 15
-## Cutoff Value: 0.1124709
+## number of iterations= 18
+## Cutoff Value: 0.112476
 ```
 
 *The uniroot lower and upper values are determined using the range of "mydata" and will reflect the dataset being analyzed. If there are errors due to the uniroot, consider editing the custom values to something that more generally reflects the range of the data being analyzed.*
@@ -157,7 +158,7 @@ cutoffvalue_lwd <- 2 # line width for the cutoff value
 
 
 ``` r
-plotty <- cutoffplot(rawdata, title, xlab, cutofflab, cutoffunits, LowerMode_col, LowerMode_lty, LowerMode_lwd, UpperMode_col, UpperMode_lty, UpperMode_lwd, cutoffvalue_col, cutoffvalue_lty, cutoffvalue_lwd)
+plotty <- cutoffplot(rawdata)
 ```
 
 <img src="man/cutoffvalue_figures/README-graph-1.jpeg" style="display: block; margin: auto;" />
