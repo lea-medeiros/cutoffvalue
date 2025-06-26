@@ -25,8 +25,9 @@ modes <- function(x = cutoffvalue:::exampledata){
     cat('Modality Test Results\n\nP-value:', EMS_pvalue,'\nExcess Mass Statistic:', EMS_value, '\n')
     if(EMS_pvalue > 0.05) {
       cat('**Accept null hypothesis.** Distribution is most likely unimodal; proceed with caution.\n\nTest Credit: Ameijeiras-Alonso et al. (2019) excess mass test\n\n')
-    }
+    } else if (EMS_pvalue < 0.05) {
     cat('**Reject null hypothesis** Distribution contains more than one mode; proceed with analyses.\n\nTest Credit: Ameijeiras-Alonso et al. (2019) excess mass test\n\n')
+    }
   }
   results <- function (x) {
     return(list(pvalue = modes1$p.value, EMS = modes1$statistic))
