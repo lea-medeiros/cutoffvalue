@@ -1,16 +1,3 @@
----
-title: "Cutoff Value Determination & Graph"
-author: "Lea R Medeiros"
-date: "2025-06-25"
-output:
-  html_document:
-    keep_md: true
----
-
-<!-- README.md is generated from README.Rmd. Please edit that file -->
-
-
-
 # cutoffvalue
 
 cutoffvalue is a simple R package that implements an updated version of the method first developed and used in Medeiros et al. (2018)[^1]. It can be used to determine an objective cutoff value between a significantly bimodal distribution of log-transformed data and plot a representative graph of the results.
