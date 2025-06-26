@@ -13,8 +13,14 @@ output:
 
 # cutoffvalue
 
-Cutoffvalue is a simple R package that implements an updated version of the method first developed and used in Medeiros et al. (2018). It can be used to determine an objective cutoff value between a significantly bimodal distribution of log-transformed data and plot a representative graph of the results.
+`cutoffvalue` is a simple R package that implements an updated version of the method first developed and used in Medeiros et al. (2018)^[Medeiros LR, Galbreath PF, Knudsen CM, Stockton CA, Koch IJ, Bosch WJ, Narum SR, Nagler JJ, Pierce AL (2018) Plasma 11-Ketotestosterone in Individual Age-1 Spring Chinook Salmon Males Accurately Predicts Age-2 Maturation Status. Transactions of the American Fisheries Society 147 (6):1042-1051. doi:10.1002/tafs.10097]. It can be used to determine an objective cutoff value between a significantly bimodal distribution of log-transformed data and plot a representative graph of the results.
 
+The overall goals of this package are to (1) determine a cutoff value between the upper and lower modes of the dataset and (2) produce a nice graph of the results that includes a histogram of the data, the two models fit to the upper and lower modes, and a line depicting the cutoff value. The functions are written to be run independently, so that only two functions need to be run to get the necessary information:
+
+- modes() <- Determines modality of the dataset, which is an assumption for the remaining functions
+- cutoffplot() <- Determines the cutoff value and produces a nice graph of the results
+
+The functions in this package are written to utilize the example data set (an internal dataset object identified by "rawdata") and will use it by default if a dataset is not provided. Below are the instructions on how to install the `cutoffvalue` package, setup the R Studio environment, and suggestions on how to import your dataset. Please see the vignette for more information about each function.
 
 ## Installation
 
@@ -26,11 +32,7 @@ You can install the development version of cutoffvalue from [GitHub](https://git
 ```
 
 
-## Example
-
-This is a basic example which shows you how to use the cutoffvalue package.
-
-### Setup RStudio
+## Setup RStudio
 
 Load the packages that are used by this package.
 
@@ -43,7 +45,8 @@ library(plyr)
 library(multimode)
 ```
 
-### Import your dataset
+
+## Import your dataset
 
 Import the data file to be used in the analyses and graph. The package includes a dataset for use as an example - this object is accessible as "rawdata" and will be used in the examples.
 
@@ -54,113 +57,4 @@ library(readxl)
 yourrawdata <- read_excel("/path/to/your/excel/data")
 ```
 
-
-### Clean the raw dataset
-
-Remove rows containing NA data while also defining the minimum and maximum values for the dataset. The default for each function is specified as "rawdata", meaning that running any function without specifying the object (e.g., just typing "importdata()" into the console) will use this dataset.
-
-
-``` r
-mydata <- cleandata(rawdata)
-```
-
-
-### Determine modality
-
-Determine if the data is not unimodal (e.g., bimodal). This function also returns the Excess Mass statistic and associated p-value in the Environment.
-
-
-``` r
-modetest <- modes(rawdata)
-## Modality Test Results
-## 
-## P-value: 0.004 
-## Excess Mass Statistic: 0.09844652 
-## **Reject null hypothesis** Distribution contains more than one mode; proceed with analyses.
-## 
-## Test Credit: Ameijeiras-Alonso et al. (2019) excess mass test
-```
-
-*Returns excess mass statistic and p-value. If the p-value is less than 0.05, accept the alternative hypothesis (data is more than unimodal) and proceed with analysis. However, if the p-value is more than 0.05, the data is unimodal and the following analyses are not entirely valid.*
-
-### Fit a model to the data
-
-Fit the two component mixture models to the data and plot a rough histogram with the fitted lines. It also defines the index.lower value to be used in the find.cutoff function.
-
-
-``` r
-model <- datamodel(rawdata)
-```
-
-<img src="man/cutoffvalue_figures/README-model-data-1.jpeg" style="display: block; margin: auto;" />
-
-*Make sure things look right, but won’t actually use this graph as it plots on a density scale and may cause confusion. However, this should look pretty spot on (final graph will just be scaled up by a constant determined later on), so make sure that the point where the two curves intersect is where you are expecting the cutoff to be.*
-
-### Determine the cutoff value
-
-Determine the cutoff value between the two populations that has an equal chance of being drawn from either mode. The default is 0.5, but the probability can be changed in the code.
-
-
-``` r
-cutoff <- findcutoff(rawdata)
-## number of iterations= 20
-## Cutoff Value: 0.1124713
-```
-
-*The uniroot lower and upper values are determined using the range of "mydata" and will reflect the dataset being analyzed. If there are errors due to the uniroot, consider editing the custom values to something that more generally reflects the range of the data being analyzed.*
-
-### Basic histogram and parameters
-
-The code below will produce basic histogram of data used for the parameters it produces; alter number of breaks to reflect what you would like to see in the final graph. Then, use various parameters to define variables for the final graph
-
-
-``` r
-fit <- fitparams(rawdata)
-```
-
-<img src="man/cutoffvalue_figures/README-basic-histogram-1.jpeg" style="display: block; margin: auto;" />
-
-### Create curves
-
-Determine x and y values to calculate the points for the curves to represent the generated models
-
-
-``` r
-curves <- curves(rawdata)
-```
-
-*Creates curves using model parameters*
-
-### Plot the graph
-
-Plot a pretty graph - SOME OF THE FOLLOWING WILL NEED TO BE TWEAKED TO FIT YOUR DATA/PREFERENCES!!! If nothing is specified in the plot function, then these are used.
-
-#### Specify graph labels
-
-
-``` r
-title <- "Plasma 11-KT levels in age-2 male spring chinook"  # Graph title
-xlab <- "Plasma [11-KT] (ng/mL)" # X-axis label
-cutofflab <- "Minijack cutoff" # label for cutoff value on graph
-cutoffunits <- "(ng/mL)" # units for cutoff value
-LowerMode_col <- "red" # line color for the lower mode
-LowerMode_lty <- 1 # line type for the lower mode
-LowerMode_lwd <- 2 # line width for the lower mode
-UpperMode_col <- "purple" # line color for the upper mode
-UpperMode_lty <- 1 # line type for the upper mode
-UpperMode_lwd <- 2 # line width for the upper mode
-cutoffvalue_col <- "black" # line color for the cutoff value
-cutoffvalue_lty <- 2 # line type for the cutoff value
-cutoffvalue_lwd <- 2 # line width for the cutoff value
-```
-
-#### Plot the graph
-
-
-``` r
-plotty <- cutoffplot(rawdata, title, xlab, cutofflab, cutoffunits, LowerMode_col, LowerMode_lty, LowerMode_lwd, UpperMode_col, UpperMode_lty, UpperMode_lwd, cutoffvalue_col, cutoffvalue_lty, cutoffvalue_lwd)
-```
-
-<img src="man/cutoffvalue_figures/README-graph-1.jpeg" style="display: block; margin: auto;" />
-
-*All figures can be found in the "cutoffvalue_figures" folder. They are exported as PDF, JPEG, and PNG at 300 dpi.*
+Each function in this package uses the provided dataset (whether it's the example dataset or one you provided) and cleans it up (via the `cleandata` function, see the vignette for more information) to remove any blank cells. This function then provides a list of objects: the data (`mydata$data`), the maximum value (`mydata$upper`), and the minimum value (`mydata$lower`), all of which are then used in subsequent calculations.
