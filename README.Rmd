@@ -66,4 +66,4 @@ yourrawdata <- read_excel("/path/to/your/excel/data")
 
 Each function in this package uses the provided dataset (whether it's the example dataset or one you provided) and cleans it up (via the `cleandata` function, see the vignette for more information) to remove any blank cells. This function then provides a list of objects: the data (`mydata$data`), the maximum value (`mydata$upper`), and the minimum value (`mydata$lower`), all of which are then used in subsequent calculations.
 
-[^1]: Medeiros LR, Galbreath PF, Knudsen CM, Stockton CA, Koch IJ, Bosch WJ, Narum SR, Nagler JJ, Pierce AL (2018) Plasma 11-Ketotestosterone in   Individual Age-1 Spring Chinook Salmon Males Accurately Predicts Age-2 Maturation Status. Transactions of the American Fisheries Society 147   (6):1042-1051. https://doi.org/10.1002/tafs.10097]
+[^1]: Medeiros LR, Galbreath PF, Knudsen CM, Stockton CA, Koch IJ, Bosch WJ, Narum SR, Nagler JJ, Pierce AL (2018) Plasma 11-Ketotestosterone in   Individual Age-1 Spring Chinook Salmon Males Accurately Predicts Age-2 Maturation Status. Transactions of the American Fisheries Society 147   (6):1042-1051. https://doi.org/10.1002/tafs.10097
