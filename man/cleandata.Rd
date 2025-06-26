@@ -17,6 +17,6 @@ Returns a list of values from the raw data in your Excel spreadsheet that has bl
 This function imports your dataset from an excel file, removes any blank rows, and determines the minimum and maximum values
 }
 \examples{
-mydata <- cleandata(exampledata)
+mydata <- cleandata(cutoffvalue:::exampledata)
 
 }

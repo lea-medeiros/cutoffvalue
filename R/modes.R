@@ -14,7 +14,7 @@
 #' @export
 #'
 #' @examples
-#' modetest <- modes(exampledata)
+#' modetest <- modes(cutoffvalue:::exampledata)
 
 modes <- function(x = cutoffvalue:::exampledata){
   mydata <- cleandata(x)

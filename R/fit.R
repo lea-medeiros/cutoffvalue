@@ -13,7 +13,7 @@
 #' @export
 #'
 #' @examples
-#' fit <- fitparams(exampledata)
+#' fit <- fitparams(cutoffvalue:::exampledata)
 
 fitparams <- function(x = cutoffvalue:::exampledata, breaks = 15){
   mydata <- cleandata(x)

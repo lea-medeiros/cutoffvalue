@@ -15,7 +15,7 @@
 #' @export
 #'
 #' @examples
-#' cutoff <- findcutoff(exampledata)
+#' cutoff <- findcutoff(cutoffvalue:::exampledata)
 
 findcutoff <- function(x = cutoffvalue:::exampledata, proba=0.5, i=model$indexLower) {
   mydata <- cleandata(x)

@@ -17,5 +17,5 @@ Returns a basic histogram for the data set along with various parameters used to
 This function produces a histogram of the data that will be used for fitting curves. As a matter of course, this function runs the cleanData and datamodel functions for you, negating the need to run those separately.
 }
 \examples{
-fit <- fitparams(exampledata)
+fit <- fitparams(cutoffvalue:::exampledata)
 }

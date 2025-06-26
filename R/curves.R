@@ -14,7 +14,7 @@
 #' @export
 #'
 #' @examples
-#' curves <- curves(exampledata)
+#' curves <- curves(cutoffvalue:::exampledata)
 
 curves <- function(x = cutoffvalue:::exampledata){
   mydata <- cleandata(x)

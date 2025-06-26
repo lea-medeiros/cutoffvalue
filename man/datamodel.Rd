@@ -17,5 +17,5 @@ Returns the model parameters and lower index value for the data set.
 This function generates the normal mix EM model for the data set. As a matter of course, this function also runs the cleanData function for you, negating the need to run it separately.
 }
 \examples{
-mcmodel <- datamodel(exampledata)
+mcmodel <- datamodel(cutoffvalue:::exampledata)
 }

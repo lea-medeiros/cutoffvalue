@@ -17,5 +17,5 @@ Returns three sets of values, which are used to plot curves for the lower and up
 This function fits curves to the dataset. As a matter of course, this function runs the cleanData, datamodel, and fit functions for you, negating the need to run those separately.
 }
 \examples{
-curves <- curves(exampledata)
+curves <- curves(cutoffvalue:::exampledata)
 }

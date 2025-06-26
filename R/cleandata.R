@@ -13,7 +13,7 @@
 #' @export
 #'
 #' @examples
-#' mydata <- cleandata(exampledata)
+#' mydata <- cleandata(cutoffvalue:::exampledata)
 #'
 cleandata <- function(x = cutoffvalue:::exampledata) {
   mydata <- na.omit(x)

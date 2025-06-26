@@ -13,7 +13,7 @@
 #' @export
 #'
 #' @examples
-#' mcmodel <- datamodel(exampledata)
+#' mcmodel <- datamodel(cutoffvalue:::exampledata)
 
 datamodel <- function(x = cutoffvalue:::exampledata){
   mydata <- cleandata(x)

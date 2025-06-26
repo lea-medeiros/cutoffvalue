@@ -21,5 +21,5 @@ Determines and reports the cutoff value for the indicated probability value.
 This function finds the cutoff value between the modes of bimodally distributed data at the indicated probability value. As a matter of course, this function runs the cleanData and datamodel functions for you, negating the need to run those separately.
 }
 \examples{
-cutoff <- findcutoff(exampledata)
+cutoff <- findcutoff(cutoffvalue:::exampledata)
 }
