@@ -29,9 +29,8 @@ Cutoffvalue is a simple R package that implements an updated version of the meth
 
 You can install the development version of cutoffvalue from [GitHub](https://github.com/lea-medeiros/cutoffvalue.git) with:
 
-``` r
-# install.packages("devtools")
-devtools::install_github("lea-medeiros/cutoffvalue", dependencies = TRUE, build_vignettes = TRUE)
+```{r install-package}
+# devtools::install_github("lea-medeiros/cutoffvalue", dependencies = TRUE, build_vignettes = TRUE)
 ```
 
 
@@ -67,7 +66,7 @@ yourrawdata <- read_excel("/path/to/your/excel/data")
 
 Remove rows containing NA data while also defining the minimum and maximum values for the dataset. The default for each function is specified as "rawdata", meaning that running any function without specifying the object (e.g., just typing "importdata()" into the console) will use this dataset.
 
-```{r cleandata}
+```{r clean-data}
 mydata <- cleandata(rawdata)
 ```
 
