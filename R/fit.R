@@ -1,7 +1,7 @@
 #' @title Generate a histogram, with associated parameters, from the dataset
 #' @description This function produces a histogram of the data that will be used for fitting curves. As a matter of course, this function runs the cleanData and datamodel functions for you, negating the need to run those separately.
 #'
-#' @param rawdata Your data file; data should be organized in an Excel document as a single column of log- or natural log-transformed data without a
+#' @param x Your data file; data should be organized in an Excel document as a single column of log- or natural log-transformed data without a
 #' column header.
 #'
 #' @returns Returns a basic histogram for the data set along with various parameters used to generate curves for the final plot.
@@ -13,9 +13,9 @@
 #' @export
 #'
 #' @examples
-#' fit <- fitparams(rawdata)
+#' fit <- fitparams(exampledata)
 
-fitparams <- function(x = cutoffvalue:::rawdata, breaks = 15){
+fitparams <- function(x = cutoffvalue:::exampledata, breaks = 15){
   mydata <- cleandata(x)
   model <- datamodel(x)
   h <- hist(mydata$data, breaks = breaks)

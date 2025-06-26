@@ -5,7 +5,7 @@
 \title{Plot a histogram of the dataset that includes the curves for each mode and the cutoff value}
 \usage{
 cutoffplot(
-  x = cutoffvalue:::rawdata,
+  x = cutoffvalue:::exampledata,
   title = "Plasma 11-KT levels in age-2 male spring chinook",
   xlab = "Plasma [11-KT] (ng/mL)",
   cutofflab = "Minijack cutoff",
@@ -22,6 +22,9 @@ cutoffplot(
 )
 }
 \arguments{
+\item{x}{Your data file; data should be organized in as a single column of log- or natural log-transformed data without a
+column header}
+
 \item{title}{Title for the graph, default is blank}
 
 \item{xlab}{Label for the x-axis, default is "Plasma 11-KT (ng/mL)"}
@@ -29,9 +32,6 @@ cutoffplot(
 \item{cutofflab}{Label for the cutoff value, default is "Minijack cutoff"}
 
 \item{cutoffunits}{Label for the units, default is "ng/mL"}
-
-\item{rawdata}{Your data file; data should be organized in as a single column of log- or natural log-transformed data without a
-column header}
 }
 \value{
 Returns a histogram with colored lines depicting curves for upper and lower modes along with the determined cutoff line to delineate between the two modes. The cutoff value is also returned to the environment.
@@ -40,5 +40,5 @@ Returns a histogram with colored lines depicting curves for upper and lower mode
 This function incorporates most of the other functions in this package to plot a histogram of the data that includes the fit lines for each mode and the cutoff value depicted as a line. As a matter of course, this function runs the cleanData, datamodel, fit, curves, and findCutoff functions for you, negating the need to run those separately.
 }
 \examples{
-plotty <- cutoffplot(rawdata, "Example Graph Title", "Example X-Axis", "Cutoff Label", "UNITS")
+plotty <- cutoffplot(exampledata, "Example Graph Title", "Example X-Axis", "Cutoff Label", "UNITS")
 }

@@ -1,7 +1,7 @@
 #' @title Determines the modality of the dataset
 #' @description This function tests the dataset's modality. It uses the modetest function from the multimode package written by Ameijeiras-Alonso et al. (2019) to determine the excess mass test statistic and test the number of modes. As a matter of course, this function runs the cleanData function, negating the need to run it separately.
 #'
-#' @param rawdata Your data file; data should be organized in as a single column of log- or natural log-transformed data without a
+#' @param x Your data file; data should be organized in as a single column of log- or natural log-transformed data without a
 #' column header
 #'
 #' @returns Returns the p-value and excess mass statistic to determine whether the dataset is unimodal.
@@ -14,9 +14,9 @@
 #' @export
 #'
 #' @examples
-#' modetest <- modes(rawdata)
+#' modetest <- modes(exampledata)
 
-modes <- function(x = cutoffvalue:::rawdata){
+modes <- function(x = cutoffvalue:::exampledata){
   mydata <- cleandata(x)
   modes1 <- modetest(mydata$data)
   EMS_stats <- function(mydata){

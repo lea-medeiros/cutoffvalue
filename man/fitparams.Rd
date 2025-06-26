@@ -4,10 +4,10 @@
 \alias{fitparams}
 \title{Generate a histogram, with associated parameters, from the dataset}
 \usage{
-fitparams(x = cutoffvalue:::rawdata, breaks = 15)
+fitparams(x = cutoffvalue:::exampledata, breaks = 15)
 }
 \arguments{
-\item{rawdata}{Your data file; data should be organized in an Excel document as a single column of log- or natural log-transformed data without a
+\item{x}{Your data file; data should be organized in an Excel document as a single column of log- or natural log-transformed data without a
 column header.}
 }
 \value{
@@ -17,5 +17,5 @@ Returns a basic histogram for the data set along with various parameters used to
 This function produces a histogram of the data that will be used for fitting curves. As a matter of course, this function runs the cleanData and datamodel functions for you, negating the need to run those separately.
 }
 \examples{
-fit <- fitparams(rawdata)
+fit <- fitparams(exampledata)
 }

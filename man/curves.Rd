@@ -4,10 +4,10 @@
 \alias{curves}
 \title{Fit curves to each mode of the dataset}
 \usage{
-curves(x = cutoffvalue:::rawdata)
+curves(x = cutoffvalue:::exampledata)
 }
 \arguments{
-\item{rawdata}{Your data file; data should be organized in an Excel document as a single column of log- or natural log-transformed data without a
+\item{x}{Your data file; data should be organized in an Excel document as a single column of log- or natural log-transformed data without a
 column header.}
 }
 \value{
@@ -17,5 +17,5 @@ Returns three sets of values, which are used to plot curves for the lower and up
 This function fits curves to the dataset. As a matter of course, this function runs the cleanData, datamodel, and fit functions for you, negating the need to run those separately.
 }
 \examples{
-curves <- curves(rawdata)
+curves <- curves(exampledata)
 }

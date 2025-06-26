@@ -3,7 +3,7 @@
 #'
 #' @param proba The probability value you want the cutoff value to represent
 #' @param i Determines the location, i.e., index of the (first) minimum of the model$mydata$mu
-#' @param rawdata Your data file; data should be organized in an Excel document as a single column of log- or natural log-transformed data without a
+#' @param x Your data file; data should be organized in an Excel document as a single column of log- or natural log-transformed data without a
 #' column header.
 #'
 #' @return Determines and reports the cutoff value for the indicated probability value.
@@ -15,9 +15,9 @@
 #' @export
 #'
 #' @examples
-#' cutoff <- findcutoff(rawdata)
+#' cutoff <- findcutoff(exampledata)
 
-findcutoff <- function(x = cutoffvalue:::rawdata, proba=0.5, i=model$indexLower) {
+findcutoff <- function(x = cutoffvalue:::exampledata, proba=0.5, i=model$indexLower) {
   mydata <- cleandata(x)
   model <- datamodel(x)
   ## Cutoff such that Pr[drawn from bad component] == proba

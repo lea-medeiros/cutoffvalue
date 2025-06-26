@@ -5,7 +5,7 @@
 #' @param xlab Label for the x-axis, default is "Plasma 11-KT (ng/mL)"
 #' @param cutofflab Label for the cutoff value, default is "Minijack cutoff"
 #' @param cutoffunits Label for the units, default is "ng/mL"
-#' @param rawdata Your data file; data should be organized in as a single column of log- or natural log-transformed data without a
+#' @param x Your data file; data should be organized in as a single column of log- or natural log-transformed data without a
 #' column header
 #'
 #' @returns Returns a histogram with colored lines depicting curves for upper and lower modes along with the determined cutoff line to delineate between the two modes. The cutoff value is also returned to the environment.
@@ -17,9 +17,9 @@
 #' @export
 #'
 #' @examples
-#' plotty <- cutoffplot(rawdata, "Example Graph Title", "Example X-Axis", "Cutoff Label", "UNITS")
+#' plotty <- cutoffplot(exampledata, "Example Graph Title", "Example X-Axis", "Cutoff Label", "UNITS")
 
-cutoffplot <- function (x = cutoffvalue:::rawdata, title = "Plasma 11-KT levels in age-2 male spring chinook", xlab = "Plasma [11-KT] (ng/mL)", cutofflab = "Minijack cutoff",
+cutoffplot <- function (x = cutoffvalue:::exampledata, title = "Plasma 11-KT levels in age-2 male spring chinook", xlab = "Plasma [11-KT] (ng/mL)", cutofflab = "Minijack cutoff",
                         cutoffunits = "ng/mL", LowerMode_col = "red", LowerMode_lty = 1, LowerMode_lwd = 2, UpperMode_col = "purple", UpperMode_lty = 1, UpperMode_lwd = 2,
                         cutoffvalue_col = "black", cutoffvalue_lty = 2, cutoffvalue_lwd = 2){
   mydata <- cleandata(x)

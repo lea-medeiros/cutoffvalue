@@ -1,7 +1,7 @@
 #' @title Fit curves to each mode of the dataset
 #' @description This function fits curves to the dataset. As a matter of course, this function runs the cleanData, datamodel, and fit functions for you, negating the need to run those separately.
 #'
-#' @param rawdata Your data file; data should be organized in an Excel document as a single column of log- or natural log-transformed data without a
+#' @param x Your data file; data should be organized in an Excel document as a single column of log- or natural log-transformed data without a
 #' column header.
 #'
 #' @returns Returns three sets of values, which are used to plot curves for the lower and upper modes.
@@ -14,9 +14,9 @@
 #' @export
 #'
 #' @examples
-#' curves <- curves(rawdata)
+#' curves <- curves(exampledata)
 
-curves <- function(x = cutoffvalue:::rawdata){
+curves <- function(x = cutoffvalue:::exampledata){
   mydata <- cleandata(x)
   model <- datamodel(x)
   fitData <- fitparams(x)
