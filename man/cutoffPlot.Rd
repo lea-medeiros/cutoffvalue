@@ -29,9 +29,9 @@ column header}
 
 \item{xlab}{Label for the x-axis, default is "Plasma 11-KT (ng/mL)"}
 
-\item{cutoffunits}{Label for the units, default is "ng/mL"}
+\item{cutofflab}{Label for the cutoff value, default is "Minijack cutoff"}
 
-\item{cutofflabel}{Label for the cutoff value, default is "Minijack cutoff"}
+\item{cutoffunits}{Label for the units, default is "ng/mL"}
 }
 \value{
 Returns a histogram with colored lines depicting curves for upper and lower modes along with the determined cutoff line to delineate between the two modes. The cutoff value is also returned to the environment.
