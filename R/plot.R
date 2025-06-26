@@ -39,8 +39,8 @@ cutoffplot <- function (rawdata, title = "Plasma 11-KT levels in age-2 male spri
 
   par(mar=c(5,6,4,1)+.1)
 
-  hist(mydata$data, breaks = 15, density = 10, col = "grey", xaxt="n", xlab = "xlab",
-       ylim = c(0, fitData$ylimUpper), xlim = c(fitData$xlimLower, fitData$xlimUpper), main = "title",
+  hist(mydata$data, breaks = 15, density = 10, col = "grey", xaxt="n", xlab = xlab,
+       ylim = c(0, fitData$ylimUpper), xlim = c(fitData$xlimLower, fitData$xlimUpper), main = title,
        cex.main=2, cex.lab=1.5, cex.axis=1.25, family = "Times")
   lines(xValues, yValues1, col=LowerMode_col, lty=LowerMode_lty, lwd=LowerMode_lwd)
   lines(xValues, yValues2, col=UpperMode_col, lty=UpperMode_lty, lwd=UpperMode_lwd)
