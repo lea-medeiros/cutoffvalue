@@ -6,7 +6,7 @@
 \usage{
 cutoffplot(
   rawdata,
-  maintitle = "Plasma 11-KT levels in age-2 male spring chinook",
+  title = "Plasma 11-KT levels in age-2 male spring chinook",
   xlab = "Plasma [11-KT] (ng/mL)",
   cutofflab = "Minijack cutoff",
   cutoffunits = "ng/mL",
@@ -25,11 +25,11 @@ cutoffplot(
 \item{rawdata}{Your data file; data should be organized in as a single column of log- or natural log-transformed data without a
 column header}
 
-\item{maintitle}{Title for the graph, default is blank}
+\item{title}{Title for the graph, default is blank}
+
+\item{xlab}{Label for the x-axis, default is "Plasma 11-KT (ng/mL)"}
 
 \item{cutoffunits}{Label for the units, default is "ng/mL"}
-
-\item{xlabel}{Label for the x-axis, default is "Plasma 11-KT (ng/mL)"}
 
 \item{cutofflabel}{Label for the cutoff value, default is "Minijack cutoff"}
 }

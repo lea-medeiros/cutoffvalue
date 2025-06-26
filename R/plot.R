@@ -1,8 +1,8 @@
 #' @title Plot a histogram of the dataset that includes the curves for each mode and the cutoff value
 #' @description This function incorporates most of the other functions in this package to plot a histogram of the data that includes the fit lines for each mode and the cutoff value depicted as a line. As a matter of course, this function runs the cleanData, datamodel, fit, curves, and findCutoff functions for you, negating the need to run those separately.
 #'
-#' @param maintitle Title for the graph, default is blank
-#' @param xlabel Label for the x-axis, default is "Plasma 11-KT (ng/mL)"
+#' @param title Title for the graph, default is blank
+#' @param xlab Label for the x-axis, default is "Plasma 11-KT (ng/mL)"
 #' @param cutofflabel Label for the cutoff value, default is "Minijack cutoff"
 #' @param cutoffunits Label for the units, default is "ng/mL"
 #' @param rawdata Your data file; data should be organized in as a single column of log- or natural log-transformed data without a
@@ -19,7 +19,7 @@
 #' @examples
 #' plotty <- cutoffplot(rawdata, "Example Graph Title", "Example X-Axis", "Cutoff Label", "UNITS")
 
-cutoffplot <- function (rawdata, maintitle = "Plasma 11-KT levels in age-2 male spring chinook", xlab = "Plasma [11-KT] (ng/mL)", cutofflab = "Minijack cutoff",
+cutoffplot <- function (rawdata, title = "Plasma 11-KT levels in age-2 male spring chinook", xlab = "Plasma [11-KT] (ng/mL)", cutofflab = "Minijack cutoff",
                         cutoffunits = "ng/mL", LowerMode_col = "red", LowerMode_lty = 1, LowerMode_lwd = 2, UpperMode_col = "purple", UpperMode_lty = 1, UpperMode_lwd = 2,
                         cutoffvalue_col = "black", cutoffvalue_lty = 2, cutoffvalue_lwd = 2){
   mydata <- cleandata(rawdata)
@@ -39,8 +39,8 @@ cutoffplot <- function (rawdata, maintitle = "Plasma 11-KT levels in age-2 male 
 
   par(mar=c(5,6,4,1)+.1)
 
-  hist(mydata$data, breaks = 15, density = 10, col = "grey", xaxt="n", xlab = "xlabel",
-       ylim = c(0, fitData$ylimUpper), xlim = c(fitData$xlimLower, fitData$xlimUpper), main = "maintitle",
+  hist(mydata$data, breaks = 15, density = 10, col = "grey", xaxt="n", xlab = xlab,
+       ylim = c(0, fitData$ylimUpper), xlim = c(fitData$xlimLower, fitData$xlimUpper), main = title,
        cex.main=2, cex.lab=1.5, cex.axis=1.25, family = "Times")
   lines(xValues, yValues1, col=LowerMode_col, lty=LowerMode_lty, lwd=LowerMode_lwd)
   lines(xValues, yValues2, col=UpperMode_col, lty=UpperMode_lty, lwd=UpperMode_lwd)
