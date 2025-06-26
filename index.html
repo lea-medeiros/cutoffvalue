@@ -53,7 +53,13 @@
   <main id="main" class="col-md-9"><div class="section level1">
 <div class="page-header"><h1 id="cutoffvalue">cutoffvalue<a class="anchor" aria-label="anchor" href="#cutoffvalue"></a>
 </h1></div>
-<p>Cutoffvalue is a simple R package that implements an updated version of the method first developed and used in Medeiros et al. (2018). It can be used to determine an objective cutoff value between a significantly bimodal distribution of log-transformed data and plot a representative graph of the results.</p>
+<p><code>cutoffvalue</code> is a simple R package that implements an updated version of the method first developed and used in Medeiros et al. (2018)<a class="footnote-ref" tabindex="0" data-bs-toggle="popover" data-bs-content='&lt;p&gt;Medeiros LR, Galbreath PF, Knudsen CM, Stockton CA, Koch IJ, Bosch WJ, Narum SR, Nagler JJ, Pierce AL (2018) Plasma 11-Ketotestosterone in Individual Age-1 Spring Chinook Salmon Males Accurately Predicts Age-2 Maturation Status. Transactions of the American Fisheries Society 147 (6):1042-1051. &lt;a href="doi:10.1002/tafs.10097" class="uri"&gt;doi:10.1002/tafs.10097&lt;/a&gt;&lt;/p&gt;'><sup>1</sup></a>. It can be used to determine an objective cutoff value between a significantly bimodal distribution of log-transformed data and plot a representative graph of the results.</p>
+<p>The overall goals of this package are to (1) determine a cutoff value between the upper and lower modes of the dataset and (2) produce a nice graph of the results that includes a histogram of the data, the two models fit to the upper and lower modes, and a line depicting the cutoff value. The functions are written to be run independently, so that only two functions need to be run to get the necessary information:</p>
+<ul>
+<li>modes() &lt;- Determines modality of the dataset, which is an assumption for the remaining functions</li>
+<li>cutoffplot() &lt;- Determines the cutoff value and produces a nice graph of the results</li>
+</ul>
+<p>The functions in this package are written to utilize the example data set (an internal dataset object identified by “rawdata”) and will use it by default if a dataset is not provided. Below are the instructions on how to install the <code>cutoffvalue</code> package, setup the R Studio environment, and suggestions on how to import your dataset. Please see the vignette for more information about each function.</p>
 <div class="section level2">
 <h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
 </h2>
@@ -62,12 +68,8 @@
 <code class="sourceCode R"><span><span class="co"># devtools::install_github("lea-medeiros/cutoffvalue", dependencies = TRUE, build_vignettes = TRUE)</span></span></code></pre></div>
 </div>
 <div class="section level2">
-<h2 id="example">Example<a class="anchor" aria-label="anchor" href="#example"></a>
+<h2 id="setup-rstudio">Setup RStudio<a class="anchor" aria-label="anchor" href="#setup-rstudio"></a>
 </h2>
-<p>This is a basic example which shows you how to use the cutoffvalue package.</p>
-<div class="section level3">
-<h3 id="setup-rstudio">Setup RStudio<a class="anchor" aria-label="anchor" href="#setup-rstudio"></a>
-</h3>
 <p>Load the packages that are used by this package.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va">cutoffvalue</span><span class="op">)</span></span>
@@ -76,105 +78,19 @@
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="http://had.co.nz/plyr" class="external-link">plyr</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://doi.org/10.18637/jss.v097.i09" class="external-link">multimode</a></span><span class="op">)</span></span></code></pre></div>
 </div>
-<div class="section level3">
-<h3 id="import-your-dataset">Import your dataset<a class="anchor" aria-label="anchor" href="#import-your-dataset"></a>
-</h3>
+<div class="section level2">
+<h2 id="import-your-dataset">Import your dataset<a class="anchor" aria-label="anchor" href="#import-your-dataset"></a>
+</h2>
 <p>Import the data file to be used in the analyses and graph. The package includes a dataset for use as an example - this object is accessible as “rawdata” and will be used in the examples.</p>
 <p>Import your dataset any way you prefer. However, keep in mind that data should be organized as a single column of log- or natural log-transformed data. I find that the easiest way to import data is to use the “Import Dataset” function built into R Studio, but you can also use code (an example is provided below).</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://readxl.tidyverse.org" class="external-link">readxl</a></span><span class="op">)</span></span>
 <span><span class="va">yourrawdata</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://readxl.tidyverse.org/reference/read_excel.html" class="external-link">read_excel</a></span><span class="op">(</span><span class="st">"/path/to/your/excel/data"</span><span class="op">)</span></span></code></pre></div>
-</div>
-<div class="section level3">
-<h3 id="clean-the-raw-dataset">Clean the raw dataset<a class="anchor" aria-label="anchor" href="#clean-the-raw-dataset"></a>
-</h3>
-<p>Remove rows containing NA data while also defining the minimum and maximum values for the dataset. The default for each function is specified as “rawdata”, meaning that running any function without specifying the object (e.g., just typing “importdata()” into the console) will use this dataset.</p>
-<div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">mydata</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/cleandata.html">cleandata</a></span><span class="op">(</span><span class="va">rawdata</span><span class="op">)</span></span></code></pre></div>
-</div>
-<div class="section level3">
-<h3 id="determine-modality">Determine modality<a class="anchor" aria-label="anchor" href="#determine-modality"></a>
-</h3>
-<p>Determine if the data is not unimodal (e.g., bimodal). This function also returns the Excess Mass statistic and associated p-value in the Environment.</p>
-<div class="sourceCode" id="cb5"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">modetest</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/modes.html">modes</a></span><span class="op">(</span><span class="va">rawdata</span><span class="op">)</span></span>
-<span><span class="co">## Modality Test Results</span></span>
-<span><span class="co">## </span></span>
-<span><span class="co">## P-value: 0.004 </span></span>
-<span><span class="co">## Excess Mass Statistic: 0.09844652 </span></span>
-<span><span class="co">## **Reject null hypothesis** Distribution contains more than one mode; proceed with analyses.</span></span>
-<span><span class="co">## </span></span>
-<span><span class="co">## Test Credit: Ameijeiras-Alonso et al. (2019) excess mass test</span></span></code></pre></div>
-<p><em>Returns excess mass statistic and p-value. If the p-value is less than 0.05, accept the alternative hypothesis (data is more than unimodal) and proceed with analysis. However, if the p-value is more than 0.05, the data is unimodal and the following analyses are not entirely valid.</em></p>
-</div>
-<div class="section level3">
-<h3 id="fit-a-model-to-the-data">Fit a model to the data<a class="anchor" aria-label="anchor" href="#fit-a-model-to-the-data"></a>
-</h3>
-<p>Fit the two component mixture models to the data and plot a rough histogram with the fitted lines. It also defines the index.lower value to be used in the find.cutoff function.</p>
-<div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">model</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/datamodel.html">datamodel</a></span><span class="op">(</span><span class="va">rawdata</span><span class="op">)</span></span></code></pre></div>
-<p><img src="man/cutoffvalue_figures/README-model-data-1.jpeg" style="display: block; margin: auto;"></p>
-<p><em>Make sure things look right, but won’t actually use this graph as it plots on a density scale and may cause confusion. However, this should look pretty spot on (final graph will just be scaled up by a constant determined later on), so make sure that the point where the two curves intersect is where you are expecting the cutoff to be.</em></p>
-</div>
-<div class="section level3">
-<h3 id="determine-the-cutoff-value">Determine the cutoff value<a class="anchor" aria-label="anchor" href="#determine-the-cutoff-value"></a>
-</h3>
-<p>Determine the cutoff value between the two populations that has an equal chance of being drawn from either mode. The default is 0.5, but the probability can be changed in the code.</p>
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">cutoff</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/findcutoff.html">findcutoff</a></span><span class="op">(</span><span class="va">rawdata</span><span class="op">)</span></span>
-<span><span class="co">## number of iterations= 20</span></span>
-<span><span class="co">## Cutoff Value: 0.1124713</span></span></code></pre></div>
-<p><em>The uniroot lower and upper values are determined using the range of “mydata” and will reflect the dataset being analyzed. If there are errors due to the uniroot, consider editing the custom values to something that more generally reflects the range of the data being analyzed.</em></p>
-</div>
-<div class="section level3">
-<h3 id="basic-histogram-and-parameters">Basic histogram and parameters<a class="anchor" aria-label="anchor" href="#basic-histogram-and-parameters"></a>
-</h3>
-<p>The code below will produce basic histogram of data used for the parameters it produces; alter number of breaks to reflect what you would like to see in the final graph. Then, use various parameters to define variables for the final graph</p>
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">fit</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/fitparams.html">fitparams</a></span><span class="op">(</span><span class="va">rawdata</span><span class="op">)</span></span></code></pre></div>
-<p><img src="man/cutoffvalue_figures/README-basic-histogram-1.jpeg" style="display: block; margin: auto;"></p>
-</div>
-<div class="section level3">
-<h3 id="create-curves">Create curves<a class="anchor" aria-label="anchor" href="#create-curves"></a>
-</h3>
-<p>Determine x and y values to calculate the points for the curves to represent the generated models</p>
-<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">curves</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/curves.html">curves</a></span><span class="op">(</span><span class="va">rawdata</span><span class="op">)</span></span></code></pre></div>
-<p><em>Creates curves using model parameters</em></p>
-</div>
-<div class="section level3">
-<h3 id="plot-the-graph">Plot the graph<a class="anchor" aria-label="anchor" href="#plot-the-graph"></a>
-</h3>
-<p>Plot a pretty graph - SOME OF THE FOLLOWING WILL NEED TO BE TWEAKED TO FIT YOUR DATA/PREFERENCES!!! If nothing is specified in the plot function, then these are used.</p>
-<div class="section level4">
-<h4 id="specify-graph-labels">Specify graph labels<a class="anchor" aria-label="anchor" href="#specify-graph-labels"></a>
-</h4>
-<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">title</span> <span class="op">&lt;-</span> <span class="st">"Plasma 11-KT levels in age-2 male spring chinook"</span>  <span class="co"># Graph title</span></span>
-<span><span class="va">xlab</span> <span class="op">&lt;-</span> <span class="st">"Plasma [11-KT] (ng/mL)"</span> <span class="co"># X-axis label</span></span>
-<span><span class="va">cutofflab</span> <span class="op">&lt;-</span> <span class="st">"Minijack cutoff"</span> <span class="co"># label for cutoff value on graph</span></span>
-<span><span class="va">cutoffunits</span> <span class="op">&lt;-</span> <span class="st">"(ng/mL)"</span> <span class="co"># units for cutoff value</span></span>
-<span><span class="va">LowerMode_col</span> <span class="op">&lt;-</span> <span class="st">"red"</span> <span class="co"># line color for the lower mode</span></span>
-<span><span class="va">LowerMode_lty</span> <span class="op">&lt;-</span> <span class="fl">1</span> <span class="co"># line type for the lower mode</span></span>
-<span><span class="va">LowerMode_lwd</span> <span class="op">&lt;-</span> <span class="fl">2</span> <span class="co"># line width for the lower mode</span></span>
-<span><span class="va">UpperMode_col</span> <span class="op">&lt;-</span> <span class="st">"purple"</span> <span class="co"># line color for the upper mode</span></span>
-<span><span class="va">UpperMode_lty</span> <span class="op">&lt;-</span> <span class="fl">1</span> <span class="co"># line type for the upper mode</span></span>
-<span><span class="va">UpperMode_lwd</span> <span class="op">&lt;-</span> <span class="fl">2</span> <span class="co"># line width for the upper mode</span></span>
-<span><span class="va">cutoffvalue_col</span> <span class="op">&lt;-</span> <span class="st">"black"</span> <span class="co"># line color for the cutoff value</span></span>
-<span><span class="va">cutoffvalue_lty</span> <span class="op">&lt;-</span> <span class="fl">2</span> <span class="co"># line type for the cutoff value</span></span>
-<span><span class="va">cutoffvalue_lwd</span> <span class="op">&lt;-</span> <span class="fl">2</span> <span class="co"># line width for the cutoff value</span></span></code></pre></div>
-</div>
-<div class="section level4">
-<h4 id="plot-the-graph-1">Plot the graph<a class="anchor" aria-label="anchor" href="#plot-the-graph-1"></a>
-</h4>
-<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">plotty</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/cutoffPlot.html">cutoffplot</a></span><span class="op">(</span><span class="va">rawdata</span>, <span class="va">title</span>, <span class="va">xlab</span>, <span class="va">cutofflab</span>, <span class="va">cutoffunits</span>, <span class="va">LowerMode_col</span>, <span class="va">LowerMode_lty</span>, <span class="va">LowerMode_lwd</span>, <span class="va">UpperMode_col</span>, <span class="va">UpperMode_lty</span>, <span class="va">UpperMode_lwd</span>, <span class="va">cutoffvalue_col</span>, <span class="va">cutoffvalue_lty</span>, <span class="va">cutoffvalue_lwd</span><span class="op">)</span></span></code></pre></div>
-<p><img src="man/cutoffvalue_figures/README-graph-1.jpeg" style="display: block; margin: auto;"></p>
-<p><em>All figures can be found in the “cutoffvalue_figures” folder. They are exported as PDF, JPEG, and PNG at 300 dpi.</em></p>
+<p>Each function in this package uses the provided dataset (whether it’s the example dataset or one you provided) and cleans it up (via the <code>cleandata</code> function, see the vignette for more information) to remove any blank cells. This function then provides a list of objects: the data (<code>mydata$data</code>), the maximum value (<code>mydata$upper</code>), and the minimum value (<code>mydata$lower</code>), all of which are then used in subsequent calculations.</p>
 </div>
 </div>
-</div>
-</div>
+
+
   </main><aside class="col-md-3"><div class="license">
 <h2 data-toc-skip>License</h2>
 <ul class="list-unstyled">

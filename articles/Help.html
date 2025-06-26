@@ -67,40 +67,42 @@ Medeiros</h4>
     
     
 <div class="section level2">
-<h2 id="overview-of-the-cutoffvalue-package">Overview of the <code>cutoffvalue</code> package<a class="anchor" aria-label="anchor" href="#overview-of-the-cutoffvalue-package"></a>
+<h2 id="overview-of-the-cutoffvalue-package">Overview of the cutoffvalue package<a class="anchor" aria-label="anchor" href="#overview-of-the-cutoffvalue-package"></a>
 </h2>
 <div class="section level3">
 <h3 id="description">Description<a class="anchor" aria-label="anchor" href="#description"></a>
 </h3>
-<p><code>cutoffvalue</code> is a simple R package that implements an
-updated version of the method first developed and used in Medeiros et
-al. (2018)<a class="footnote-ref" tabindex="0" data-bs-toggle="popover" data-bs-content='&lt;p&gt;Medeiros LR, Galbreath PF, Knudsen CM, Stockton CA, Koch
+<p>cutoffvalue is a simple R package that implements an updated version
+of the method first developed and used in Medeiros et al. (2018)<a class="footnote-ref" tabindex="0" data-bs-toggle="popover" data-bs-content='&lt;p&gt;Medeiros LR, Galbreath PF, Knudsen CM, Stockton CA, Koch
 IJ, Bosch WJ, Narum SR, Nagler JJ, Pierce AL (2018) Plasma
 11-Ketotestosterone in Individual Age-1 Spring Chinook Salmon Males
 Accurately Predicts Age-2 Maturation Status. Transactions of the
-American Fisheries Society 147 (6):1042-1051. &lt;a href="doi:10.1002/tafs.10097" class="uri"&gt;doi:10.1002/tafs.10097&lt;/a&gt;&lt;/p&gt;'><sup>1</sup></a>. It can be used to determine an objective
-cutoff value between a significantly bimodal distribution of
-log-transformed data and plot a representative graph of the results.</p>
-<p>The functions in this packaged are written to utilize the example
-data set (an internal dataset object identified by “rawdata”) and will
-use it by default if the path for a dataset is not provided. The
-examples below specify this, along with any other default parameters for
-each function.</p>
+American Fisheries Society 147 (6):1042-1051. &lt;a href="doi:10.1002/tafs.10097" class="uri"&gt;doi:10.1002/tafs.10097&lt;/a&gt;&lt;/p&gt;'><sup>1</sup></a>. It can be
+used to determine an objective cutoff value between a significantly
+bimodal distribution of log-transformed data and plot a representative
+graph of the results.</p>
+<p>The functions in this package are written to utilize the example data
+set (an internal dataset object identified by “rawdata”) and will use it
+by default if the path for a dataset is not provided. The examples below
+specify this, along with any other default parameters for each
+function.</p>
 </div>
 <div class="section level3">
 <h3 id="vignette-info-suggested-workflow">Vignette Info &amp; Suggested Workflow<a class="anchor" aria-label="anchor" href="#vignette-info-suggested-workflow"></a>
 </h3>
 <p>This vignette will go over the various functions included in
-<code>cutoffvalue</code> using the included <code>example data</code>.
-The overall goals of this package are to (1) determine a cutoff value
-between the upper and lower modes of the dataset and (2) produce a ncie
-graph of the results that includes a histogram of the data, the two
-models fit to the upper and lower modes, and a line depicting the cutoff
-value. The functions are written to be run independently, so that only
-two functions need to be run to get the necessary information:</p>
+cutoffvalue using the included example data. The overall goals of this
+package are to (1) determine a cutoff value between the upper and lower
+modes of the dataset and (2) produce a nice graph of the results that
+includes a histogram of the data, the two models fit to the upper and
+lower modes, and a line depicting the cutoff value. The functions are
+written to be run independently, so that only two functions need to be
+run to get the necessary information:</p>
 <ul>
-<li>modes()</li>
-<li>cutoffplot()</li>
+<li>modes() &lt;- Determines modality of the dataset, which is an
+assumption for the remaining functions</li>
+<li>cutoffplot() &lt;- Determines the cutoff value and produces a nice
+graph of the results</li>
 </ul>
 <p>This vignette is written in accordance with the suggested workflow
 using these two functions. Subsequent sections discuss the functions
@@ -109,8 +111,7 @@ that are included within them.</p>
 <div class="section level3">
 <h3 id="installation-of-the-package">Installation of the package<a class="anchor" aria-label="anchor" href="#installation-of-the-package"></a>
 </h3>
-<p>You can install the latest version of <code>cutoffvalue</code> from
-<a href="https://github.com/lea-medeiros/cutoffvalue.git" class="external-link">GitHub</a>
+<p>You can install the latest version of cutoffvalue from <a href="https://github.com/lea-medeiros/cutoffvalue.git" class="external-link">GitHub</a>
 with:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="co"># install.packages("devtools")</span></span>
@@ -119,7 +120,7 @@ with:</p>
 <div class="section level3">
 <h3 id="setup-r-studio">Setup R Studio<a class="anchor" aria-label="anchor" href="#setup-r-studio"></a>
 </h3>
-<p>Load the <code>cutoffvalue</code> package</p>
+<p>Load the cutoffvalue package</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va">cutoffvalue</span><span class="op">)</span></span></code></pre></div>
 </div>
@@ -138,8 +139,9 @@ use code (an example is provided below).</p>
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://readxl.tidyverse.org" class="external-link">readxl</a></span><span class="op">)</span></span>
 <span><span class="va">yourrawdata</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://readxl.tidyverse.org/reference/read_excel.html" class="external-link">read_excel</a></span><span class="op">(</span><span class="st">"/path/to/your/excel/data"</span><span class="op">)</span></span></code></pre></div>
 <p>Each function in this package uses the provided dataset (whether it’s
-the example dataset or one you provided) and cleans it up to remove any
-blank cells. It then provides a list of objects: the data
+the example dataset or one you provided) and cleans it up (via the
+<code>cleandata</code> function, see below) to remove any blank cells.
+This function then provides a list of objects: the data
 (<code>mydata$data</code>), the maximum value
 (<code>mydata$upper</code>), and the minimum value
 (<code>mydata$lower</code>), all of which are then used in subsequent
@@ -160,8 +162,8 @@ should be determined before proceeding. The null hypothesis of this test
 is that the dataset is unimodal; an excess mass statistic associated
 with a p-value of less than 0.05 implies it is more than unimodal. It is
 strongly suggested that you run this test prior to any other function in
-<code>cutoffvalue</code>; however, how you proceed depends on your
-knowledge and understanding of the data.</p>
+cutoffvalue; however, how you proceed depends on your knowledge and
+understanding of the data.</p>
 <blockquote>
 <p>The <code>modes</code> function uses the example dataset (an internal
 dataset object identified by “rawdata”) by default. Thus, if the path
@@ -173,9 +175,9 @@ this is the data that will be used.</p>
 function returns the Excess Mass statistic and associated p-value to the
 Environment.</p>
 </blockquote>
-<p>Please keep in mind that the default parameters of
-<code>cutoffvalue</code> assume a bimodal distribution - any other
-modalities may cause inaccuracies in the results.</p>
+<p>Please keep in mind that the default parameters of cutoffvalue assume
+a bimodal distribution - any other modalities may cause inaccuracies in
+the results.</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">modetest</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/modes.html">modes</a></span><span class="op">(</span><span class="va">rawdata</span><span class="op">)</span></span>
 <span><span class="co">#&gt; Modality Test Results</span></span>
@@ -244,13 +246,11 @@ be used in the graph.</p>
 </div>
 </div>
 <div class="section level2">
-<h2 id="other-functions-included-in-the-cutoffvalue-package">Other Functions Included in the <code>cutoffvalue</code>
-Package<a class="anchor" aria-label="anchor" href="#other-functions-included-in-the-cutoffvalue-package"></a>
+<h2 id="other-functions-included-in-the-cutoffvalue-package">Other Functions Included in the cutoffvalue Package<a class="anchor" aria-label="anchor" href="#other-functions-included-in-the-cutoffvalue-package"></a>
 </h2>
-<p>The following functions are included in the <code>cutoffvalue</code>
-package and can be run independently. They are discussed in order of
-operations for having the <code>cutoffplot</code> function work
-properly.</p>
+<p>The following functions are included in the cutoffvalue package and
+can be run independently. They are discussed in order of operations for
+having the <code>cutoffplot</code> function work properly.</p>
 <div class="section level3">
 <h3 id="use-the-cleandata-function-to-clean-up-your-raw-dataset">Use the <code>cleandata</code> function to clean up your raw
 dataset<a class="anchor" aria-label="anchor" href="#use-the-cleandata-function-to-clean-up-your-raw-dataset"></a>
