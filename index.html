@@ -117,8 +117,8 @@
 <code class="sourceCode R"><span><span class="va">modetest</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/modes.html">modes</a></span><span class="op">(</span><span class="va">rawdata</span><span class="op">)</span></span>
 <span><span class="co">## Modality Test Results</span></span>
 <span><span class="co">## </span></span>
-<span><span class="co">## P-value: 0.006 </span></span>
-<span><span class="co">## Excess Mass Statistic: 0.09845026 </span></span>
+<span><span class="co">## P-value: 0.004 </span></span>
+<span><span class="co">## Excess Mass Statistic: 0.09844652 </span></span>
 <span><span class="co">## **Reject null hypothesis** Distribution contains more than one mode; proceed with analyses.</span></span>
 <span><span class="co">## </span></span>
 <span><span class="co">## Test Credit: Ameijeiras-Alonso et al. (2019) excess mass test</span></span></code></pre></div>
@@ -139,8 +139,8 @@
 <p>Determine the cutoff value between the two populations that has an equal chance of being drawn from either mode. The default is 0.5, but the probability can be changed in the code.</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">cutoff</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/findcutoff.html">findcutoff</a></span><span class="op">(</span><span class="va">rawdata</span><span class="op">)</span></span>
-<span><span class="co">## number of iterations= 18</span></span>
-<span><span class="co">## Cutoff Value: 0.112476</span></span></code></pre></div>
+<span><span class="co">## number of iterations= 20</span></span>
+<span><span class="co">## Cutoff Value: 0.1124713</span></span></code></pre></div>
 <p><em>The uniroot lower and upper values are determined using the range of “mydata” and will reflect the dataset being analyzed. If there are errors due to the uniroot, consider editing the custom values to something that more generally reflects the range of the data being analyzed.</em></p>
 </div>
 <div class="section level3">
@@ -185,7 +185,7 @@
 <h4 id="plot-the-graph-1">Plot the graph<a class="anchor" aria-label="anchor" href="#plot-the-graph-1"></a>
 </h4>
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">plotty</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/cutoffPlot.html">cutoffplot</a></span><span class="op">(</span><span class="va">rawdata</span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">plotty</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/cutoffPlot.html">cutoffplot</a></span><span class="op">(</span><span class="va">rawdata</span>, <span class="va">title</span>, <span class="va">xlab</span>, <span class="va">cutofflab</span>, <span class="va">cutoffunits</span>, <span class="va">LowerMode_col</span>, <span class="va">LowerMode_lty</span>, <span class="va">LowerMode_lwd</span>, <span class="va">UpperMode_col</span>, <span class="va">UpperMode_lty</span>, <span class="va">UpperMode_lwd</span>, <span class="va">cutoffvalue_col</span>, <span class="va">cutoffvalue_lty</span>, <span class="va">cutoffvalue_lwd</span><span class="op">)</span></span></code></pre></div>
 <p><img src="man/cutoffvalue_figures/README-graph-1.jpeg" style="display: block; margin: auto;"></p>
 <p><em>All figures can be found in the “cutoffvalue_figures” folder. They are exported as PDF, JPEG, and PNG at 300 dpi.</em></p>
 </div>
