@@ -13,7 +13,7 @@
 #' @export
 #'
 #' @examples
-#' mydata <- cleandata(rawdata)
+#' mydata <- cleandata()
 
 cleandata <- function(rawdata) {
   rawdata <- get0("rawdata", envir = asNamespace("cutoffvalue"))
