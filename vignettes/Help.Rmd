@@ -52,7 +52,16 @@ library(cutoffvalue)
 
 ## Import your raw dataset
 
-Importing your raw dataset can be done in a variety of ways - whichever you are most comfortable with.
+Import the data file to be used in the analyses and graph. The package includes a dataset for use as an example - this object is accessible as "rawdata" and will be used in the examples.
+
+Import your dataset any way you prefer. However, keep in mind that data should be organized as a single column of log- or natural log-transformed data. I find that the easiest way to import data is to use the "Import Dataset" function built into R Studio, but you can also use code (an example is provided below).
+
+``` r
+library(readxl)
+yourrawdata <- read_excel("/path/to/your/excel/data")
+```
+
+Each function in this package uses the provided dataset (whether it's the example dataset or one you provided) and cleans it up to remove any blank cells. It then provides a list of objects: the data (`mydata$data`), the maximum value (`mydata$upper`), and the minimum value (`mydata$lower`), all of which are then used in subsequent calculations.
 
 <br/><br/>
 
@@ -80,7 +89,7 @@ Plot a pretty graph that includes a histogram of the data, curve lines for each 
 
 > The `cutoffplot` function uses the example dataset (an internal dataset object identified by "rawdata") by default. Thus, if the path for the dataset is not specified (e.g., running cutoffplot() in the console), this is the data that will be used. Parameters (and their defaults) for the resulting graph are listed below.
 
-> When given a label (i.e., "plottyMcPlotty" in the example below), this function returns the log-transformed cutoff value to the Environment. 
+> When given a label (i.e., "plotty" in the example below), this function returns the log-transformed cutoff value to the Environment. 
 
 ### Specify graph labels
 
@@ -103,7 +112,7 @@ cutoffvalue_lwd <- 2 # line width for the cutoff value
 ```
 
 ### Plot the graph
-```{r graph, results='hide', fig.keep='last', fig.align='center', dpi=150, fig.dim=c(9, 5), out.width=700, out.height=390}
+```{r graph, results='hide', fig.keep='last'}
 plotty <- cutoffplot(rawdata, title, xlab, cutofflab, cutoffunits, LowerMode_col, LowerMode_lty, LowerMode_lwd, UpperMode_col, UpperMode_lty, UpperMode_lwd, cutoffvalue_col, cutoffvalue_lty, cutoffvalue_lwd)
 ```
 
@@ -113,14 +122,14 @@ plotty <- cutoffplot(rawdata, title, xlab, cutofflab, cutoffunits, LowerMode_col
 
 The following functions are included in the `cutoffvalue` package and can be run independently. They are discussed in order of operations for having the `cutoffplot` function work properly.
 
-## Use the `importdata` function to import your raw dataset
+## Use the `cleandata` function to clean up your raw dataset
 
-This function is used to import your dataset into the R Studio Environment. It uses the readxl::read_excel() function to import data, and assumes it's a file containing a single column of log- or ln-transformed data. After importing the dataset, the function removes an blank rows and transforms the data into a list of numbers. This list of values (`mydata$data`) is returned to the Environment along with the minimum (`mydata$lower`) and maximum values (`mydata$upper`), which are used in subsequent functions. **A label must be applied to this function for it to be used in subsequent functions.**
+This function is used to clean up your dataset by removing any blank rows and transforms the data into a list of numbers. This list of values (`mydata$data`) is returned to the Environment along with the minimum (`mydata$lower`) and maximum values (`mydata$upper`), which are used in subsequent functions. **The mydata label must be applied to this function for it to be used in subsequent functions.**
 
-> If nothing is specified (i.e., only "importdata()" is typed into the console), this function will use an internal dataset object identified by "rawdata" as the default dataset. 
+> If nothing is specified (i.e., only "cleandata()" is typed into the console), this function will use an internal dataset object identified by "rawdata" as the default dataset. 
 
-```{r importdata}
-mydata <- importdata(rawdata)
+```{r cleandata}
+mydata <- cleandata(rawdata)
 ```
 
 ## Use the `datamodel` function to generate models for each mode of the dataset

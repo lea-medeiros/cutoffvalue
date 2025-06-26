@@ -7,8 +7,8 @@
 cutoffplot(
   rawdata,
   maintitle = "Plasma 11-KT levels in age-2 male spring chinook",
-  xlabel = "Plasma [11-KT] (ng/mL)",
-  cutofflabel = "Minijack cutoff",
+  xlab = "Plasma [11-KT] (ng/mL)",
+  cutofflab = "Minijack cutoff",
   cutoffunits = "ng/mL",
   LowerMode_col = "red",
   LowerMode_lty = 1,
@@ -27,11 +27,11 @@ column header}
 
 \item{maintitle}{Title for the graph, default is blank}
 
+\item{cutoffunits}{Label for the units, default is "ng/mL"}
+
 \item{xlabel}{Label for the x-axis, default is "Plasma 11-KT (ng/mL)"}
 
 \item{cutofflabel}{Label for the cutoff value, default is "Minijack cutoff"}
-
-\item{cutoffunits}{Label for the units, default is "ng/mL"}
 }
 \value{
 Returns a histogram with colored lines depicting curves for upper and lower modes along with the determined cutoff line to delineate between the two modes. The cutoff value is also returned to the environment.

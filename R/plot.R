@@ -19,7 +19,7 @@
 #' @examples
 #' plotty <- cutoffplot(rawdata, "Example Graph Title", "Example X-Axis", "Cutoff Label", "UNITS")
 
-cutoffplot <- function (rawdata, maintitle = "Plasma 11-KT levels in age-2 male spring chinook", xlabel = "Plasma [11-KT] (ng/mL)", cutofflabel = "Minijack cutoff",
+cutoffplot <- function (rawdata, maintitle = "Plasma 11-KT levels in age-2 male spring chinook", xlab = "Plasma [11-KT] (ng/mL)", cutofflab = "Minijack cutoff",
                         cutoffunits = "ng/mL", LowerMode_col = "red", LowerMode_lty = 1, LowerMode_lwd = 2, UpperMode_col = "purple", UpperMode_lty = 1, UpperMode_lwd = 2,
                         cutoffvalue_col = "black", cutoffvalue_lty = 2, cutoffvalue_lwd = 2){
   mydata <- cleandata(rawdata)
@@ -47,6 +47,6 @@ cutoffplot <- function (rawdata, maintitle = "Plasma 11-KT levels in age-2 male 
   axis(side = 1, at = v1, labels = v2, cex.axis=1.25, family = "Times")
   ## Replaces log concentration x axis with calculations from v2 to display actual concentrations
   abline(v=cutoff, col=cutoffvalue_col, lty=cutoffvalue_lty, lwd=cutoffvalue_lwd) # cutoff line
-  text(cutoff+(fitData$step/2), fitData$ylimUpper-5, adj = c(0, 1), paste(cutofflabel, "\n =",round(10^(cutoff), 2), cutoffunits), cex=1.25, family = "Times", font = 2)
+  text(cutoff+(fitData$step/2), fitData$ylimUpper-5, adj = c(0, 1), paste(cutofflab, "\n =",round(10^(cutoff), 2), cutoffunits), cex=1.25, family = "Times", font = 2)
   return(cutoff)
 }
