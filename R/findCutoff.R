@@ -1,5 +1,5 @@
 #' @title Determine a cutoff value between the upper and lower mode of a bimodal dataset
-#' @description This function finds the cutoff value between the modes of bimodally distributed data at the indicated probability value. As a matter of course, this function runs the importData and datamodel functions for you, negating the need to run those separately.
+#' @description This function finds the cutoff value between the modes of bimodally distributed data at the indicated probability value. As a matter of course, this function runs the cleanData and datamodel functions for you, negating the need to run those separately.
 #'
 #' @param proba The probability value you want the cutoff value to represent
 #' @param i Determines the location, i.e., index of the (first) minimum of the model$mydata$mu
@@ -8,7 +8,6 @@
 #'
 #' @return Determines and reports the cutoff value for the indicated probability value.
 #'
-#' @importFrom readxl read_excel
 #' @import mixtools
 #' @import Hmisc
 #' @importFrom plyr round_any
@@ -19,7 +18,7 @@
 #' cutoff <- findcutoff(rawdata)
 
 findcutoff <- function(rawdata, proba=0.5, i=model$indexLower) {
-  mydata <- importdata(rawdata)
+  mydata <- cleandata(rawdata)
   model <- datamodel(rawdata)
   ## Cutoff such that Pr[drawn from bad component] == proba
   f <- function(x, proba=0.5, i=model$indexLower) {

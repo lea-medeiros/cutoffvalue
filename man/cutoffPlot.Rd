@@ -37,7 +37,7 @@ column header}
 Returns a histogram with colored lines depicting curves for upper and lower modes along with the determined cutoff line to delineate between the two modes. The cutoff value is also returned to the environment.
 }
 \description{
-This function incorporates most of the other functions in this package to plot a histogram of the data that includes the fit lines for each mode and the cutoff value depicted as a line. As a matter of course, this function runs the importData, datamodel, fit, curves, and findCutoff functions for you, negating the need to run those separately.
+This function incorporates most of the other functions in this package to plot a histogram of the data that includes the fit lines for each mode and the cutoff value depicted as a line. As a matter of course, this function runs the cleanData, datamodel, fit, curves, and findCutoff functions for you, negating the need to run those separately.
 }
 \examples{
 plotty <- cutoffplot(rawdata, "Example Graph Title", "Example X-Axis", "Cutoff Label", "UNITS")

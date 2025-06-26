@@ -1,5 +1,5 @@
 #' @title Plot a histogram of the dataset that includes the curves for each mode and the cutoff value
-#' @description This function incorporates most of the other functions in this package to plot a histogram of the data that includes the fit lines for each mode and the cutoff value depicted as a line. As a matter of course, this function runs the importData, datamodel, fit, curves, and findCutoff functions for you, negating the need to run those separately.
+#' @description This function incorporates most of the other functions in this package to plot a histogram of the data that includes the fit lines for each mode and the cutoff value depicted as a line. As a matter of course, this function runs the cleanData, datamodel, fit, curves, and findCutoff functions for you, negating the need to run those separately.
 #'
 #' @param maintitle Title for the graph, default is blank
 #' @param xlabel Label for the x-axis, default is "Plasma 11-KT (ng/mL)"
@@ -9,7 +9,7 @@
 #' column header
 #'
 #' @returns Returns a histogram with colored lines depicting curves for upper and lower modes along with the determined cutoff line to delineate between the two modes. The cutoff value is also returned to the environment.
-#' @importFrom readxl read_excel
+
 #' @import mixtools
 #' @import Hmisc
 #' @importFrom plyr round_any
@@ -22,7 +22,7 @@
 cutoffplot <- function (rawdata, maintitle = "Plasma 11-KT levels in age-2 male spring chinook", xlabel = "Plasma [11-KT] (ng/mL)", cutofflabel = "Minijack cutoff",
                         cutoffunits = "ng/mL", LowerMode_col = "red", LowerMode_lty = 1, LowerMode_lwd = 2, UpperMode_col = "purple", UpperMode_lty = 1, UpperMode_lwd = 2,
                         cutoffvalue_col = "black", cutoffvalue_lty = 2, cutoffvalue_lwd = 2){
-  mydata <- importdata(rawdata)
+  mydata <- cleandata(rawdata)
   model <- datamodel(rawdata)
   cutoff <- findcutoff(rawdata)
   fitData <- fitparams(rawdata)

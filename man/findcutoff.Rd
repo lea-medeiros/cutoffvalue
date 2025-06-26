@@ -18,7 +18,7 @@ column header.}
 Determines and reports the cutoff value for the indicated probability value.
 }
 \description{
-This function finds the cutoff value between the modes of bimodally distributed data at the indicated probability value. As a matter of course, this function runs the importData and datamodel functions for you, negating the need to run those separately.
+This function finds the cutoff value between the modes of bimodally distributed data at the indicated probability value. As a matter of course, this function runs the cleanData and datamodel functions for you, negating the need to run those separately.
 }
 \examples{
 cutoff <- findcutoff(rawdata)

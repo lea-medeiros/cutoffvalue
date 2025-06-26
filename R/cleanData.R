@@ -6,7 +6,6 @@
 #'
 #' @return Returns a list of values from the raw data in your Excel spreadsheet that has blanks removed.
 #'
-#' @importFrom readxl read_excel
 #' @import mixtools
 #' @import Hmisc
 #' @importFrom plyr round_any
@@ -14,10 +13,10 @@
 #' @export
 #'
 #' @examples
-#' mydata <- importdata(rawdata)
+#' mydata <- cleandata(rawdata)
 
-importdata <- function(rawdata) {
-  rawdata <- cutoffvalue:::rawdata
+cleandata <- function(rawdata) {
+  rawdata <- get0("rawdata", envir = asNamespace("cutoffvalue"))
   mydata <- na.omit(rawdata)
   mydataUpper <- max(mydata)
   mydataLower <- min(mydata)

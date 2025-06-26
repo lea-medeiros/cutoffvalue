@@ -24,6 +24,7 @@ knitr::opts_chunk$set(
 
 Cutoffvalue is a simple R package that implements an updated version of the method first developed and used in Medeiros et al. (2018). It can be used to determine an objective cutoff value between a significantly bimodal distribution of log-transformed data and plot a representative graph of the results.
 
+
 ## Installation
 
 You can install the development version of cutoffvalue from [GitHub](https://github.com/lea-medeiros/cutoffvalue.git) with:
@@ -32,6 +33,7 @@ You can install the development version of cutoffvalue from [GitHub](https://git
 # install.packages("devtools")
 devtools::install_github("lea-medeiros/cutoffvalue", dependencies = TRUE, build_vignettes = TRUE)
 ```
+
 
 ## Example
 
@@ -47,28 +49,28 @@ library(mixtools)
 library(Hmisc)
 library(plyr)
 library(multimode)
+```
+
+### Import your dataset
+
+Import the data file to be used in the analyses and graph. The package includes a dataset for use as an example - this object is accessible as "rawdata" and will be used in the examples.
+
+Import your dataset any way you prefer. However, keep in mind that data should be organized as a single column of log- or natural log-transformed data. I find that the easiest way to import data is to use the "Import Dataset" function built into R Studio, but you can also use code (an example is provided below).
+
+``` r
 library(readxl)
+yourrawdata <- read_excel()
 ```
 
-### Define your raw dataset
 
-Specify the data file to be used in the analyses and graph (if located in root folder of an R project, path information is not necessary). Reminder: data should be organized in as a single column of log- or natural log-transformed data without a column header. The package includes a dataset for use as an example - this object is accessible as "rawdata".
+### Clean the raw dataset
 
-```{r define-your-data}
-rawdata <- "rawdata" # replace the second rawdata with the path to your data file
+Remove rows containing NA data while also defining the minimum and maximum values for the dataset. The default for each function is specified as "rawdata", meaning that running any function without specifying the object (e.g., just typing "importdata()" into the console) will use this dataset.
+
+```{r clean-your-data}
+mydata <- cleandata(rawdata)
 ```
 
-*This step isn't necessary if you'd rather use the path name for your data.*
-
-### Import the raw dataset
-
-Import data and remove rows containing NA data. This function also defines minimum and maximum values for the dataset. The default for each function is specified as "rawdata", meaning that running any function without specifying the dataset will use this dataset.
-
-```{r import-your-data}
-mydata <- importdata(rawdata)
-```
-
-*Alternatively, you could enter the path name of your data in the read_excel function*
 
 ### Determine modality
 

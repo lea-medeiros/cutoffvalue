@@ -50,6 +50,10 @@ Load the `cutoffvalue` package
 library(cutoffvalue)
 ```
 
+## Import your raw dataset
+
+Importing your raw dataset can be done in a variety of ways - whichever you are most comfortable with.
+
 <br/><br/>
 
 # Using two functions to determine modality and generate the final plot
