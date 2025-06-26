@@ -15,10 +15,10 @@
 #' @examples
 #' mydata <- cleandata(rawdata)
 #'
-cleandata <- function(rawdata) {
-  rawdata <- get0("rawdata", envir = asNamespace("cutoffvalue"))
-  mydata <- na.omit(rawdata)
-  mydataUpper <- max(mydata)
-  mydataLower <- min(mydata)
+cleandata <- function(x) {
+  #rawdata <- get0("rawdata", envir = asNamespace("cutoffvalue"))
+  mydata <- na.omit(x)
+  mydataUpper <- max(x)
+  mydataLower <- min(x)
   return(list(data = mydata, upper = mydataUpper, lower = mydataLower))
 }
