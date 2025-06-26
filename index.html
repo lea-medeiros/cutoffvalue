@@ -76,8 +76,7 @@
 </h2>
 <p>You can install the development version of cutoffvalue from <a href="https://github.com/lea-medeiros/cutoffvalue.git" class="external-link">GitHub</a> with:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># install.packages("devtools")</span></span>
-<span><span class="fu">devtools</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"lea-medeiros/cutoffvalue"</span>, dependencies <span class="op">=</span> <span class="cn">TRUE</span>, build_vignettes <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># devtools::install_github("lea-medeiros/cutoffvalue", dependencies = TRUE, build_vignettes = TRUE)</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="example">Example<a class="anchor" aria-label="anchor" href="#example"></a>
@@ -92,24 +91,23 @@
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/dsy109/mixtools" class="external-link">mixtools</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://hbiostat.org/R/Hmisc/" class="external-link">Hmisc</a></span><span class="op">)</span></span>
 <span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="http://had.co.nz/plyr" class="external-link">plyr</a></span><span class="op">)</span></span>
-<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://doi.org/10.18637/jss.v097.i09" class="external-link">multimode</a></span><span class="op">)</span></span>
-<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://readxl.tidyverse.org" class="external-link">readxl</a></span><span class="op">)</span></span></code></pre></div>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://doi.org/10.18637/jss.v097.i09" class="external-link">multimode</a></span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level3">
-<h3 id="define-your-raw-dataset">Define your raw dataset<a class="anchor" aria-label="anchor" href="#define-your-raw-dataset"></a>
+<h3 id="import-your-dataset">Import your dataset<a class="anchor" aria-label="anchor" href="#import-your-dataset"></a>
 </h3>
-<p>Specify the data file to be used in the analyses and graph (if located in root folder of an R project, path information is not necessary). Reminder: data should be organized in as a single column of log- or natural log-transformed data without a column header. The package includes a dataset for use as an example - this object is accessible as “rawdata”.</p>
+<p>Import the data file to be used in the analyses and graph. The package includes a dataset for use as an example - this object is accessible as “rawdata” and will be used in the examples.</p>
+<p>Import your dataset any way you prefer. However, keep in mind that data should be organized as a single column of log- or natural log-transformed data. I find that the easiest way to import data is to use the “Import Dataset” function built into R Studio, but you can also use code (an example is provided below).</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">rawdata</span> <span class="op">&lt;-</span> <span class="st">"rawdata"</span> <span class="co"># replace the second rawdata with the path to your data file</span></span></code></pre></div>
-<p><em>This step isn’t necessary if you’d rather use the path name for your data.</em></p>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://readxl.tidyverse.org" class="external-link">readxl</a></span><span class="op">)</span></span>
+<span><span class="va">yourrawdata</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://readxl.tidyverse.org/reference/read_excel.html" class="external-link">read_excel</a></span><span class="op">(</span><span class="st">"/path/to/your/excel/data"</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level3">
-<h3 id="import-the-raw-dataset">Import the raw dataset<a class="anchor" aria-label="anchor" href="#import-the-raw-dataset"></a>
+<h3 id="clean-the-raw-dataset">Clean the raw dataset<a class="anchor" aria-label="anchor" href="#clean-the-raw-dataset"></a>
 </h3>
-<p>Import data and remove rows containing NA data. This function also defines minimum and maximum values for the dataset. The default for each function is specified as “rawdata”, meaning that running any function without specifying the dataset will use this dataset.</p>
+<p>Remove rows containing NA data while also defining the minimum and maximum values for the dataset. The default for each function is specified as “rawdata”, meaning that running any function without specifying the object (e.g., just typing “importdata()” into the console) will use this dataset.</p>
 <div class="sourceCode" id="cb4"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">mydata</span> <span class="op">&lt;-</span> <span class="fu">importdata</span><span class="op">(</span><span class="va">rawdata</span><span class="op">)</span></span></code></pre></div>
-<p><em>Alternatively, you could enter the path name of your data in the read_excel function</em></p>
+<code class="sourceCode R"><span><span class="va">mydata</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/cleandata.html">cleandata</a></span><span class="op">(</span><span class="va">rawdata</span><span class="op">)</span></span></code></pre></div>
 </div>
 <div class="section level3">
 <h3 id="determine-modality">Determine modality<a class="anchor" aria-label="anchor" href="#determine-modality"></a>
@@ -120,7 +118,7 @@
 <span><span class="co">## Modality Test Results</span></span>
 <span><span class="co">## </span></span>
 <span><span class="co">## P-value: 0.006 </span></span>
-<span><span class="co">## Excess Mass Statistic: 0.09844926 </span></span>
+<span><span class="co">## Excess Mass Statistic: 0.09845026 </span></span>
 <span><span class="co">## **Reject null hypothesis** Distribution contains more than one mode; proceed with analyses.</span></span>
 <span><span class="co">## </span></span>
 <span><span class="co">## Test Credit: Ameijeiras-Alonso et al. (2019) excess mass test</span></span></code></pre></div>
@@ -141,8 +139,8 @@
 <p>Determine the cutoff value between the two populations that has an equal chance of being drawn from either mode. The default is 0.5, but the probability can be changed in the code.</p>
 <div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">cutoff</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/findcutoff.html">findcutoff</a></span><span class="op">(</span><span class="va">rawdata</span><span class="op">)</span></span>
-<span><span class="co">## number of iterations= 15</span></span>
-<span><span class="co">## Cutoff Value: 0.1124709</span></span></code></pre></div>
+<span><span class="co">## number of iterations= 18</span></span>
+<span><span class="co">## Cutoff Value: 0.112476</span></span></code></pre></div>
 <p><em>The uniroot lower and upper values are determined using the range of “mydata” and will reflect the dataset being analyzed. If there are errors due to the uniroot, consider editing the custom values to something that more generally reflects the range of the data being analyzed.</em></p>
 </div>
 <div class="section level3">
@@ -187,7 +185,7 @@
 <h4 id="plot-the-graph-1">Plot the graph<a class="anchor" aria-label="anchor" href="#plot-the-graph-1"></a>
 </h4>
 <div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">plotty</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/cutoffPlot.html">cutoffplot</a></span><span class="op">(</span><span class="va">rawdata</span>, <span class="va">title</span>, <span class="va">xlab</span>, <span class="va">cutofflab</span>, <span class="va">cutoffunits</span>, <span class="va">LowerMode_col</span>, <span class="va">LowerMode_lty</span>, <span class="va">LowerMode_lwd</span>, <span class="va">UpperMode_col</span>, <span class="va">UpperMode_lty</span>, <span class="va">UpperMode_lwd</span>, <span class="va">cutoffvalue_col</span>, <span class="va">cutoffvalue_lty</span>, <span class="va">cutoffvalue_lwd</span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="va">plotty</span> <span class="op">&lt;-</span> <span class="fu"><a href="reference/cutoffPlot.html">cutoffplot</a></span><span class="op">(</span><span class="va">rawdata</span><span class="op">)</span></span></code></pre></div>
 <p><img src="man/cutoffvalue_figures/README-graph-1.jpeg" style="display: block; margin: auto;"></p>
 <p><em>All figures can be found in the “cutoffvalue_figures” folder. They are exported as PDF, JPEG, and PNG at 300 dpi.</em></p>
 </div>
