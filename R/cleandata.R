@@ -15,8 +15,7 @@
 #' @examples
 #' mydata <- cleandata(rawdata)
 #'
-cleandata <- function(x) {
-  #rawdata <- get0("rawdata", envir = asNamespace("cutoffvalue"))
+cleandata <- function(x = cutoffvalue:::rawdata) {
   mydata <- na.omit(x)
   mydataUpper <- max(mydata)
   mydataLower <- min(mydata)

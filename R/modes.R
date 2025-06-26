@@ -16,8 +16,7 @@
 #' @examples
 #' modetest <- modes(rawdata)
 
-modes <- function(x){
-  #rawdata <- get0("rawdata", envir = asNamespace("cutoffvalue"))
+modes <- function(x = cutoffvalue:::rawdata){
   mydata <- cleandata(x)
   modes1 <- modetest(mydata$data)
   EMS_stats <- function(mydata){

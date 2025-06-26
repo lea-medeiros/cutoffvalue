@@ -15,7 +15,7 @@
 #' @examples
 #' fit <- fitparams(rawdata)
 
-fitparams <- function(x, breaks = 15){
+fitparams <- function(x = cutoffvalue:::rawdata, breaks = 15){
   mydata <- cleandata(x)
   model <- datamodel(x)
   h <- hist(mydata$data, breaks = breaks)

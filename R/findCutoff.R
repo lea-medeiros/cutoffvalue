@@ -17,7 +17,7 @@
 #' @examples
 #' cutoff <- findcutoff(rawdata)
 
-findcutoff <- function(x, proba=0.5, i=model$indexLower) {
+findcutoff <- function(x = cutoffvalue:::rawdata, proba=0.5, i=model$indexLower) {
   mydata <- cleandata(x)
   model <- datamodel(x)
   ## Cutoff such that Pr[drawn from bad component] == proba

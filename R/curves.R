@@ -16,7 +16,7 @@
 #' @examples
 #' curves <- curves(rawdata)
 
-curves <- function(x){
+curves <- function(x = cutoffvalue:::rawdata){
   mydata <- cleandata(x)
   model <- datamodel(x)
   fitData <- fitparams(x)

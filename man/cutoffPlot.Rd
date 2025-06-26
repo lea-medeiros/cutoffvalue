@@ -5,7 +5,7 @@
 \title{Plot a histogram of the dataset that includes the curves for each mode and the cutoff value}
 \usage{
 cutoffplot(
-  x,
+  x = cutoffvalue:::rawdata,
   title = "Plasma 11-KT levels in age-2 male spring chinook",
   xlab = "Plasma [11-KT] (ng/mL)",
   cutofflab = "Minijack cutoff",

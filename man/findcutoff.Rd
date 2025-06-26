@@ -4,7 +4,7 @@
 \alias{findcutoff}
 \title{Determine a cutoff value between the upper and lower mode of a bimodal dataset}
 \usage{
-findcutoff(x, proba = 0.5, i = model$indexLower)
+findcutoff(x = cutoffvalue:::rawdata, proba = 0.5, i = model$indexLower)
 }
 \arguments{
 \item{proba}{The probability value you want the cutoff value to represent}

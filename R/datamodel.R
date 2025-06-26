@@ -15,7 +15,7 @@
 #' @examples
 #' mcmodel <- datamodel(rawdata)
 
-datamodel <- function(x){
+datamodel <- function(x = cutoffvalue:::rawdata){
   mydata <- cleandata(x)
   model <- normalmixEM(mydata$data)
   plot(model, whichplots=2)
