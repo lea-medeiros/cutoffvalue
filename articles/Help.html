@@ -183,8 +183,8 @@ the results.</p>
 <code class="sourceCode R"><span><span class="va">modetest</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/modes.html">modes</a></span><span class="op">(</span><span class="fu">cutoffvalue</span><span class="fu">:::</span><span class="va">exampledata</span><span class="op">)</span></span>
 <span><span class="co">#&gt; Modality Test Results</span></span>
 <span><span class="co">#&gt; </span></span>
-<span><span class="co">#&gt; P-value: 0.002 </span></span>
-<span><span class="co">#&gt; Excess Mass Statistic: 0.09744604 </span></span>
+<span><span class="co">#&gt;  p-value = 0.002 </span></span>
+<span><span class="co">#&gt;  Excess mass = 0.097446 </span></span>
 <span><span class="co">#&gt; **Reject null hypothesis** Distribution contains more than one mode; proceed with analyses.</span></span>
 <span><span class="co">#&gt; </span></span>
 <span><span class="co">#&gt; Test Credit: Ameijeiras-Alonso et al. (2019) excess mass test</span></span></code></pre></div>
@@ -325,8 +325,8 @@ console.</p>
 </blockquote>
 <div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">cutoff</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/findcutoff.html">findcutoff</a></span><span class="op">(</span><span class="fu">cutoffvalue</span><span class="fu">:::</span><span class="va">exampledata</span>, proba<span class="op">=</span><span class="fl">0.5</span><span class="op">)</span></span>
-<span><span class="co">#&gt; number of iterations= 19</span></span>
-<span><span class="co">#&gt; Cutoff Value: 0.1137316</span></span></code></pre></div>
+<span><span class="co">#&gt; number of iterations= 13</span></span>
+<span><span class="co">#&gt; Cutoff Value: 0.1137364</span></span></code></pre></div>
 <p><em>The uniroot lower (<code>mydata$lower</code>) and upper values
 (<code>mydata$upper</code>) are determined using the range of “mydata”
 and will reflect the dataset being analyzed. If there are errors due to
