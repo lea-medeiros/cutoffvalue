@@ -26,7 +26,7 @@ modes <- function(x = cutoffvalue:::exampledata){
     if(EMS_pvalue > 0.05) {
       cat('**Accept null hypothesis.** Distribution is most likely unimodal; proceed with caution.\n\nTest Credit: Ameijeiras-Alonso et al. (2019) excess mass test\n\n')
     } else if (EMS_pvalue < 0.05) {
-    cat('**Reject null hypothesis** Distribution contains more than one mode; proceed with analyses.\n\nTest Credit: Ameijeiras-Alonso et al. (2019) excess mass test\n\n')
+        cat('**Reject null hypothesis** Distribution contains more than one mode; proceed with analyses.\n\nTest Credit: Ameijeiras-Alonso et al. (2019) excess mass test\n\n')
     }
   }
   results <- function (x) {
