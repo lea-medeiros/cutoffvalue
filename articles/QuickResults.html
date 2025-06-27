@@ -5,12 +5,12 @@
 <meta charset="utf-8">
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-<title>cutoffvalue: An R Package for Cutoff Value Determination &amp; Graphing • cutoffvalue</title>
+<title>cutoffvalue: Quick Results • cutoffvalue</title>
 <script src="../deps/jquery-3.6.0/jquery-3.6.0.min.js"></script><meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
 <link href="../deps/bootstrap-5.3.1/bootstrap.min.css" rel="stylesheet">
 <script src="../deps/bootstrap-5.3.1/bootstrap.bundle.min.js"></script><link href="../deps/font-awesome-6.5.2/css/all.min.css" rel="stylesheet">
 <link href="../deps/font-awesome-6.5.2/css/v4-shims.min.css" rel="stylesheet">
-<script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="cutoffvalue: An R Package for Cutoff Value Determination &amp; Graphing">
+<script src="../deps/headroom-0.11.0/headroom.min.js"></script><script src="../deps/headroom-0.11.0/jQuery.headroom.min.js"></script><script src="../deps/bootstrap-toc-1.0.1/bootstrap-toc.min.js"></script><script src="../deps/clipboard.js-2.0.11/clipboard.min.js"></script><script src="../deps/search-1.0.0/autocomplete.jquery.min.js"></script><script src="../deps/search-1.0.0/fuse.min.js"></script><script src="../deps/search-1.0.0/mark.min.js"></script><!-- pkgdown --><script src="../pkgdown.js"></script><meta property="og:title" content="cutoffvalue: Quick Results">
 </head>
 <body>
     <a href="#main" class="visually-hidden-focusable">Skip to contents</a>
@@ -62,20 +62,20 @@
 <div class="row">
   <main id="main" class="col-md-9"><div class="page-header">
 
-      <h1>cutoffvalue: An R Package for Cutoff Value Determination &amp; Graphing</h1>
+      <h1>cutoffvalue: Quick Results</h1>
                         <h4 data-toc-skip class="author">Lea R
 Medeiros</h4>
             
             <h4 data-toc-skip class="date">2025-06-27</h4>
       
 
-      <div class="d-none name"><code>Help.Rmd</code></div>
+      <div class="d-none name"><code>QuickResults.Rmd</code></div>
     </div>
 
     
     
 <div class="section level2">
-<h2 id="overview-of-the-cutoffvalue-package">Overview of the cutoffvalue package<a class="anchor" aria-label="anchor" href="#overview-of-the-cutoffvalue-package"></a>
+<h2 id="brief-overview-of-the-cutoffvalue-package">Brief overview of the cutoffvalue package<a class="anchor" aria-label="anchor" href="#brief-overview-of-the-cutoffvalue-package"></a>
 </h2>
 <div class="section level3">
 <h3 id="description">Description<a class="anchor" aria-label="anchor" href="#description"></a>
@@ -99,25 +99,23 @@ Studio environment, and suggestions on how to import and convert your
 dataset into the proper format (i.e., a list of numeric values).</p>
 </div>
 <div class="section level3">
-<h3 id="vignette-info-suggested-workflow">Vignette Info &amp; Suggested Workflow<a class="anchor" aria-label="anchor" href="#vignette-info-suggested-workflow"></a>
+<h3 id="quick-dirty---the-bare-minimum-needed-to-get-results">Quick &amp; Dirty - The bare minimum needed to get results<a class="anchor" aria-label="anchor" href="#quick-dirty---the-bare-minimum-needed-to-get-results"></a>
 </h3>
-<p>This vignette will go over the various functions included in
-cutoffvalue using the included example data. The overall goals of this
-package are to (1) determine a cutoff value between the upper and lower
-modes of the dataset and (2) produce a nice graph of the results that
-includes a histogram of the data, the two models fit to the upper and
-lower modes, and a line depicting the cutoff value. The functions are
-written to be run independently, so that only two functions need to be
-run to get the necessary information:</p>
+<p>The overall goals of this package are to (1) determine a cutoff value
+between the upper and lower modes of the dataset and (2) produce a nice
+graph of the results that includes a histogram of the data, the two
+models fit to the upper and lower modes, and a line depicting the cutoff
+value. The functions are written to be run independently, so that only
+two functions need to be run to get the necessary information:</p>
 <ul>
 <li>modes() &lt;- Determines modality of the dataset, which is an
 assumption for the remaining functions</li>
 <li>cutoffplot() &lt;- Determines the cutoff value and produces a nice
 graph of the results</li>
 </ul>
-<p>This vignette is written in accordance with the suggested workflow
-using these two functions. Subsequent sections discuss the functions
-that are included within them.</p>
+<p>This vignette will only go over the two functions that are absolutely
+necessary to get results and know if they’re statistically
+significant.</p>
 </div>
 <div class="section level3">
 <h3 id="installation-of-the-package">Installation of the package<a class="anchor" aria-label="anchor" href="#installation-of-the-package"></a>
@@ -253,139 +251,8 @@ be used in the graph.</p>
 </h4>
 <div class="sourceCode" id="cb6"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="va">plotty</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/cutoffPlot.html">cutoffplot</a></span><span class="op">(</span><span class="fu">cutoffvalue</span><span class="fu">:::</span><span class="va">exampledata</span>, <span class="va">title</span>, <span class="va">xlab</span>, <span class="va">cutofflab</span>, <span class="va">cutoffunits</span>, <span class="va">LowerMode_col</span>, <span class="va">LowerMode_lty</span>, <span class="va">LowerMode_lwd</span>, <span class="va">UpperMode_col</span>, <span class="va">UpperMode_lty</span>, <span class="va">UpperMode_lwd</span>, <span class="va">cutoffvalue_col</span>, <span class="va">cutoffvalue_lty</span>, <span class="va">cutoffvalue_lwd</span><span class="op">)</span></span></code></pre></div>
-<p><img src="Help_files/figure-html/graph-1.png" width="700" height="390" style="display: block; margin: auto;"></p>
-<p><br><br></p>
+<p><img src="QuickResults_files/figure-html/graph-1.png" width="700" height="390" style="display: block; margin: auto;"></p>
 </div>
-</div>
-</div>
-<div class="section level2">
-<h2 id="other-functions-included-in-the-cutoffvalue-package">Other Functions Included in the cutoffvalue Package<a class="anchor" aria-label="anchor" href="#other-functions-included-in-the-cutoffvalue-package"></a>
-</h2>
-<p>The following functions are included in the cutoffvalue package and
-can be run independently. They are discussed in order of operations for
-having the <code>cutoffplot</code> function work properly.</p>
-<div class="section level3">
-<h3 id="use-the-cleandata-function-to-clean-up-your-raw-dataset">Use the <code>cleandata</code> function to clean up your raw
-dataset<a class="anchor" aria-label="anchor" href="#use-the-cleandata-function-to-clean-up-your-raw-dataset"></a>
-</h3>
-<p>This function is used to clean up your dataset by removing any blank
-rows and transforms the data into a list of numbers. This list of values
-(<code>mydata$data</code>) is returned to the Environment along with the
-minimum (<code>mydata$lower</code>) and maximum values
-(<code>mydata$upper</code>), which are used in subsequent functions.
-<strong>The mydata label must be applied to this function for it to be
-used in subsequent functions.</strong></p>
-<blockquote>
-<p>If nothing is specified (i.e., only “cleandata()” is typed into the
-console), this function will use an internal dataset object identified
-as “cutoffvalue:::exampledata” as the default dataset.</p>
-</blockquote>
-<div class="sourceCode" id="cb7"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">mydata</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/cleandata.html">cleandata</a></span><span class="op">(</span><span class="fu">cutoffvalue</span><span class="fu">:::</span><span class="va">exampledata</span><span class="op">)</span></span></code></pre></div>
-</div>
-<div class="section level3">
-<h3 id="use-the-datamodel-function-to-generate-models-for-each-mode-of-the-dataset">Use the <code>datamodel</code> function to generate models for each
-mode of the dataset<a class="anchor" aria-label="anchor" href="#use-the-datamodel-function-to-generate-models-for-each-mode-of-the-dataset"></a>
-</h3>
-<p>The <code>datamodel</code> function fits two component mixture models
-to the data and plots a rough histogram with the fitted lines. It also
-defines the index.lower value to be used in the find.cutoff
-function.</p>
-<blockquote>
-<p>The <code>datamodel</code> function uses the example dataset (an
-internal dataset object identified as “cutoffvalue:::exampledata”) by
-default. Thus, if the path for the dataset is not specified (e.g.,
-running importdata() in the console), this is the dataset that will be
-used.</p>
-</blockquote>
-<blockquote>
-<p>When given a label (i.e., “model” in the example below), the
-<code><a href="../reference/datamodel.html">datamodel()</a></code> function returns a list of 2 objects to the
-Environment - <code>model$mydata</code> and
-<code>model$indexLower</code>, which are used in subsequent
-functions.</p>
-</blockquote>
-<div class="sourceCode" id="cb8"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">model</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/datamodel.html">datamodel</a></span><span class="op">(</span><span class="fu">cutoffvalue</span><span class="fu">:::</span><span class="va">exampledata</span><span class="op">)</span></span></code></pre></div>
-<p><img src="Help_files/figure-html/model-data-1.png" width="700" height="390" style="display: block; margin: auto;"></p>
-<p><em>This isn’t the final graph, but still should be inspected to
-ensure that things look right. In particular, make sure that the point
-where the two curves intersect is where you are expecting the cutoff to
-be.</em></p>
-</div>
-<div class="section level3">
-<h3 id="use-the-findcutoff-function-to-determine-the-cutoff-value">Use the <code>findcutoff</code> function to determine the cutoff
-value<a class="anchor" aria-label="anchor" href="#use-the-findcutoff-function-to-determine-the-cutoff-value"></a>
-</h3>
-<p>The <code>findcutoff</code> function determines the cutoff value
-between the two modes with an equal chance of being drawn from either
-mode. The default probability is set to 50% (i.e., “proba=0.5” in the
-example below), but the probability can be changed in the code.</p>
-<blockquote>
-<p>The defaults for this function an internal dataset object identified
-as “cutoffvalue:::exampledata” as the raw dataset and 0.5 as the
-probability (i.e., running “findcutoff()” in the console will use these
-values)</p>
-</blockquote>
-<blockquote>
-<p>Running the <code>findcutoff</code> function with a label (e.g.,
-“cutoff” in the example below) will return the cutoff value to the
-Environment, but otherwise it does not report to the console. Use
-“returnValue(cutoff)” if you would like to see the value in the
-console.</p>
-</blockquote>
-<div class="sourceCode" id="cb9"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">cutoff</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/findcutoff.html">findcutoff</a></span><span class="op">(</span><span class="fu">cutoffvalue</span><span class="fu">:::</span><span class="va">exampledata</span>, proba<span class="op">=</span><span class="fl">0.5</span><span class="op">)</span></span>
-<span><span class="co">#&gt; number of iterations= 13</span></span>
-<span><span class="co">#&gt; Cutoff Value: 0.1137364</span></span></code></pre></div>
-<p><em>The uniroot lower (<code>mydata$lower</code>) and upper values
-(<code>mydata$upper</code>) are determined using the range of “mydata”
-and will reflect the dataset being analyzed. If there are errors due to
-the uniroot, consider editing the custom values to something that more
-generally reflects the range of the data being analyzed.</em></p>
-</div>
-<div class="section level3">
-<h3 id="use-the-fitparams-function-to-produce-a-basic-histogram-and-associated-parameters">Use the <code>fitparams</code> function to produce a basic histogram
-and associated parameters<a class="anchor" aria-label="anchor" href="#use-the-fitparams-function-to-produce-a-basic-histogram-and-associated-parameters"></a>
-</h3>
-<p>The <code>fitparams</code> function will produce a basic histogram
-from the dataset, which is then used to generate certain parameters for
-the curve fitting functions in subsequent functions. As such, you should
-alter the number of breaks to produce a graph representative of what you
-would like to see in the final plot - if not specified, the default is
-15.</p>
-<blockquote>
-<p>If nothing is specified (i.e., only “fitparams()” is typed into the
-console), this function will use an internal dataset object identified
-as “cutoffvalue:::exampledata” as the default dataset.</p>
-</blockquote>
-<p>The <code>fitparams</code> function returns a list of values to the
-Environment that are used in subsequent functions.</p>
-<div class="sourceCode" id="cb10"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">fit</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/fitparams.html">fitparams</a></span><span class="op">(</span><span class="fu">cutoffvalue</span><span class="fu">:::</span><span class="va">exampledata</span>, breaks <span class="op">=</span> <span class="fl">15</span><span class="op">)</span></span></code></pre></div>
-<p><img src="Help_files/figure-html/basic-histogram-1.png" width="700" height="390" style="display: block; margin: auto;"></p>
-<p><em>This histogram should be a general outline of what you would like
-the histogram in the final plot to look like. If it is not, change the
-number of breaks until it is. The scale of the axes in the final graph
-will better represent your dataset, so don’t worry about those.</em></p>
-</div>
-<div class="section level3">
-<h3 id="use-the-curves-function-to-generate-points-for-the-curves">Use the <code>curves</code> function to generate points for the
-curves<a class="anchor" aria-label="anchor" href="#use-the-curves-function-to-generate-points-for-the-curves"></a>
-</h3>
-<p>The <code>curves</code> function determines x and y values to
-calculate the points for the curves that represent the generated models
-in the final plot.</p>
-<blockquote>
-<p>If nothing is specified (i.e., only “curves()” is typed into the
-console), this function will use an internal dataset object identified
-as “cutoffvalue:::exampledata” as the default dataset.</p>
-</blockquote>
-<p>The <code>curves</code> function returns a list of 3 objects to the
-Environment, which are used by the <code>cutoffplot</code> function when
-producing the final plot.</p>
-<div class="sourceCode" id="cb11"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="va">curves</span> <span class="op">&lt;-</span> <span class="fu"><a href="../reference/curves.html">curves</a></span><span class="op">(</span><span class="fu">cutoffvalue</span><span class="fu">:::</span><span class="va">exampledata</span><span class="op">)</span></span></code></pre></div>
 </div>
 </div>
 
