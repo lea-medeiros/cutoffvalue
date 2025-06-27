@@ -85,7 +85,10 @@ graph of the results.</p>
 set (an internal dataset object identified as
 “cutoffvalue:::exampledata”) and will use it by default if the path for
 a dataset is not provided. The examples below specify this, along with
-any other default parameters for each function.</p>
+any other default parameters for each function. Below are the
+instructions on how to install the cutoffvalue package, setup the R
+Studio environment, and suggestions on how to import and convert your
+dataset into the proper format (i.e., a list of numeric values).</p>
 </div>
 <div class="section level3">
 <h3 id="vignette-info-suggested-workflow">Vignette Info &amp; Suggested Workflow<a class="anchor" aria-label="anchor" href="#vignette-info-suggested-workflow"></a>
@@ -114,15 +117,15 @@ that are included within them.</p>
 <p>You can install the latest version of cutoffvalue from <a href="https://github.com/lea-medeiros/cutoffvalue.git" class="external-link">GitHub</a>
 with:</p>
 <div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="co"># install.packages("devtools")</span></span>
-<span><span class="fu">devtools</span><span class="fu">::</span><span class="fu">install_github</span><span class="op">(</span><span class="st">"lea-medeiros/cutoffvalue"</span>, dependencies <span class="op">=</span> <span class="cn">TRUE</span>, build_vignettes <span class="op">=</span> <span class="cn">TRUE</span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># devtools::install_github("lea-medeiros/cutoffvalue", dependencies = TRUE, build_vignettes = TRUE)</span></span></code></pre></div>
 </div>
 <div class="section level3">
 <h3 id="setup-r-studio">Setup R Studio<a class="anchor" aria-label="anchor" href="#setup-r-studio"></a>
 </h3>
 <p>Load the cutoffvalue package</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://lea-medeiros.github.io/cutoffvalue/">cutoffvalue</a></span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://lea-medeiros.github.io/cutoffvalue/">cutoffvalue</a></span><span class="op">)</span></span>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://readxl.tidyverse.org" class="external-link">readxl</a></span><span class="op">)</span> <span class="co"># Only necessary if you will be importing an excel file (see below)</span></span></code></pre></div>
 </div>
 <div class="section level3">
 <h3 id="import-your-raw-dataset">Import your raw dataset<a class="anchor" aria-label="anchor" href="#import-your-raw-dataset"></a>
@@ -131,14 +134,15 @@ with:</p>
 package includes a dataset for use as an example - this object is
 accessible as “cutoffvalue:::exampledata” and will be used in the
 examples.</p>
-<p>Import your dataset any way you prefer. However, keep in mind that
-data should be organized as a single column of log- or natural
-log-transformed data. I find that the easiest way to import data is to
-use the “Import Dataset” function built into R Studio, but you can also
-use code (an example is provided below).</p>
+<p>Import your own dataset any way you prefer. I find that the easiest
+way to import data is to use the “Import Dataset” function built into R
+Studio, but you can also use code. The imported data must then be
+converted into a list of numeric values. An example of code that should
+work (after you update certain parts to be specific to your dataset) is
+included below.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://readxl.tidyverse.org" class="external-link">readxl</a></span><span class="op">)</span></span>
-<span><span class="va">yourrawdata</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://readxl.tidyverse.org/reference/read_excel.html" class="external-link">read_excel</a></span><span class="op">(</span><span class="st">"/path/to/your/excel/data"</span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># yourrawdata &lt;- read_excel("/path/to/your/excel/data", col_names = TRUE) # Imports the data as a dataframe with first row as column names</span></span>
+<span><span class="co"># yourrawdata &lt;- as.numeric(yourrawdata$columnname) # converts the specified column to a numeric list of values</span></span></code></pre></div>
 <p>Each function in this package uses the provided dataset (whether it’s
 the example dataset or one you provided) and cleans it up (via the
 <code>cleandata</code> function, see below) to remove any blank cells.
