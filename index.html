@@ -59,7 +59,7 @@
 <li>modes() &lt;- Determines modality of the dataset, which is an assumption for the remaining functions</li>
 <li>cutoffplot() &lt;- Determines the cutoff value and produces a nice graph of the results</li>
 </ul>
-<p>The functions in this package are written to utilize the example data set (an internal dataset object identified as “exampledata”) and will use it by default if a dataset is not provided. Below are the instructions on how to install the cutoffvalue package, setup the R Studio environment, and suggestions on how to import your dataset. Please see the vignette for more information about each function.</p>
+<p>The functions in this package are written to utilize the example data set (an internal dataset object identified as “exampledata”) and will use it by default if a dataset is not provided. Below are the instructions on how to install the cutoffvalue package, setup the R Studio environment, and suggestions on how to import and convert your dataset into the proper format. Please see the vignette for more information about each function.</p>
 <div class="section level2">
 <h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
 </h2>
@@ -70,22 +70,19 @@
 <div class="section level2">
 <h2 id="setup-rstudio">Setup RStudio<a class="anchor" aria-label="anchor" href="#setup-rstudio"></a>
 </h2>
-<p>Load the packages that are used by this package.</p>
+<p>Load the packages that you will need.</p>
 <div class="sourceCode" id="cb2"><pre class="downlit sourceCode r">
 <code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://lea-medeiros.github.io/cutoffvalue/">cutoffvalue</a></span><span class="op">)</span></span>
-<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://github.com/dsy109/mixtools" class="external-link">mixtools</a></span><span class="op">)</span></span>
-<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://hbiostat.org/R/Hmisc/" class="external-link">Hmisc</a></span><span class="op">)</span></span>
-<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="http://had.co.nz/plyr" class="external-link">plyr</a></span><span class="op">)</span></span>
-<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://doi.org/10.18637/jss.v097.i09" class="external-link">multimode</a></span><span class="op">)</span></span></code></pre></div>
+<span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://readxl.tidyverse.org" class="external-link">readxl</a></span><span class="op">)</span> <span class="co"># Only necessary if you will be importing an excel file (see below)</span></span></code></pre></div>
 </div>
 <div class="section level2">
 <h2 id="import-your-dataset">Import your dataset<a class="anchor" aria-label="anchor" href="#import-your-dataset"></a>
 </h2>
 <p>Import the data file to be used in the analyses and graph. The package includes a dataset for use as an example - this object is accessible as “cutoffvalue:::exampledata” and will be used in the examples.</p>
-<p>Import your own dataset any way you prefer. However, keep in mind that data should be organized as a single column of log- or natural log-transformed data. I find that the easiest way to import data is to use the “Import Dataset” function built into R Studio, but you can also use code (an example is provided below).</p>
+<p>Import your own dataset any way you prefer. I find that the easiest way to import data is to use the “Import Dataset” function built into R Studio, but you can also use code (an example is provided below). The imported data must then be converted into a list of numeric values.</p>
 <div class="sourceCode" id="cb3"><pre class="downlit sourceCode r">
-<code class="sourceCode R"><span><span class="kw"><a href="https://rdrr.io/r/base/library.html" class="external-link">library</a></span><span class="op">(</span><span class="va"><a href="https://readxl.tidyverse.org" class="external-link">readxl</a></span><span class="op">)</span></span>
-<span><span class="va">yourrawdata</span> <span class="op">&lt;-</span> <span class="fu"><a href="https://readxl.tidyverse.org/reference/read_excel.html" class="external-link">read_excel</a></span><span class="op">(</span><span class="st">"/path/to/your/excel/data"</span>, col_names <span class="op">=</span> <span class="cn">FALSE</span><span class="op">)</span></span></code></pre></div>
+<code class="sourceCode R"><span><span class="co"># yourrawdata &lt;- read_excel("/path/to/your/excel/data", col_names = TRUE) # Imports the data as a dataframe with first row as column names</span></span>
+<span><span class="co"># yourrawdata &lt;- as.numeric(yourrawdata$columnname) # converts the specified column to a numeric list of values</span></span></code></pre></div>
 <p>Each function in this package uses the provided dataset (whether it’s the example dataset or one you provided) and cleans it up (via the <code>cleandata</code> function, see the vignette for more information) to remove any blank cells. This function then provides a list of objects: the data (<code>mydata$data</code>), the maximum value (<code>mydata$upper</code>), and the minimum value (<code>mydata$lower</code>), all of which are then used in subsequent calculations.</p>
 </div>
 </div>
