@@ -18,19 +18,21 @@
 
 modes <- function(x = cutoffvalue:::exampledata){
   mydata <- cleandata(x)
-  modes1 <- modetest(mydata$data)
+  output <- capture.output(multimode::modetest(mydata$data))
+  results <- unlist(strsplit(output[5], ", "))
+  EMS_value <- results[1]
+  EMS_pvalue <- results[2]
+  modes1 <- multimode::modetest(mydata$data)
   EMS_stats <- function(mydata){
-    EMS_value <- modes1$statistic
-    EMS_pvalue <- modes1$p.value
-    cat('Modality Test Results\n\nP-value:', EMS_pvalue,'\nExcess Mass Statistic:', EMS_value, '\n')
-    if(EMS_pvalue > 0.05) {
+    cat('Modality Test Results\n\n', EMS_pvalue,'\n', EMS_value, '\n')
+    if(modes1$p.value > 0.05) {
       cat('**Accept null hypothesis.** Distribution is most likely unimodal; proceed with caution.\n\nTest Credit: Ameijeiras-Alonso et al. (2019) excess mass test\n\n')
-    } else if (EMS_pvalue < 0.05) {
+    } else if (modes1$p.value < 0.05) {
         cat('**Reject null hypothesis** Distribution contains more than one mode; proceed with analyses.\n\nTest Credit: Ameijeiras-Alonso et al. (2019) excess mass test\n\n')
     }
   }
   results <- function (x) {
-    return(list(pvalue = modes1$p.value, EMS = modes1$statistic))
+    return(list(EMS_pvalue, EMS_value))
   }
   EMS_stats()
   results()
