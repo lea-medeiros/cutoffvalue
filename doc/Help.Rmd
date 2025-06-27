@@ -23,7 +23,7 @@ knitr::opts_chunk$set(
 
 cutoffvalue is a simple R package that implements an updated version of the method first developed and used in Medeiros et al. (2018)^[Medeiros LR, Galbreath PF, Knudsen CM, Stockton CA, Koch IJ, Bosch WJ, Narum SR, Nagler JJ, Pierce AL (2018) Plasma 11-Ketotestosterone in Individual Age-1 Spring Chinook Salmon Males Accurately Predicts Age-2 Maturation Status. Transactions of the American Fisheries Society 147 (6):1042-1051. doi:10.1002/tafs.10097]. It can be used to determine an objective cutoff value between a significantly bimodal distribution of log-transformed data and plot a representative graph of the results.
 
-The functions in this package are written to utilize the example data set (an internal dataset object identified as "cutoffvalue:::exampledata") and will use it by default if the path for a dataset is not provided. The examples below specify this, along with any other default parameters for each function.
+The functions in this package are written to utilize the example data set (an internal dataset object identified as "cutoffvalue:::exampledata") and will use it by default if the path for a dataset is not provided. The examples below specify this, along with any other default parameters for each function. Below are the instructions on how to install the cutoffvalue package, setup the R Studio environment, and suggestions on how to import and convert your dataset into the proper format (i.e., a list of numeric values).
 
 ## Vignette Info & Suggested Workflow
 
@@ -38,9 +38,8 @@ This vignette is written in accordance with the suggested workflow using these t
 
 You can install the latest version of cutoffvalue from [GitHub](https://github.com/lea-medeiros/cutoffvalue.git) with:
 
-``` r
-# install.packages("devtools")
-devtools::install_github("lea-medeiros/cutoffvalue", dependencies = TRUE, build_vignettes = TRUE)
+```{r install-package}
+# devtools::install_github("lea-medeiros/cutoffvalue", dependencies = TRUE, build_vignettes = TRUE)
 ```
 
 ## Setup R Studio
@@ -48,17 +47,18 @@ devtools::install_github("lea-medeiros/cutoffvalue", dependencies = TRUE, build_
 Load the cutoffvalue package
 ```{r load-packages, message=FALSE}
 library(cutoffvalue)
+library(readxl) # Only necessary if you will be importing an excel file (see below)
 ```
 
 ## Import your raw dataset
 
 Import the data file to be used in the analyses and graph. The package includes a dataset for use as an example - this object is accessible as "cutoffvalue:::exampledata" and will be used in the examples.
 
-Import your dataset any way you prefer. However, keep in mind that data should be organized as a single column of log- or natural log-transformed data. I find that the easiest way to import data is to use the "Import Dataset" function built into R Studio, but you can also use code (an example is provided below).
+Import your own dataset any way you prefer. I find that the easiest way to import data is to use the "Import Dataset" function built into R Studio, but you can also use code. The imported data must then be converted into a list of numeric values. An example of code that should work (after you update certain parts to be specific to your dataset) is included below.
 
-``` r
-library(readxl)
-yourrawdata <- read_excel("/path/to/your/excel/data")
+```{r import-data}
+# yourrawdata <- read_excel("/path/to/your/excel/data", col_names = TRUE) # Imports the data as a dataframe with first row as column names
+# yourrawdata <- as.numeric(yourrawdata$columnname) # converts the specified column to a numeric list of values
 ```
 
 Each function in this package uses the provided dataset (whether it's the example dataset or one you provided) and cleans it up to remove any blank cells. It then provides a list of objects: the data (`mydata$data`), the maximum value (`mydata$upper`), and the minimum value (`mydata$lower`), all of which are then used in subsequent calculations.
