@@ -381,8 +381,9 @@ graph of the results</li>
 set (an internal dataset object identified as “exampledata”) and will
 use it by default if a dataset is not provided. Below are the
 instructions on how to install the cutoffvalue package, setup the R
-Studio environment, and suggestions on how to import your dataset.
-Please see the vignette for more information about each function.</p>
+Studio environment, and suggestions on how to import and convert your
+dataset into the proper format. Please see the vignette for more
+information about each function.</p>
 <div id="installation" class="section level2">
 <h2>Installation</h2>
 <p>You can install the development version of cutoffvalue from <a href="https://github.com/lea-medeiros/cutoffvalue.git">GitHub</a>
@@ -391,12 +392,9 @@ with:</p>
 </div>
 <div id="setup-rstudio" class="section level2">
 <h2>Setup RStudio</h2>
-<p>Load the packages that are used by this package.</p>
+<p>Load the packages that you will need.</p>
 <pre class="r"><code>library(cutoffvalue)
-library(mixtools)
-library(Hmisc)
-library(plyr)
-library(multimode)</code></pre>
+library(readxl) # Only necessary if you will be importing an excel file (see below)</code></pre>
 </div>
 <div id="import-your-dataset" class="section level2">
 <h2>Import your dataset</h2>
@@ -404,13 +402,12 @@ library(multimode)</code></pre>
 package includes a dataset for use as an example - this object is
 accessible as “cutoffvalue:::exampledata” and will be used in the
 examples.</p>
-<p>Import your own dataset any way you prefer. However, keep in mind
-that data should be organized as a single column of log- or natural
-log-transformed data. I find that the easiest way to import data is to
-use the “Import Dataset” function built into R Studio, but you can also
-use code (an example is provided below).</p>
-<pre class="r"><code>library(readxl)
-yourrawdata &lt;- read_excel(&quot;/path/to/your/excel/data&quot;, col_names = FALSE)</code></pre>
+<p>Import your own dataset any way you prefer. I find that the easiest
+way to import data is to use the “Import Dataset” function built into R
+Studio, but you can also use code (an example is provided below). The
+imported data must then be converted into a list of numeric values.</p>
+<pre class="r"><code># yourrawdata &lt;- read_excel(&quot;/path/to/your/excel/data&quot;, col_names = TRUE) # Imports the data as a dataframe with first row as column names
+# yourrawdata &lt;- as.numeric(yourrawdata$columnname) # converts the specified column to a numeric list of values</code></pre>
 <p>Each function in this package uses the provided dataset (whether it’s
 the example dataset or one you provided) and cleans it up (via the
 <code>cleandata</code> function, see the vignette for more information)
