@@ -1,0 +1,35 @@
+---
+title: "cutoffvalue: Model the data"
+author: "Lea R Medeiros"
+date: "`r Sys.Date()`"
+output: 
+  rmarkdown::html_vignette:
+vignette: >
+  %\VignetteIndexEntry{cutoffvalue: Model the data}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  echo = TRUE,
+  comment = "#>"
+)
+library(cutoffvalue)
+library(readxl)
+```
+
+## Using the `datamodel` function to generate models for each mode of the dataset
+
+The `datamodel` function fits two component mixture models to the data and plots a rough histogram with the fitted lines. It also defines the index.lower value to be used in the find.cutoff function. It assumes you have installed the cutoffvalue package and loaded the necessary packages (see the Getting Started vignette for more information). If you need help on other topics, please see either the main vignette (Help) or refer to the vignette for another topic.
+
+> The `datamodel` function uses the example dataset (an internal dataset object identified as "cutoffvalue:::exampledata") by default. Thus, if the path for the dataset is not specified (e.g., running importdata() in the console), this is the dataset that will be used.
+
+> When given a label (i.e., "model" in the example below), the `datamodel()` function returns a list of 2 objects to the Environment - `model$mydata` and `model$indexLower`, which are used in subsequent functions.
+
+```{r model-data, results='hide', fig.keep='last', fig.align='center', dpi=150, fig.dim=c(9, 5), out.width=700, out.height=390}
+model <- datamodel(cutoffvalue:::exampledata)
+```
+
+_This isn't the final graph, but still should be inspected to ensure that things look right. In particular, make sure that the point where the two curves intersect is where you are expecting the cutoff to be._

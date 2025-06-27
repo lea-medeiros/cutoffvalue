@@ -1,0 +1,35 @@
+---
+title: "cutoffvalue: Determine a cutoff value"
+author: "Lea R Medeiros"
+date: "`r Sys.Date()`"
+output: 
+  rmarkdown::html_vignette:
+vignette: >
+  %\VignetteIndexEntry{cutoffvalue: Determine a cutoff value}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  echo = TRUE,
+  comment = "#>"
+)
+library(cutoffvalue)
+library(readxl)
+```
+
+## Using the `findcutoff` function to determine the cutoff value
+
+The `findcutoff` function determines the cutoff value between the two modes with an equal chance of being drawn from either mode. The default probability is set to 50% (i.e., "proba=0.5" in the example below), but the probability can be changed in the code. It assumes you have installed the cutoffvalue package and loaded the necessary packages (see the Getting Started vignette for more information). If you need help on other topics, please see either the main vignette (Help) or refer to the vignette for another topic.
+
+> The defaults for this function an internal dataset object identified as "cutoffvalue:::exampledata" as the raw dataset and 0.5 as the probability (i.e., running "findcutoff()" in the console will use these values)
+
+> Running the `findcutoff` function with a label (e.g., "cutoff" in the example below) will return the cutoff value to the Environment, but otherwise it does not report to the console. Use "returnValue(cutoff)" if you would like to see the value in the console.
+
+```{r find-cutoff, fig.show='hide'}
+cutoff <- findcutoff(cutoffvalue:::exampledata, proba=0.5)
+```
+
+_The uniroot lower (`mydata$lower`) and upper values (`mydata$upper`) are determined using the range of "mydata" and will reflect the dataset being analyzed. If there are errors due to the uniroot, consider editing the custom values to something that more generally reflects the range of the data being analyzed._

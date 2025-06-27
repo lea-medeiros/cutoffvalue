@@ -1,0 +1,33 @@
+---
+title: "cutoffvalue: Generate curves for the graph"
+author: "Lea R Medeiros"
+date: "`r Sys.Date()`"
+output: 
+  rmarkdown::html_vignette:
+vignette: >
+  %\VignetteIndexEntry{cutoffvalue: Generate curves for the graph}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r, include = FALSE}
+knitr::opts_chunk$set(
+  collapse = TRUE,
+  echo = TRUE,
+  comment = "#>"
+)
+library(cutoffvalue)
+library(readxl)
+```
+
+## Using the `curves` function to generate points for the curves
+
+The `curves` function determines x and y values to calculate the points for the curves that represent the generated models in the final plot. It assumes you have installed the cutoffvalue package and loaded the necessary packages (see the Getting Started vignette for more information). If you need help on other topics, please see either the main vignette (Help) or refer to the vignette for another topic. 
+
+> If nothing is specified (i.e., only "curves()" is typed into the console), this function will use an internal dataset object identified as "cutoffvalue:::exampledata" as the default dataset. 
+
+The `curves` function returns a list of 3 objects to the Environment, which are used by the `cutoffplot` function when producing the final plot.
+
+```{r curves, results='hide', fig.show='hide'}
+curves <- curves(cutoffvalue:::exampledata)
+```
