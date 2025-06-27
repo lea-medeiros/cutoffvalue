@@ -20,8 +20,7 @@ fitparams <- function(x = cutoffvalue:::exampledata, breaks = 15){
   model <- datamodel(x)
   h <- hist(mydata$data, breaks = breaks)
   step <- abs(h$breaks[[1]]-h$breaks[[2]])
-  return(list(h = h, xlimUpper = (round(mydata$upper*2)/2)+0.25, xlimLower = (round(mydata$lower*2)/2)-0.25,
-              ylimUpper = plyr::round_any(max(h$counts), 5, ceiling), step = abs(h$breaks[[1]]-h$breaks[[2]]),
-              xfitLower = min(h$breaks)-step, xfitUpper = max(h$breaks)+step, v1Lower = min(h$mids),
-              v1Upper = max(h$mids)))
+  return(list(h = h, step = abs(h$breaks[[1]]-h$breaks[[2]]), xlimUpper = max(h$breaks)+step, xlimLower = min(h$breaks)-step,
+              ylimUpper = plyr::round_any(max(h$counts), 5, ceiling), xfitLower = min(h$breaks)-step, xfitUpper = max(h$breaks)+step,
+              v1Lower = min(h$mids), v1Upper = max(h$mids)))
 }
