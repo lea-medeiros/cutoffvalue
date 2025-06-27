@@ -3,7 +3,7 @@ pkgdown: 2.1.3
 pkgdown_sha: ~
 articles:
   Help: Help.html
-last_built: 2025-06-27T00:11Z
+last_built: 2025-06-27T00:21Z
 urls:
   reference: https://lea-medeiros.github.io/cutoffvalue/reference
   article: https://lea-medeiros.github.io/cutoffvalue/articles
