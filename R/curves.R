@@ -1,7 +1,7 @@
 #' @title Fit curves to each mode of the dataset
 #' @description This function fits curves to the dataset. As a matter of course, this function runs the cleanData, datamodel, and fit functions for you, negating the need to run those separately.
 #'
-#' @param x Your dataset specified as "DatasetName$ColumnName"; data should be a single column of log-transformed data with a column header.
+#' @param x Your dataset specified as "DatasetName$ColumnName" or converted to a numeric list with a name (e.g., "yourrawdata <- as.numeric(yourrawdata$columnname)"). Regardless of how you import or specify it, data should be a single column of log-transformed data.
 #'
 #' @returns Returns three sets of values, which are used to plot curves for the lower and upper modes.
 #'

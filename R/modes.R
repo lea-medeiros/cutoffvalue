@@ -1,7 +1,7 @@
 #' @title Determines the modality of the dataset
 #' @description This function tests the dataset's modality. It uses the modetest function from the multimode package written by Ameijeiras-Alonso et al. (2019) to determine the excess mass test statistic and test the number of modes. As a matter of course, this function runs the cleanData function, negating the need to run it separately.
 #'
-#' @param x Your dataset specified as "DatasetName$ColumnName"; data should be a single column of log-transformed data with a column header.
+#' @param x Your dataset specified as "DatasetName$ColumnName" or converted to a numeric list with a name (e.g., "yourrawdata <- as.numeric(yourrawdata$columnname)"). Regardless of how you import or specify it, data should be a single column of log-transformed data.
 #'
 #' @returns Returns the p-value and excess mass statistic to determine whether the dataset is unimodal.
 #'

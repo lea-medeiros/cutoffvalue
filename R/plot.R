@@ -5,7 +5,7 @@
 #' @param xlab Label for the x-axis, default is "Plasma 11-KT (ng/mL)"
 #' @param cutofflab Label for the cutoff value, default is "Minijack cutoff"
 #' @param cutoffunits Label for the units, default is "ng/mL"
-#' @param x Your dataset specified as "DatasetName$ColumnName"; data should be a single column of log-transformed data with a column header.
+#' @param x Your dataset specified as "DatasetName$ColumnName" or converted to a numeric list with a name (e.g., "yourrawdata <- as.numeric(yourrawdata$columnname)"). Regardless of how you import or specify it, data should be a single column of log-transformed data.
 #'
 #' @returns Returns a histogram with colored lines depicting curves for upper and lower modes along with the determined cutoff line to delineate between the two modes. The cutoff value is also returned to the environment.
 

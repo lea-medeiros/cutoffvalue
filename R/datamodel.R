@@ -1,7 +1,7 @@
 #' @title Generate models for each mode of the dataset
 #' @description This function generates the normal mix EM model for the data set. As a matter of course, this function also runs the cleanData function for you, negating the need to run it separately.
 #'
-#' @param x Your dataset specified as "DatasetName$ColumnName"; data should be a single column of log-transformed data with a column header.
+#' @param x Your dataset specified as "DatasetName$ColumnName" or converted to a numeric list with a name (e.g., "yourrawdata <- as.numeric(yourrawdata$columnname)"). Regardless of how you import or specify it, data should be a single column of log-transformed data.
 #'
 #' @returns Returns the model parameters and lower index value for the data set.
 #'

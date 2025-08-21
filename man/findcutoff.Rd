@@ -7,7 +7,7 @@
 findcutoff(x = cutoffvalue:::exampledata, proba = 0.5, i = model$indexLower)
 }
 \arguments{
-\item{x}{Your dataset specified as "DatasetName$ColumnName"; data should be a single column of log-transformed data with a column header.}
+\item{x}{Your dataset specified as "DatasetName$ColumnName" or converted to a numeric list with a name (e.g., "yourrawdata <- as.numeric(yourrawdata$columnname)"). Regardless of how you import or specify it, data should be a single column of log-transformed data.}
 
 \item{proba}{The probability value you want the cutoff value to represent}
 
