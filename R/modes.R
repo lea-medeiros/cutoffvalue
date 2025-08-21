@@ -1,4 +1,4 @@
-#' @title Determines the modality of the dataset.
+#' @title Determines the modality of the dataset
 #' @description This function tests the dataset's modality. It uses the modetest function from the multimode package written by Ameijeiras-Alonso et al. (2019) to determine the excess mass test statistic and test the number of modes. As a matter of course, this function runs the cleanData function, negating the need to run it separately.
 #'
 #' @param x Your dataset specified as "DatasetName$ColumnName"; data should be a single column of log-transformed data with a column header.
