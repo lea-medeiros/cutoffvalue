@@ -3,8 +3,7 @@
 #'
 #' @param proba The probability value you want the cutoff value to represent
 #' @param i Determines the location, i.e., index of the (first) minimum of the model$mydata$mu
-#' @param x Your data file; data should be organized in an Excel document as a single column of log- or natural log-transformed data without a
-#' column header.
+#' @param x Your dataset specified as "DatasetName$ColumnName"; data should be a single column of log-transformed data with a column header.
 #'
 #' @return Determines and reports the cutoff value for the indicated probability value.
 #'
