@@ -7,8 +7,7 @@
 fitparams(x = cutoffvalue:::exampledata, breaks = 15)
 }
 \arguments{
-\item{x}{Your data file; data should be organized in an Excel document as a single column of log- or natural log-transformed data without a
-column header.}
+\item{x}{Your dataset specified as "DatasetName$ColumnName"; data should be a single column of log-transformed data with a column header.}
 }
 \value{
 Returns a basic histogram for the data set along with various parameters used to generate curves for the final plot.

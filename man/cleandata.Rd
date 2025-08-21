@@ -2,19 +2,18 @@
 % Please edit documentation in R/cleandata.R
 \name{cleandata}
 \alias{cleandata}
-\title{Import your dataset}
+\title{Clean up your dataset}
 \usage{
 cleandata(x = cutoffvalue:::exampledata)
 }
 \arguments{
-\item{x}{Your data file; data should be organized in an Excel document as a single column of log- or natural log-transformed data without a
-column header.}
+\item{x}{Your dataset specified as "DatasetName$ColumnName"; data should be a single column of log-transformed data with a column header.}
 }
 \value{
-Returns a list of values from the raw data in your Excel spreadsheet that has blanks removed.
+Returns your cleaned dataset along with the minimum and maximum values from that dataset.
 }
 \description{
-This function imports your dataset from an excel file, removes any blank rows, and determines the minimum and maximum values
+This function cleans up your dataset after it has been added to the Global Environment. It will remove any blank rows and determine the minimum and maximum values of the dataset.
 }
 \examples{
 mydata <- cleandata(cutoffvalue:::exampledata)
