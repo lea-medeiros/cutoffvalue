@@ -1,4 +1,4 @@
-#' @title Generate a histogram, with associated parameters, from the dataset
+#' @title Generate a histogram, with associated parameters, from the dataset.
 #' @description This function produces a histogram of the data that will be used for fitting curves. As a matter of course, this function runs the cleanData and datamodel functions for you, negating the need to run those separately.
 #'
 #' @param x Your dataset specified as "DatasetName$ColumnName"; data should be a single column of log-transformed data with a column header.

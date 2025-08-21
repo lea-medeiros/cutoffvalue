@@ -1,4 +1,4 @@
-#' @title Determine a cutoff value between the upper and lower mode of a bimodal dataset
+#' @title Determine a cutoff value between the upper and lower mode of a bimodal dataset.
 #' @description This function finds the cutoff value between the modes of bimodally distributed data at the indicated probability value. As a matter of course, this function runs the cleanData and datamodel functions for you, negating the need to run those separately.
 #'
 #' @param proba The probability value you want the cutoff value to represent
