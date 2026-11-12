@@ -16,9 +16,9 @@
 #' curves <- curves(cutoffvalue:::exampledata)
 
 curves <- function(x = cutoffvalue:::exampledata){
-  capture.output(mydata <- cleandata(x), file = nullfile())
-  capture.output(model <- datamodel(x), file = nullfile())
-  capture.output(fitData <- fitparams(x), file = nullfile())
+  mydata <- cleandata(x)
+  model <- datamodel(x)
+  fitData <- fitparams(x)
   xFit <- seq(fitData$xfitLower, fitData$xfitUpper, length=200)
   yFit1 <- model$mydata$lambda[1]*dnorm(xFit,mean=model$mydata$mu[1],sd=model$mydata$sigma[1])
   yFit2 <- model$mydata$lambda[2]*dnorm(xFit,mean=model$mydata$mu[2],sd=model$mydata$sigma[2])
