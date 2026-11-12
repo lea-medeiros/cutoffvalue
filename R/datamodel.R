@@ -15,8 +15,8 @@
 #' mcmodel <- datamodel(cutoffvalue:::exampledata)
 
 datamodel <- function(x = cutoffvalue:::exampledata){
-  capture.output(mydata <- cleandata(x), file = nullfile())
-  capture.output(model <- datamodel(x), file = nullfile())
+  mydata <- cleandata(x)
+  model <- datamodel(x)
   plot(model, whichplots=2)
   return(list(mydata = model, indexLower = which.min(model$mu)))
 }
