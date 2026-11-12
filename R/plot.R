@@ -16,10 +16,10 @@
 #' @export
 #'
 #' @examples
-#' plotty <- cutoffplot(cutoffvalue:::exampledata, "Example Graph Title", "Example X-Axis", "Cutoff Label", "UNITS")
+#' plotty <- cutoffplot(cutoffvalue:::exampledata, "Example Graph Title", "Example X-Axis", "Cutoff Label", "UNITS", ylim = c(0,25))
 
 cutoffplot <- function (x = cutoffvalue:::exampledata, title = "Plasma 11-KT levels in age-2 male spring chinook", xlab = "Plasma [11-KT] (ng/mL)", cutofflab = "Minijack cutoff",
-                        cutoffunits = "ng/mL", LowerMode_col = "red", LowerMode_lty = 1, LowerMode_lwd = 2, UpperMode_col = "purple", UpperMode_lty = 1, UpperMode_lwd = 2,
+                        cutoffunits = "ng/mL", ylim = c(0, fitData$ylimUpper), LowerMode_col = "red", LowerMode_lty = 1, LowerMode_lwd = 2, UpperMode_col = "purple", UpperMode_lty = 1, UpperMode_lwd = 2,
                         cutoffvalue_col = "black", cutoffvalue_lty = 2, cutoffvalue_lwd = 2){
   mydata <- cleandata(x)
   model <- datamodel(x)
@@ -39,7 +39,7 @@ cutoffplot <- function (x = cutoffvalue:::exampledata, title = "Plasma 11-KT lev
   par(mar=c(5,6,4,1)+.1)
 
   hist(mydata$data, breaks = 15, density = 10, col = "grey", xaxt="n", xlab = xlab,
-       ylim = c(0, fitData$ylimUpper), xlim = c(fitData$xlimLower, fitData$xlimUpper), main = title,
+       ylim = ylim, xlim = c(fitData$xlimLower, fitData$xlimUpper), main = title,
        cex.main=2, cex.lab=1.5, cex.axis=1.25, family = "Times")
   lines(xValues, yValues1, col=LowerMode_col, lty=LowerMode_lty, lwd=LowerMode_lwd)
   lines(xValues, yValues2, col=UpperMode_col, lty=UpperMode_lty, lwd=UpperMode_lwd)
