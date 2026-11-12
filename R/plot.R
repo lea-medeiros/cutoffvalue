@@ -40,12 +40,12 @@ cutoffplot <- function (x = cutoffvalue:::exampledata, title = "Plasma 11-KT lev
 
   hist(mydata$data, breaks = 15, density = 10, col = "grey", xaxt="n", xlab = xlab,
        ylim = ylim, xlim = c(fitData$xlimLower, fitData$xlimUpper), main = title,
-       cex.main=2, cex.lab=1.5, cex.axis=1.25, family = "Times")
+       cex.main=2, cex.lab=1.5, cex.axis=1.25)
   lines(xValues, yValues1, col=LowerMode_col, lty=LowerMode_lty, lwd=LowerMode_lwd)
   lines(xValues, yValues2, col=UpperMode_col, lty=UpperMode_lty, lwd=UpperMode_lwd)
-  axis(side = 1, at = v1, labels = v2, cex.axis=1.25, family = "Times")
+  axis(side = 1, at = v1, labels = v2, cex.axis=1.25)
   ## Replaces log concentration x axis with calculations from v2 to display actual concentrations
   abline(v=cutoff, col=cutoffvalue_col, lty=cutoffvalue_lty, lwd=cutoffvalue_lwd) # cutoff line
-  text(cutoff+(fitData$step/2), fitData$ylimUpper-5, adj = c(0, 1), paste(cutofflab, "\n =",round(10^(cutoff), 2), cutoffunits), cex=1.25, family = "Times", font = 2)
-  return(cutoff)
+  text(cutoff+(fitData$step/2), fitData$ylimUpper-5, adj = c(0, 1), paste(cutofflab, "\n =",round(10^(cutoff), 2), cutoffunits), cex=1.25, font = 2)
+  paste("Cutoff value is: ", round(10^(cutoff), 2), "ng/mL")
 }
