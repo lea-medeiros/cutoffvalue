@@ -15,8 +15,8 @@
 #' fit <- fitparams(cutoffvalue:::exampledata)
 
 fitparams <- function(x = cutoffvalue:::exampledata, breaks = 15){
-  mydata <- cleandata(x)
-  model <- datamodel(x)
+  capture.output(mydata <- cleandata(x), file = nullfile())
+  capture.output(model <- datamodel(x), file = nullfile())
   h <- hist(mydata$data, breaks = breaks)
   step <- abs(h$breaks[[1]]-h$breaks[[2]])
   return(list(h = h, step = abs(h$breaks[[1]]-h$breaks[[2]]), xlimUpper = max(h$breaks)+step, xlimLower = min(h$breaks)-step,
