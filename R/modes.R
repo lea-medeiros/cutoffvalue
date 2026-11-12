@@ -16,7 +16,7 @@
 #' modetest <- modes(cutoffvalue:::exampledata)
 
 modes <- function(x = cutoffvalue:::exampledata){
-  mydata <- cleandata(x)
+  capture.output(mydata <- cleandata(x), file = nullfile())
   output <- capture.output(multimode::modetest(mydata$data))
   results <- unlist(strsplit(output[5], ", "))
   EMS_value <- results[1]
